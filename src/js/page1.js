@@ -1,2 +1,2 @@
 import '../sass/style.scss'
-console.log('dit con me cuoc doi')
+console.log('page 1 ethically test')
