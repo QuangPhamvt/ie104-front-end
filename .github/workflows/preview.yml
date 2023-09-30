@@ -1,9 +1,9 @@
 name: Pre pull request CLI
 
 env:
-  VERCEL_ORD_ID: ${{secrets.GITHUB_TOKEN.VERCEL_ORD_ID}}
-  VERCEL_PROJECT_ID: ${{secrets.GITHUB_TOKEN.VERCEL_PROJECT_ID}}
-  VERCEL_TOKEN: ${{secrets.GITHUB_TOKEN.VERCEL_TOKEN}}
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
 on:
   pull_request:
@@ -14,18 +14,18 @@ jobs:
   test_and_preview:
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [16.x, 18.x]
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
 
     steps:
       # https://github.com/actions/checkout
       - name: Checkout code
-        uses: action/checkout@v4
+        uses: actions/checkout@v4
 
       # https://github.com/actions/setup-node
       - name: Setup NodeJS version
-        uses: action/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
@@ -46,6 +46,6 @@ jobs:
       - name: Deploy to Vercel
         uses: ./.github/actions/deploy
         with:
-          VERCEL_ORD_ID: ${{secrets.GITHUB_TOKEN.VERCEL_ORD_ID}}
-          VERCEL_PROJECT_ID: ${{secrets.GITHUB_TOKEN.VERCEL_PROJECT_ID}}
-          VERCEL_TOKEN: ${{secrets.GITHUB_TOKEN.VERCEL_TOKEN}}
+          VERCEL_TOKEN: ${{ env.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ env.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ env.VERCEL_ORG_ID }}
