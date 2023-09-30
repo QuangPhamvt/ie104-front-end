@@ -1,0 +1,51 @@
+name: Pre pull request CLI
+
+env:
+  VERCEL_ORD_ID: ${{secrets.GITHUB_TOKEN.VERCEL_ORD_ID}}
+  VERCEL_PROJECT_ID: ${{secrets.GITHUB_TOKEN.VERCEL_PROJECT_ID}}
+  VERCEL_TOKEN: ${{secrets.GITHUB_TOKEN.VERCEL_TOKEN}}
+
+on:
+  pull_request:
+    branches:
+      - 'development'
+
+jobs:
+  test_and_preview:
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      # https://github.com/actions/checkout
+      - name: Checkout code
+        uses: action/checkout@v4
+
+      # https://github.com/actions/setup-node
+      - name: Setup NodeJS version
+        uses: action/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - name: Install package use yarn
+        run: |
+          echo "We using yarn to install package!"
+          yarn install --frozen-install
+      - name: Run test
+        run: |
+          echo "Check eslint and format"
+          yarn lint
+          yarn format
+      - name: Build
+        run: |
+          echo "Build By uisng yarn build"
+          yarn build
+
+      - name: Deploy to Vercel
+        uses: ./.github/actions/deploy
+        with:
+          VERCEL_ORD_ID: ${{secrets.GITHUB_TOKEN.VERCEL_ORD_ID}}
+          VERCEL_PROJECT_ID: ${{secrets.GITHUB_TOKEN.VERCEL_PROJECT_ID}}
+          VERCEL_TOKEN: ${{secrets.GITHUB_TOKEN.VERCEL_TOKEN}}
