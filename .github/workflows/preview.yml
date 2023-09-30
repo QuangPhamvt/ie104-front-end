@@ -21,11 +21,11 @@ jobs:
     steps:
       # https://github.com/actions/checkout
       - name: Checkout code
-        uses: action/checkout@v4
+        uses: actions/checkout@v4
 
       # https://github.com/actions/setup-node
       - name: Setup NodeJS version
-        uses: action/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
