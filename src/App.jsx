@@ -7,6 +7,7 @@ function App() {
       <div>This is IE104 Development Front End</div>
       <div>My name is CustomAFK</div>
       <div>hello</div>
+      <div>Da fuck bro</div>
     </>
   )
 }
