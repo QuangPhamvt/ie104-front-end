@@ -1,10 +1,5 @@
 name: Preview pull request CLI
 
-env:
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-
 on:
   pull_request:
     branches:
@@ -42,10 +37,3 @@ jobs:
         run: |
           echo "Build By uisng yarn build"
           yarn build
-
-      - name: Deploy to Vercel
-        uses: ./.github/actions/deploy
-        with:
-          VERCEL_TOKEN: ${{ env.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ env.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ env.VERCEL_ORG_ID }}
