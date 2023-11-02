@@ -1,0 +1,26 @@
+@import 'styles';
+// reset everything
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0 solid transparent;
+}
+
+// prevent iOS font size change
+html {
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+// reset body line-height
+body {
+  min-height: 100vh;
+  line-height: 1;
+  text-rendering: optimizeSpeed;
+}

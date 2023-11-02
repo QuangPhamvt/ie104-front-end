@@ -2,13 +2,16 @@
 
 ## About The Project
 
-This is my code web blog. I'm using to internship in my company.
+This is Project Web IE104.
 
 ### Built With
 
-- [React][Vue-url]
+- [React][React-url]
 - [Vite][Vite-url]
 - [Sass/Scss][Sass-url]
+- [Recoil][Recoil-url]
+- [AWS][AWS-url]
+- [Nginx][Nginx-url]
 
 ## Prerequires
 
@@ -42,7 +45,6 @@ $ yarn install
 VITE_API_URL="http://localhost:3000/api/v1" #connect to server
 ```
 
-
 ### Usage
 
 - Run Client
@@ -51,7 +53,6 @@ VITE_API_URL="http://localhost:3000/api/v1" #connect to server
 $ cd ./ie104-front-end
 $ yarn run dev
 ```
-
 
 ## Information
 
@@ -90,24 +91,47 @@ $ yarn run dev
 },
 ```
 
-
 ### Technology
 
-
 ## Link Demo
-  link: https://ie104-front-end.vercel.app/
+
+link: https://ie104-front-end.vercel.app/
+
 ## How to push
+
 - Role commit
   `{type}: {subject}`
-  - type: build | chore | ci | docs | feat | fix | perf | refactor | revert | style | test 
+  - type: build | chore | ci | docs | feat | fix | perf | refactor | revert | style | test
   - subject: 'Write a short, imperative tense description of the change'
-- Automatic:  check lint and format pre-commit 
+- Automatic: check lint and format pre-commit
+
+- Example:
+
+```bash
+git commit -m "{type}: {subject}"
+```
+
+Description
+|**Types**| **Description** |
+|:---| :--- |
+|feat| A new feature|
+|fix| A bug fix|
+|docs| Documentation only changes|
+|style| Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc) |
+|refactor| A code change that neither fixes a bug nor adds a feature |
+|perf| A code change that improves performance |
+|test| Adding missing tests or correcting existing tests |
+|build| Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm) |
+|ci| 'Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs) |
+|chore| Other changes that don't modify src or test files |
+|revert| Reverts a previous commit |
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [React-url]: https://react.dev/
-[Vite-url]: https://vitejs.dev/guide/
-[Nest-url]: https://nestjs.com/
+[Vite-url]: https://vitejs.dev/
 [Sass-url]: https://sass-lang.com/documentation/style-rules/declarations/
-[Mysql-url]: https://www.mysql.com/
-[TypeORM-url]: https://typeorm.io/
+[AWS-url]: https://aws.amazon.com/
+[Recoil-url]: https://recoiljs.org/
+[Nginx-url]: https://www.nginx.com/
