@@ -1,11 +1,11 @@
+import { RecoilRoot } from 'recoil'
+import { Router } from './router'
+
 function App() {
   return (
-    <>
-      <div>hello world</div>
-      <div>This is IE104 Development Front End</div>
-      <div>My name is CustomAFK</div>
-      <div>hello</div>
-    </>
+    <RecoilRoot>
+      <Router />
+    </RecoilRoot>
   )
 }
 
