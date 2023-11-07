@@ -23,7 +23,7 @@ jobs:
           echo "Using pettier check"
           yarn format
 
-      - name: Build bunx
+      - name: Build Yarn
         run: |
           echo "Yarn is Building"
           yarn build
