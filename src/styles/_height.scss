@@ -167,3 +167,90 @@
 .h-5\/6 {
   height: 83.333333%;
 }
+
+//MIN HEIGHT
+.min-h-0 {
+  min-height: 0px;
+}
+.min-h-full {
+  min-height: 100%;
+}
+.min-h-min {
+  min-height: min-content;
+}
+.min-h-max {
+  min-height: max-content;
+}
+.min-h-fit {
+  min-height: fit-content;
+}
+//MAX WIDTH
+.max-h-0 {
+  max-height: 0rem;
+}
+.max-h-none {
+  max-height: none;
+}
+.max-h-xs {
+  max-height: 20rem;
+}
+.max-h-sm {
+  max-height: 24rem;
+}
+.max-h-md {
+  max-height: 28rem;
+}
+.max-h-lg {
+  max-height: 32rem;
+}
+.max-h-xl {
+  max-height: 36rem;
+}
+.max-h-2xl {
+  max-height: 42rem;
+}
+.max-h-3xl {
+  max-height: 48rem;
+}
+.max-h-4xl {
+  max-height: 56rem;
+}
+.max-h-5xl {
+  max-height: 64rem;
+}
+.max-h-6xl {
+  max-height: 72rem;
+}
+.max-h-7xl {
+  max-height: 80rem;
+}
+.max-h-full {
+  max-height: 100%;
+}
+.max-h-min {
+  max-height: min-content;
+}
+.max-h-max {
+  max-height: max-content;
+}
+.max-h-fit {
+  max-height: fit-content;
+}
+.max-h-prose {
+  max-height: 65ch;
+}
+.max-h-screen-sm {
+  max-height: 640px;
+}
+.max-h-screen-md {
+  max-height: 768px;
+}
+.max-h-lg {
+  max-height: 1024px;
+}
+.max-h-screen-xl {
+  max-height: 1280px;
+}
+.max-h-screen-2xl {
+  max-height: 1536px;
+}
