@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
+import axios from 'axios'
 
 // Boot Instance
 const axiosClient = axios.create({
