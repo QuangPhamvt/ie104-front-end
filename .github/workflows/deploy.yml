@@ -13,19 +13,20 @@ jobs:
       - name: Check code
         uses: actions/checkout@v4
 
-      - name: Install package use NPM
+      - name: Install package use Yarn
         run: |
           echo "We using yarn to install package!"
-          npm install
+          rm -rf node_modules
+          yarn install --frozen-lockfile
 
       - name: Check format
         run: |
           echo "Using pettier check"
-          npx prettier src/**/*{.js,.jsx} --check
+          yarn format
 
       - name: Build Yarn
         run: |
           echo "Yarn is Building"
-          npm run build
+          yarn build
           sudo rm -rf /var/www/ie104
           sudo cp -r /home/ubuntu/ie104-front-end/_work/ie104-front-end/ie104-front-end/dist/ /var/www/ie104/
