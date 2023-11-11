@@ -1,3 +1,10 @@
 export const Home = () => {
-  return <div>This is Home page home loading 123</div>
+  return (
+    <div
+      style={{ backgroundColor: 'red' }}
+      className='w-24'
+    >
+      asdasd
+    </div>
+  )
 }
