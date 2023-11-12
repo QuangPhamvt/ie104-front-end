@@ -17,7 +17,7 @@ jobs:
         run: |
           echo "We using yarn to install package!"
           rm -rf node_modules
-          yarn install --frozen-lockfile
+          yarn install --frozen-lockfile --production
 
       - name: Check format
         run: |
