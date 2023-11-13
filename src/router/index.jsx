@@ -1,30 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { PATH } from './path'
-import { Home } from '@/view/Home'
-import { NotFoundView } from '@/view'
-import { HeaderLayout } from '@/components/Layout'
+import { routes } from './route'
 
-const route = [
-  {
-    path: PATH.HOME,
-    element: <HeaderLayout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: PATH.DASHBOARD,
-        element: <Home />,
-      },
-      {
-        path: '*',
-        element: <NotFoundView />,
-      },
-    ],
-  },
-]
-export const router = createBrowserRouter(route)
+export const router = createBrowserRouter(routes)
 export const Router = () => {
   return (
     <RouterProvider

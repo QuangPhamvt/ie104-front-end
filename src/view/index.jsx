@@ -1,3 +1,3 @@
-export * from './Auth'
-export * from './Home'
+export * from './AuthView'
+export * from './HomeView'
 export * from './NotFound'

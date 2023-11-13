@@ -5,7 +5,7 @@ const axiosClient = axios.create({
   // `baseURL` will be prepended to `url` unless `url` is absolute.
   // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
   // to methods of that instance.
-  baseURL: '',
+  baseURL: 'http://ie104.customafk.com/api/v1/',
 })
 
 // Setup Interceptors
