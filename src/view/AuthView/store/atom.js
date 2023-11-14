@@ -23,6 +23,19 @@ export const authModalAtom = atom({
       username: undefined,
       password: undefined,
       role: undefined,
+      arqId: undefined,
+      accountNo: undefined,
     },
+  },
+})
+export const AUTH_SIGN_UP_STEP_MODEL = {
+  ONE: 'one',
+  TWO: 'two',
+  THREE: 'three',
+}
+export const authSignUpStepModalAtom = atom({
+  key: 'authSignUpStepModal',
+  default: {
+    step: AUTH_SIGN_UP_STEP_MODEL.ONE,
   },
 })
