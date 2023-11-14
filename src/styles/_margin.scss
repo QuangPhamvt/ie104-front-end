@@ -66,7 +66,7 @@
   margin: 3rem;
 }
 
-//PADDING X
+//MARGIN X
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
@@ -314,4 +314,34 @@
 }
 .ml-12 {
   margin-left: 3rem;
+}
+
+.m-auto {
+  margin: auto;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-auto {
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.ms-auto {
+  margin-inline-start: auto;
+}
+.me-auto {
+  margin-inline-end: auto;
+}
+.mt-auto {
+  margin-top: auto;
+}
+.mb-auto {
+  margin-bottom: auto;
+}
+.mr-auto {
+  margin-right: auto;
+}
+.ml-auto {
+  margin-left: auto;
 }
