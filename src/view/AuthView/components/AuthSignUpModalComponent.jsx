@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil'
-import { AUTH_SIGN_UP_STEP_MODEL, useAuth, authSignUpStepModalAtom } from '../store'
+import { AUTH_SIGN_UP_STEP_MODEL, authSignUpStepModalAtom, Auth } from '../store'
 import { AuthSignUpStepOneModalComponent } from './AuthSignUpStepOneModalComponent'
 import { AuthSignUpStepTwoModalComponent } from './AuthSignUpStepTwoModalComponent'
 import { AuthSignUpStepThreeModalComponent } from './AuthSignUpStepThreeModalComponent'
@@ -10,12 +10,12 @@ const AuthSignUpStepModalComponent = {
 }
 export const AuthSignUpModalComponent = () => {
   const [authSignUpStepModal] = useRecoilState(authSignUpStepModalAtom)
-  const { handleChangeFlowForm } = useAuth()
+  const { handleChangeFlowAuthForm } = Auth.useChangeFlowAuthForm()
   return (
     <form className='flex flex-col space-y-5 p-4 w-full items-center'>
       {AuthSignUpStepModalComponent[authSignUpStepModal.step]()}
       <p className='font-sans'>
-        Already Have An Account? <b onClick={handleChangeFlowForm}>Sign In</b>
+        Already Have An Account? <b onClick={handleChangeFlowAuthForm}>Sign In</b>
       </p>
     </form>
   )

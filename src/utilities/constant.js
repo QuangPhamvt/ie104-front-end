@@ -15,3 +15,18 @@ export const AUTH_API = {
   REFRESH_TOKEN: 'auth/refresh_token',
   PROFILE: 'auth/profile',
 }
+export const ROLE = {
+  BUYER: 'buyer',
+  SELLER: 'seller',
+}
+export const STATUS_API_POST = {
+  IDLE: 'idle',
+  LOADING: 'loading',
+  HAS_VALUE: 'hasValue',
+  HAS_ERROR: 'hasError',
+}
+export const KEY_TOKEN = {
+  ACCESS_TOKEN: 'ie104_access_token',
+  REFRESH_TOKEN: 'ie104_refresh_token',
+}
+export const KEY_PROFILE = 'Profile'

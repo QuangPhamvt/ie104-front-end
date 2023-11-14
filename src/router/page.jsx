@@ -1,10 +1,11 @@
 import { useRecoilValue } from 'recoil'
 import { STATE } from '@/utilities'
 import { AuthView, HomeView } from '@/view'
-import { authAtom } from '@/view/AuthView/store'
+import { authAtom, useGetProfile } from '@/view/AuthView/store'
 import { Outlet } from 'react-router-dom'
 
 export const HomePage = () => {
+  useGetProfile()
   const auth = useRecoilValue(authAtom)
   return (
     <>
