@@ -1,3 +1,4 @@
+import { getAccessTokenLocalStorage } from '@/utilities/localstorage'
 import axios from 'axios'
 
 // Boot Instance
@@ -6,24 +7,27 @@ const axiosClient = axios.create({
   // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
   // to methods of that instance.
   baseURL: 'http://ie104.customafk.com/api/v1/',
+  'Access-Control-Allow-Origin': '*',
+  withCredentials: false,
 })
 
 // Setup Interceptors
 // Interceptor Request
 const onRequest = (config) => {
+  const access_token = getAccessTokenLocalStorage()
+  if (access_token && config.url !== 'auth/sign-up') {
+    config.headers['Authorization'] = access_token
+  }
   return config
 }
 const onRequestError = (error) => {
   return Promise.reject(error)
 }
 const onResponse = (response) => {
-  return response.data
+  return response
 }
 const onResponseError = async (error) => {
-  console.log(error.response?.headers)
-  console.log(error.response?.status)
-  console.log(error.response?.data)
-  return Promise.reject(error)
+  return Promise.reject(error.response)
 }
 const setupInterceptors = (axiosInstance) => {
   axiosInstance.interceptors.request.use(onRequest, onRequestError)

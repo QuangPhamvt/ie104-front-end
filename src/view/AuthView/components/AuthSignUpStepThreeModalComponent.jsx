@@ -1,5 +1,5 @@
-import { useSetRecoilState, useRecoilValue } from 'recoil'
-import { AUTH_SIGN_UP_STEP_MODEL, authModalAtom, authSignUpStepModalAtom, useAuth } from '../store'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { AUTH_SIGN_UP_STEP_MODEL, Auth, authModalAtom, authSignUpStepModalAtom } from '../store'
 
 const ACQ_ID = [
   {
@@ -36,24 +36,24 @@ const ACQ_ID = [
 export const AuthSignUpStepThreeModalComponent = () => {
   const authModal = useRecoilValue(authModalAtom)
   const setAuthSignUpStepModal = useSetRecoilState(authSignUpStepModalAtom)
-  const { handleChangeForm } = useAuth()
+  const { handleSignUpSubmitAuthForm } = Auth.useSignUpSubmitAuthForm()
+  const { handleChangeAuthForm } = Auth.useChangeAuthForm()
+  console.log(authModal.data)
   return (
     <>
       <section className='flex flex-col w-3/5 space-y-2 '>
         <label className=' text-xl text-gray-400'>Choose Bank:</label>
         <select
-          onChange={handleChangeForm}
           className='p-2 rounded-md'
           name='arqId'
+          onChange={handleChangeAuthForm}
         >
           <option>Please choose one option</option>
           {ACQ_ID.map((item, code) => {
             return (
               <option
                 key={code}
-                onChange={handleChangeForm}
-                style={{ backgroundImage: `url(${item.logo})` }}
-                value={item.bin}
+                value={item.bin || ''}
               >
                 {item.name}
               </option>
@@ -66,8 +66,8 @@ export const AuthSignUpStepThreeModalComponent = () => {
         <input
           type='text'
           name='accountNo'
-          value={authModal.data.accountNo}
-          onChange={handleChangeForm}
+          value={authModal.data.accountNo || ''}
+          onChange={handleChangeAuthForm}
           className='w-full px-4 py-2 border-1 border-solid rounded-md'
           style={{ borderColor: 'black' }}
         />
@@ -82,7 +82,12 @@ export const AuthSignUpStepThreeModalComponent = () => {
         >
           PREVIOUS
         </button>
-        <button className='p-4 w-2/5 bg-orange-600'>OK</button>
+        <button
+          onClick={handleSignUpSubmitAuthForm}
+          className='p-4 w-2/5 bg-orange-600'
+        >
+          OK
+        </button>
       </section>
     </>
   )

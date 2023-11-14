@@ -42,3 +42,8 @@ select:focus,
 input:focus {
   outline: none;
 }
+dialog:modal {
+  max-width: 100vw;
+  max-height: 100vh;
+  border: none;
+}

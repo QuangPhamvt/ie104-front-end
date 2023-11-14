@@ -1,10 +1,12 @@
 import { useRecoilValue } from 'recoil'
-import { authModalAtom } from './store'
-import { AUTH_MODAL_STATE } from '@/utilities'
+import { authModalAtom, authSignUpStatusFormSubmitAtom } from './store'
+import { AUTH_MODAL_STATE, STATUS_API_POST } from '@/utilities'
 import { AuthLoginModalComponent, AuthSignUpModalComponent } from './components'
+import { LoadingView } from '../LoadingView'
 
 export const AuthView = () => {
   const authModal = useRecoilValue(authModalAtom)
+  const authSignUpStatusFormSubmit = useRecoilValue(authSignUpStatusFormSubmitAtom)
   return (
     <main className='w-screen h-screen flex flex-row'>
       <article className='w-1/2 bg-gray-200'>background</article>
@@ -18,6 +20,7 @@ export const AuthView = () => {
           {authModal.state === AUTH_MODAL_STATE.SIGN_UP && <AuthSignUpModalComponent />}
         </section>
       </article>
+      <LoadingView isLoading={authSignUpStatusFormSubmit.status === STATUS_API_POST.LOADING} />
     </main>
   )
 }

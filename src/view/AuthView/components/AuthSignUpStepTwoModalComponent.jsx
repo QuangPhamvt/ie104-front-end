@@ -1,10 +1,11 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { authSignUpStepModalAtom, AUTH_SIGN_UP_STEP_MODEL, useAuth, authModalAtom } from '../store'
+import { authSignUpStepModalAtom, AUTH_SIGN_UP_STEP_MODEL, authModalAtom, Auth } from '../store'
 
 export const AuthSignUpStepTwoModalComponent = () => {
   const setAuthSignUpStepModal = useSetRecoilState(authSignUpStepModalAtom)
   const authModal = useRecoilValue(authModalAtom)
-  const { handleChangeForm } = useAuth()
+  const { handleSignUpSubmitAuthForm } = Auth.useSignUpSubmitAuthForm()
+  const { handleChangeAuthForm } = Auth.useChangeAuthForm()
   console.log(authModal)
   return (
     <>
@@ -13,9 +14,9 @@ export const AuthSignUpStepTwoModalComponent = () => {
         <input
           type='text'
           placeholder='username'
-          name='password'
+          name='username'
           value={authModal.data.username}
-          onChange={handleChangeForm}
+          onChange={handleChangeAuthForm}
           className='w-full px-4 py-4 border-1 border-solid rounded-md'
           style={{ borderColor: 'black' }}
         />
@@ -24,8 +25,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
         <p className='text-xl text-gray-400 mr-2'>Role</p>
         <div className='flex flex-row justify-center items-center'>
           <input
-            onChange={handleChangeForm}
-            defaultChecked
+            onChange={handleChangeAuthForm}
             id='BuyerSignUp'
             type='radio'
             name='role'
@@ -41,7 +41,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
         </div>
         <div className='flex flex-row justify-center items-center'>
           <input
-            onChange={handleChangeForm}
+            onChange={handleChangeAuthForm}
             id='SellerSignUp'
             type='radio'
             name='role'
@@ -77,7 +77,12 @@ export const AuthSignUpStepTwoModalComponent = () => {
             NEXT
           </button>
         ) : (
-          <button className='p-4 w-2/5 bg-orange-600'>OK</button>
+          <button
+            onClick={handleSignUpSubmitAuthForm}
+            className='p-4 w-2/5 bg-orange-600'
+          >
+            OK
+          </button>
         )}
       </section>
     </>

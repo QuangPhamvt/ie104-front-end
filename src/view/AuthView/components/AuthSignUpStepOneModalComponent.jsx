@@ -1,9 +1,9 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { AUTH_SIGN_UP_STEP_MODEL, authModalAtom, authSignUpStepModalAtom, useAuth } from '../store'
+import { AUTH_SIGN_UP_STEP_MODEL, Auth, authModalAtom, authSignUpStepModalAtom } from '../store'
 export const AuthSignUpStepOneModalComponent = () => {
   const authModal = useRecoilValue(authModalAtom)
-  const { handleChangeForm } = useAuth()
   const setAuthSignUpStepModal = useSetRecoilState(authSignUpStepModalAtom)
+  const { handleChangeAuthForm } = Auth.useChangeAuthForm()
   return (
     <>
       <label className='w-3/5'>
@@ -12,8 +12,8 @@ export const AuthSignUpStepOneModalComponent = () => {
           placeholder='email@example.com'
           type='text'
           name='email'
-          value={authModal.data.email}
-          onChange={handleChangeForm}
+          value={authModal.data.email || ''}
+          onChange={handleChangeAuthForm}
           className='w-full px-4 py-4 border-1 border-solid rounded-md'
           style={{ borderColor: 'black' }}
         />
@@ -24,8 +24,8 @@ export const AuthSignUpStepOneModalComponent = () => {
           type='password'
           placeholder='*********'
           name='password'
-          value={authModal.data.password}
-          onChange={handleChangeForm}
+          value={authModal.data.password || ''}
+          onChange={handleChangeAuthForm}
           className='w-full px-4 py-4 border-1 border-solid rounded-md'
           style={{ borderColor: 'black' }}
         />
@@ -37,7 +37,7 @@ export const AuthSignUpStepOneModalComponent = () => {
           type='password'
           name='password'
           value={authModal.data.password}
-          onChange={handleChangeForm}
+          onChange={handleChangeAuthForm}
           className='w-full px-4 py-4 border-1 border-solid rounded-md'
           style={{ borderColor: 'black' }}
         />
