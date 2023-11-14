@@ -1,9 +1,9 @@
+import { IntroductionHomeComponent } from './components'
+
 export const HomeView = () => {
   return (
-    <>
-      <main>
-        <div>HOME</div>
-      </main>
-    </>
+    <main className='flex flex-col'>
+      <IntroductionHomeComponent />
+    </main>
   )
 }
