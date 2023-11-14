@@ -4,11 +4,15 @@ import { authModalAtom } from './atom'
 import { AUTH_MODAL_STATE } from '@/utilities'
 export const useAuth = () => {
   const [authModal, setAuthModal] = useRecoilState(authModalAtom)
+
+  // Handle Change Form
   const handleChangeForm = React.useCallback((e) => {
     const name = e.target.name
     const value = e.target.value
     setAuthModal((preState) => ({ ...preState, data: { ...preState.data, [name]: value } }))
   }, [])
+
+  // Handle Change Flow Form
   const handleChangeFlowForm = React.useCallback(() => {
     if (authModal.state === AUTH_MODAL_STATE.LOG_IN)
       setAuthModal({

@@ -20,6 +20,7 @@ export const AuthLoginModalComponent = () => {
       <label className='w-3/5'>
         <p className='text-xl text-gray-400'>Password</p>
         <input
+          placeholder='Password'
           type='password'
           name='password'
           value={authModal.data.password}
