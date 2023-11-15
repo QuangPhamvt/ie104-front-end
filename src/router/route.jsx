@@ -1,6 +1,6 @@
 import { Layout } from '@/components'
 import { HomePage } from './page'
-import { NotFoundView, SearchView } from '@/view'
+import { DetailPostView, NotFoundView, SearchView } from '@/view'
 import { PATH } from './path'
 export const routes = [
   {
@@ -18,6 +18,10 @@ export const routes = [
       {
         path: PATH.DASHBOARD,
         element: <HomePage />,
+      },
+      {
+        path: PATH.DETAIL_POST,
+        element: <DetailPostView />,
       },
       {
         path: '*',

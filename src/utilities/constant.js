@@ -30,3 +30,9 @@ export const KEY_TOKEN = {
   REFRESH_TOKEN: 'ie104_refresh_token',
 }
 export const KEY_PROFILE = 'Profile'
+export const PUBLIC_IMAGE = {
+  BRAND: 'https://customafk.s3.ap-southeast-1.amazonaws.com/IE104/frontend/brand.png',
+  IMAGE_HEADER_ONE: 'https://customafk.s3.ap-southeast-1.amazonaws.com/IE104/frontend/imageHeaderOne.png',
+  IMAGE_HEADER_TWO: 'https://customafk.s3.ap-southeast-1.amazonaws.com/IE104/frontend/imageHeaderTwo.png',
+  IMAGE_HEADER_THREE: 'https://customafk.s3.ap-southeast-1.amazonaws.com/IE104/frontend/imageHeaderThree.png',
+}
