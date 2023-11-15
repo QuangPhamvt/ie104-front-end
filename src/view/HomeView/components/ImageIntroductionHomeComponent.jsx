@@ -6,7 +6,7 @@ export const FirstHeaderImageComponent = (props) => {
   return (
     <div className={className}>
       <img
-        src={'./src/assets/images/image-header-one.png'}
+        src={'/public/imageHeaderOne.png'}
         alt=''
         className='w-full h-full'
         style={{ objectFit: 'contain' }}
@@ -20,7 +20,7 @@ export const SecondHeaderImageComponent = (props) => {
   return (
     <div className={className}>
       <img
-        src={'./src/assets/images/image-header-two.png'}
+        src={'/public/imageHeaderTwo.png'}
         alt=''
         className='w-full h-full'
         style={{ objectFit: 'contain' }}
@@ -34,7 +34,7 @@ export const ThirdHeaderImageComponent = (props) => {
   return (
     <div className={className}>
       <img
-        src={'./src/assets/images/image-header-three.png'}
+        src={'/public/imageHeaderThree.png'}
         alt=''
         className='w-full h-full'
         style={{ objectFit: 'contain' }}
