@@ -95,7 +95,7 @@ $ yarn run dev
 
 ## Link Demo
 
-link: https://ie104-front-end.vercel.app/
+link: [https://ie104-front-end.vercel.app/](http://fe.ie104.customafk.com/)
 
 ## How to push
 
