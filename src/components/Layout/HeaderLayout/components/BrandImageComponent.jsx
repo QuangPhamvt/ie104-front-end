@@ -2,7 +2,7 @@ export const BrandImageComponent = () => {
   return (
     <section className='flex flex-row space-x-2 items-center mr-2'>
       <img
-        src={'./src/assets/images/brand-image.png'}
+        src={'/public/brand.png'}
         width={36}
         height={36}
         className='ml-4'
