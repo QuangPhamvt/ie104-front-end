@@ -1,12 +1,13 @@
 import React from 'react'
 import './style.scss'
+import { PUBLIC_IMAGE } from '@/utilities'
 export const FirstHeaderImageComponent = (props) => {
   // eslint-disable-next-line react/prop-types
   const { className = '' } = props
   return (
     <div className={className}>
       <img
-        src={'/public/imageHeaderOne.png'}
+        src={PUBLIC_IMAGE.IMAGE_HEADER_ONE}
         alt=''
         className='w-full h-full'
         style={{ objectFit: 'contain' }}
@@ -20,7 +21,7 @@ export const SecondHeaderImageComponent = (props) => {
   return (
     <div className={className}>
       <img
-        src={'/public/imageHeaderTwo.png'}
+        src={PUBLIC_IMAGE.IMAGE_HEADER_TWO}
         alt=''
         className='w-full h-full'
         style={{ objectFit: 'contain' }}
@@ -34,7 +35,7 @@ export const ThirdHeaderImageComponent = (props) => {
   return (
     <div className={className}>
       <img
-        src={'/public/imageHeaderThree.png'}
+        src={PUBLIC_IMAGE.IMAGE_HEADER_THREE}
         alt=''
         className='w-full h-full'
         style={{ objectFit: 'contain' }}
