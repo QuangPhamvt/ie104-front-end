@@ -20,10 +20,12 @@ html {
 
 // reset body line-height
 body {
-  min-height: 100vh;
+  min-height: 100%;
+  max-width: 100%;
   line-height: 1;
   text-rendering: optimizeSpeed;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family:
     system-ui,
     -apple-system,
@@ -46,4 +48,12 @@ dialog:modal {
   max-width: 100vw;
   max-height: 100vh;
   border: none;
+}
+
+// ul li
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

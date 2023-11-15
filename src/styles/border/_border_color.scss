@@ -1,6 +1,9 @@
 .border-black {
   border-color: rgb(0, 0, 0);
 }
+.border-white {
+  border-color: rgb(255, 255, 255);
+}
 
 .border-gray-50 {
   border-color: rgb(249, 250, 251);
@@ -31,4 +34,35 @@
 }
 .border-gray-900 {
   border-color: rgb(17, 24, 39);
+}
+
+.border-orange-50 {
+  border-color: rgb(255, 247, 237);
+}
+.border-orange-100 {
+  border-color: rgb(255, 237, 213);
+}
+.border-orange-200 {
+  border-color: rgb(254, 215, 170);
+}
+.border-orange-300 {
+  border-color: rgb(253, 186, 116);
+}
+.border-orange-400 {
+  border-color: rgb(251, 146, 60);
+}
+.border-orange-500 {
+  border-color: rgb(249, 115, 22);
+}
+.border-orange-600 {
+  border-color: rgb(234, 88, 12);
+}
+.border-orange-700 {
+  border-color: rgb(194, 65, 12);
+}
+.border-orange-800 {
+  border-color: rgb(154, 52, 18);
+}
+.border-orange-900 {
+  border-color: rgb(124, 45, 12);
 }

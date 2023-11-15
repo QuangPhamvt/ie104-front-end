@@ -52,14 +52,14 @@ export const useChangeFlowAuthForm = () => {
 }
 export const useGetProfile = () => {
   const setAuth = useSetRecoilState(authAtom)
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const data = getProfileLocalStorage()
     if (!data) return
     if (isExpired(data.exp))
       setAuth({
         state: STATE.HAS_VALUE,
         data: {
-          isLogged: true,
+          isLoggedIn: true,
           id: data.id,
           role: data.role,
           username: data.username,
@@ -88,10 +88,10 @@ export const useSignInSubmitAuthForm = () => {
         setAuth({
           state: STATE.HAS_VALUE,
           data: {
-            isLogged: true,
-            id: response.data.id,
-            role: response.data.role,
-            username: response.data.username,
+            isLoggedIn: true,
+            id: profile.id,
+            role: profile.role,
+            username: profile.username,
           },
         })
         console.log(response.data)
@@ -132,7 +132,7 @@ export const useSignUpSubmitAuthForm = () => {
         setAuth({
           state: STATE.HAS_VALUE,
           data: {
-            isLogged: true,
+            isLoggedIn: true,
             id: response.data.id,
             role: response.data.role,
             username: response.data.username,
