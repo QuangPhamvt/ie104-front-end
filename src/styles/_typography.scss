@@ -86,6 +86,9 @@
 }
 
 // Text color
+.text-black {
+  color: black;
+}
 .text-white {
   color: white;
 }
@@ -118,6 +121,36 @@
 }
 .text-gray-900 {
   color: rgb(17, 24, 39);
+}
+.text-orange-50 {
+  color: rgb(255, 247, 237);
+}
+.text-orange-100 {
+  color: rgb(255, 237, 213);
+}
+.text-orange-200 {
+  color: rgb(254, 215, 170);
+}
+.text-orange-300 {
+  color: rgb(253, 186, 116);
+}
+.text-orange-400 {
+  color: rgb(251, 146, 60);
+}
+.text-orange-500 {
+  color: rgb(249, 115, 22);
+}
+.text-orange-600 {
+  color: rgb(234, 88, 12);
+}
+.text-orange-700 {
+  color: rgb(194, 65, 12);
+}
+.text-orange-800 {
+  color: rgb(154, 52, 18);
+}
+.text-orange-900 {
+  color: rgb(124, 45, 12);
 }
 
 // FONT Weight

@@ -1,6 +1,6 @@
 import { Layout } from '@/components'
 import { HomePage } from './page'
-import { NotFoundView } from '@/view'
+import { NotFoundView, SearchView } from '@/view'
 import { PATH } from './path'
 export const routes = [
   {
@@ -8,8 +8,12 @@ export const routes = [
     element: <Layout />,
     children: [
       {
-        index: true,
+        path: '/',
         element: <HomePage />,
+      },
+      {
+        path: PATH.SEARCH,
+        element: <SearchView />,
       },
       {
         path: PATH.DASHBOARD,
