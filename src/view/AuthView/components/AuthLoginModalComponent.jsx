@@ -1,12 +1,13 @@
-import { useRecoilValue } from 'recoil'
-import { Auth, authModalAtom, authSignInStatusFormSubmitAtom } from '../store'
+import { useRecoilValue, useResetRecoilState } from 'recoil'
+import { Auth, authSignInModalAtom, authSignInStatusFormSubmitAtom } from '../store'
 import { LoadingView } from '@/view/LoadingView'
 import { STATUS_API_POST } from '@/utilities'
 
 export const AuthLoginModalComponent = () => {
-  const authModal = useRecoilValue(authModalAtom)
+  const authSignInModal = useRecoilValue(authSignInModalAtom)
   const { handleChangeFlowAuthForm } = Auth.useChangeFlowAuthForm()
-  const { handleChangeAuthForm } = Auth.useChangeAuthForm()
+  const resetAuthSignInForm = useResetRecoilState(authSignInModalAtom)
+  const { handleChangeAuthSignInForm } = Auth.useChangeAuthSignInForm()
   const { handleSignInSubmitAuthForm } = Auth.useSignInSubmitAuthForm()
   const authSignInStatusFormSubmit = useRecoilValue(authSignInStatusFormSubmitAtom)
   return (
@@ -18,8 +19,8 @@ export const AuthLoginModalComponent = () => {
           type='text'
           name='email'
           placeholder='email@example.com'
-          value={authModal.data.email}
-          onChange={handleChangeAuthForm}
+          value={authSignInModal.data.email}
+          onChange={handleChangeAuthSignInForm}
           className='w-full px-4 py-4 border-1 border-solid rounded-md'
           style={{ borderColor: 'black' }}
         />
@@ -30,14 +31,20 @@ export const AuthLoginModalComponent = () => {
           placeholder='Password'
           type='password'
           name='password'
-          value={authModal.data.password}
-          onChange={handleChangeAuthForm}
+          value={authSignInModal.data.password}
+          onChange={handleChangeAuthSignInForm}
           className='w-full px-4 py-4 border-1 border-solid rounded-md'
           style={{ borderColor: 'black' }}
         />
       </label>
+      {authSignInStatusFormSubmit.status === STATUS_API_POST.HAS_ERROR && (
+        <p style={{ color: 'red' }}>{authSignInStatusFormSubmit.message}</p>
+      )}
       <button
-        onClick={handleSignInSubmitAuthForm}
+        onClick={() => {
+          handleSignInSubmitAuthForm()
+          resetAuthSignInForm()
+        }}
         className='p-2 w-3/5 bg-orange-500 text-white font-bold text-xl'
       >
         Sign In

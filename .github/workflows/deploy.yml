@@ -1,0 +1,25 @@
+name: Deploy on Enviroment Dev
+on:
+  pull_request:
+    branches:
+      - 'master'
+      - 'development'
+    types:
+      - closed
+jobs:
+  test_preview:
+    runs-on: self-hosted
+    steps:
+      - name: Check code
+        uses: actions/checkout@v4
+
+      - name: Check format
+        run: |
+          echo "Using pettier check"
+          yarn format
+
+      - name: Build bunx
+        run: |
+          echo "Bun is Building"
+          sudo rm -rf /var/www/ie104
+          sudo cp -r /home/ubuntu/ie104-front-end/_work/ie104-front-end/ie104-front-end/dist/ /var/www/ie104/
