@@ -20,6 +20,7 @@ html {
 
 // reset body line-height
 body {
+  position: relative;
   min-height: 100%;
   max-width: 100%;
   line-height: 1;
@@ -48,6 +49,12 @@ dialog:modal {
   max-width: 100vw;
   max-height: 100vh;
   border: none;
+}
+dialog:focus-visible {
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
 }
 
 // ul li

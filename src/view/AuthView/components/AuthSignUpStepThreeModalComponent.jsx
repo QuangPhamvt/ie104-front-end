@@ -1,52 +1,34 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { AUTH_SIGN_UP_STEP_MODEL, Auth, authModalAtom, authSignUpStepModalAtom } from '../store'
+import {
+  AUTH_SIGN_UP_STEP_MODEL,
+  Auth,
+  authSignUpModalAtom,
+  authSignUpStatusFormSubmitAtom,
+  authSignUpStepModalAtom,
+} from '../store'
+import { ModalCheckAccountSellerComponent } from './ModalCheckAccountSellerComponent'
+import { ACQ_ID, STATUS_API_POST } from '@/utilities'
 
-const ACQ_ID = [
-  {
-    code: 'ICB',
-    name: 'Ngân hàng TMCP Công thương Việt Nam',
-    bin: '970415',
-    logo: 'https://api.vietqr.io/img/ICB.png',
-  },
-  {
-    code: 'VCB',
-    name: 'Ngân hàng TMCP Ngoại Thương Việt Nam',
-    bin: '970436',
-    logo: 'https://api.vietqr.io/img/VCB.png',
-  },
-  {
-    code: 'BIDV',
-    name: 'Ngân hàng TMCP Đầu tư và Phát triển Việt Nam',
-    bin: '970418',
-    logo: 'https://api.vietqr.io/img/BIDV.png',
-  },
-  {
-    code: 'MB',
-    name: 'Ngân hàng TMCP Quân đội',
-    bin: '970422',
-    logo: 'https://api.vietqr.io/img/MB.png',
-  },
-  {
-    code: 'TCB',
-    name: 'Ngân hàng TMCP Kỹ thương Việt Nam',
-    bin: '970407',
-    logo: 'https://api.vietqr.io/img/TCB.png',
-  },
-]
 export const AuthSignUpStepThreeModalComponent = () => {
-  const authModal = useRecoilValue(authModalAtom)
+  const authSignUpModal = useRecoilValue(authSignUpModalAtom)
   const setAuthSignUpStepModal = useSetRecoilState(authSignUpStepModalAtom)
+  const { message, status } = useRecoilValue(authSignUpStatusFormSubmitAtom)
   const { handleSignUpSubmitAuthForm } = Auth.useSignUpSubmitAuthForm()
-  const { handleChangeAuthForm } = Auth.useChangeAuthForm()
-  console.log(authModal.data)
+  const { handleChangeAuthSignUpForm } = Auth.useChangeAuthSignUpForm()
+  const { handleOpenCheckAccountModal } = Auth.useCheckoutAccountBank()
+  console.log(authSignUpModal.data)
   return (
     <>
+      <ModalCheckAccountSellerComponent
+        acqId={authSignUpModal.data.acqId}
+        accountNo={authSignUpModal.data.accountNo}
+      />
       <section className='flex flex-col w-3/5 space-y-2 '>
         <label className=' text-xl text-gray-500'>Choose Bank:</label>
         <select
           className='p-2 rounded-md'
-          name='arqId'
-          onChange={handleChangeAuthForm}
+          name='acqId'
+          onChange={handleChangeAuthSignUpForm}
         >
           <option>Please choose one option</option>
           {ACQ_ID.map((item, code) => {
@@ -55,7 +37,9 @@ export const AuthSignUpStepThreeModalComponent = () => {
                 key={code}
                 value={item.bin || ''}
               >
-                {item.name}
+                <div>
+                  {item.shortName} -- {item.name}
+                </div>
               </option>
             )
           })}
@@ -66,12 +50,15 @@ export const AuthSignUpStepThreeModalComponent = () => {
         <input
           type='text'
           name='accountNo'
-          value={authModal.data.accountNo || ''}
-          onChange={handleChangeAuthForm}
+          onBlur={handleOpenCheckAccountModal}
+          value={authSignUpModal.data.accountNo || ''}
+          onChange={handleChangeAuthSignUpForm}
           className='w-full px-4 py-2 border-1 border-solid rounded-md'
+          placeholder='enter your id banks'
           style={{ borderColor: 'black' }}
         />
       </label>
+      {status === STATUS_API_POST.HAS_ERROR && <p style={{ color: 'red' }}>{message}</p>}
       <section className='w-3/5 flex flex-row justify-center space-x-6'>
         <button
           onClick={(e) => {

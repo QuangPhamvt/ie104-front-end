@@ -1,12 +1,19 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { authSignUpStepModalAtom, AUTH_SIGN_UP_STEP_MODEL, authModalAtom, Auth } from '../store'
+import {
+  authSignUpStepModalAtom,
+  AUTH_SIGN_UP_STEP_MODEL,
+  Auth,
+  authSignUpModalAtom,
+  authSignUpStatusFormSubmitAtom,
+} from '../store'
+import { STATUS_API_POST } from '@/utilities'
 
 export const AuthSignUpStepTwoModalComponent = () => {
   const setAuthSignUpStepModal = useSetRecoilState(authSignUpStepModalAtom)
-  const authModal = useRecoilValue(authModalAtom)
   const { handleSignUpSubmitAuthForm } = Auth.useSignUpSubmitAuthForm()
-  const { handleChangeAuthForm } = Auth.useChangeAuthForm()
-  console.log(authModal)
+  const { handleChangeAuthSignUpForm } = Auth.useChangeAuthSignUpForm()
+  const authSignUpModal = useRecoilValue(authSignUpModalAtom)
+  const authSignUpStatusFormSubmit = useRecoilValue(authSignUpStatusFormSubmitAtom)
   return (
     <>
       <label className='w-3/5'>
@@ -15,8 +22,8 @@ export const AuthSignUpStepTwoModalComponent = () => {
           type='text'
           placeholder='username'
           name='username'
-          value={authModal.data.username}
-          onChange={handleChangeAuthForm}
+          value={authSignUpModal.data.username}
+          onChange={handleChangeAuthSignUpForm}
           className='w-full px-4 py-4 border-1 border-solid rounded-md'
           style={{ borderColor: 'black' }}
         />
@@ -25,7 +32,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
         <p className='text-xl text-gray-500 mr-2'>Role</p>
         <div className='flex flex-row justify-center items-center'>
           <input
-            onChange={handleChangeAuthForm}
+            onChange={handleChangeAuthSignUpForm}
             id='BuyerSignUp'
             type='radio'
             name='role'
@@ -41,7 +48,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
         </div>
         <div className='flex flex-row justify-center items-center'>
           <input
-            onChange={handleChangeAuthForm}
+            onChange={handleChangeAuthSignUpForm}
             id='SellerSignUp'
             type='radio'
             name='role'
@@ -56,6 +63,9 @@ export const AuthSignUpStepTwoModalComponent = () => {
           </label>
         </div>
       </section>
+      {authSignUpStatusFormSubmit.status === STATUS_API_POST.HAS_ERROR && (
+        <p style={{ color: 'red' }}>{authSignUpStatusFormSubmit.message}</p>
+      )}
       <section className='w-3/5 flex flex-row justify-center space-x-2'>
         <button
           onClick={(e) => {
@@ -66,7 +76,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
         >
           PREVIOUS
         </button>
-        {authModal.data.role === 'seller' ? (
+        {authSignUpModal.data.role === 'seller' ? (
           <button
             onClick={(e) => {
               e.preventDefault()
