@@ -10,7 +10,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
   return (
     <>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-400'>Username</p>
+        <p className='text-xl text-gray-500'>Username</p>
         <input
           type='text'
           placeholder='username'
@@ -22,7 +22,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
         />
       </label>
       <section className='w-3/5 flex flex-row space-x-2'>
-        <p className='text-xl text-gray-400 mr-2'>Role</p>
+        <p className='text-xl text-gray-500 mr-2'>Role</p>
         <div className='flex flex-row justify-center items-center'>
           <input
             onChange={handleChangeAuthForm}
@@ -56,13 +56,13 @@ export const AuthSignUpStepTwoModalComponent = () => {
           </label>
         </div>
       </section>
-      <section className='w-3/5 flex flex-row justify-center space-x-6'>
+      <section className='w-3/5 flex flex-row justify-center space-x-2'>
         <button
           onClick={(e) => {
             e.preventDefault()
             setAuthSignUpStepModal({ step: AUTH_SIGN_UP_STEP_MODEL.ONE })
           }}
-          className='p-4 w-2/5 border-1 border-solid border-black'
+          className='px-4 py-1 text-lg text-gray-500 font-bold w-full border-1 border-solid border-black rounded'
         >
           PREVIOUS
         </button>
@@ -72,14 +72,14 @@ export const AuthSignUpStepTwoModalComponent = () => {
               e.preventDefault()
               setAuthSignUpStepModal({ step: AUTH_SIGN_UP_STEP_MODEL.THREE })
             }}
-            className='p-4 w-2/5 bg-orange-600'
+            className='px-4 py-1 text-lg font-bold text-white w-full bg-orange-500 rounded'
           >
             NEXT
           </button>
         ) : (
           <button
             onClick={handleSignUpSubmitAuthForm}
-            className='p-4 w-2/5 bg-orange-600'
+            className='px-4 py-1 text-lg font-bold text-white w-full bg-orange-500 rounded'
           >
             OK
           </button>

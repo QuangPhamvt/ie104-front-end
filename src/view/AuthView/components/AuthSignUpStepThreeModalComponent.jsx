@@ -42,7 +42,7 @@ export const AuthSignUpStepThreeModalComponent = () => {
   return (
     <>
       <section className='flex flex-col w-3/5 space-y-2 '>
-        <label className=' text-xl text-gray-400'>Choose Bank:</label>
+        <label className=' text-xl text-gray-500'>Choose Bank:</label>
         <select
           className='p-2 rounded-md'
           name='arqId'
@@ -62,7 +62,7 @@ export const AuthSignUpStepThreeModalComponent = () => {
         </select>
       </section>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-400'>ID banks</p>
+        <p className='text-xl text-gray-500'>ID banks</p>
         <input
           type='text'
           name='accountNo'
@@ -78,13 +78,13 @@ export const AuthSignUpStepThreeModalComponent = () => {
             e.preventDefault()
             setAuthSignUpStepModal({ step: AUTH_SIGN_UP_STEP_MODEL.TWO })
           }}
-          className='p-4 w-2/5 border-1 border-solid border-black'
+          className='px-4 py-1 text-lg text-gray-500 font-bold w-full border-1 border-solid border-black rounded'
         >
           PREVIOUS
         </button>
         <button
           onClick={handleSignUpSubmitAuthForm}
-          className='p-4 w-2/5 bg-orange-600'
+          className='px-4 py-1 text-lg font-bold text-white w-full bg-orange-500 rounded'
         >
           OK
         </button>
