@@ -10,11 +10,23 @@ export const AuthView = () => {
   const authSignInStatusFormSubmit = useRecoilValue(authSignInStatusFormSubmitAtom)
   return (
     <main className='w-screen h-screen flex flex-row'>
-      <article className='w-1/2 bg-gray-200'>background</article>
-      <article className='w-1/2 h-full flex justify-center items-center'>
+      <article
+        className='w-1/2'
+        style={{ backgroundColor: '#F99417' }}
+      >
+        <img
+          className='object-cover w-full h-full'
+          // src='https://revx.io/storage/2021/08/fast-delivery-scooter-rides-out-smartphone-delivery-concept-online-ordering-food-delivery-last-mile-template-banner-3d-illustration-3d-render-scaled.jpg'
+          alt=''
+        />
+      </article>
+      <article
+        className='w-1/2 h-full flex justify-center items-center'
+        style={{ backgroundColor: '#F5F5F5' }}
+      >
         <section
-          className='bg-gray-200 p-2 space-y-6 flex flex-col items-center justify-center'
-          style={{ width: '75%', height: '640px' }}
+          className='p-2 space-y-6 flex flex-col items-center justify-center rounded-2xl'
+          style={{ width: '60%', height: '540px', backgroundColor: '#EBE4D1' }}
         >
           <h2 className='text-5xl'>FoodShop</h2>
           {authModal.state === AUTH_MODAL_STATE.LOG_IN && <AuthLoginModalComponent />}

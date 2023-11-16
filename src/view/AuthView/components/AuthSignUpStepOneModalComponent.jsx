@@ -7,7 +7,7 @@ export const AuthSignUpStepOneModalComponent = () => {
   return (
     <>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-400'>Email Address</p>
+        <p className='text-xl text-gray-500'>Email Address</p>
         <input
           placeholder='email@example.com'
           type='text'
@@ -19,7 +19,7 @@ export const AuthSignUpStepOneModalComponent = () => {
         />
       </label>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-400'>Password</p>
+        <p className='text-xl text-gray-500'>Password</p>
         <input
           type='password'
           placeholder='*********'
@@ -31,7 +31,7 @@ export const AuthSignUpStepOneModalComponent = () => {
         />
       </label>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-400'>Confirm Password</p>
+        <p className='text-xl text-gray-500'>Confirm Password</p>
         <input
           placeholder='Confirm password'
           type='password'
@@ -44,7 +44,7 @@ export const AuthSignUpStepOneModalComponent = () => {
       </label>
       <button
         onClick={() => setAuthSignUpStepModal({ step: AUTH_SIGN_UP_STEP_MODEL.TWO })}
-        className='p-4 w-3/5 bg-orange-600'
+        className='px-4 py-2 w-3/5 bg-orange-500 text-xl font-bold text-white rounded'
       >
         NEXT
       </button>

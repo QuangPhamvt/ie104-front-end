@@ -11,8 +11,8 @@ export const FoodCardHomeComponent = (props) => {
   const { color } = Home.useSetStart(start)
   return (
     <article
-      style={{ borderRadius: 24 }}
-      className='w-full h-100 bg-gray-100 p-4 space-y-6'
+      style={{ borderRadius: 8 }}
+      className='w-full h-108 bg-gray-50 p-6 space-y-8'
     >
       <section className='w-full aspect-square bg-gray-300 rounded-lg flex justify-center items-center overflow-hidden'>
         <img
@@ -21,9 +21,9 @@ export const FoodCardHomeComponent = (props) => {
           alt='Something wrong with image'
         />
       </section>
-      <h2 className='font-normal'>Ramachanadara Parlour</h2>
+      <h2 className='font-normal text-xl'>Ramachanadara Parlour</h2>
       <section className='flex flex-row justify-between'>
-        <address className='not-italic text-gray-400'>Ho Chi Minh city</address>
+        <address className='not-italic text-gray-300'>Ho Chi Minh city</address>
         <div className='inline-flex space-x-2'>
           <FaStar color={color} />
           <p className=''>{start}</p>

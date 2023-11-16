@@ -13,7 +13,7 @@ export const AuthLoginModalComponent = () => {
     <form className='flex flex-col space-y-5 p-4 w-full items-center'>
       <LoadingView isLoading={authSignInStatusFormSubmit.state === STATUS_API_POST.LOADING} />
       <label className='w-3/5'>
-        <p className='text-xl text-gray-400'>Email Address</p>
+        <p className='text-xl text-gray-500'>Email Address</p>
         <input
           type='text'
           name='email'
@@ -25,7 +25,7 @@ export const AuthLoginModalComponent = () => {
         />
       </label>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-400'>Password</p>
+        <p className='text-xl text-gray-500'>Password</p>
         <input
           placeholder='Password'
           type='password'
@@ -38,7 +38,7 @@ export const AuthLoginModalComponent = () => {
       </label>
       <button
         onClick={handleSignInSubmitAuthForm}
-        className='p-4 w-3/5 bg-orange-600'
+        className='p-2 w-3/5 bg-orange-500 text-white font-bold text-xl'
       >
         Sign In
       </button>
