@@ -13,12 +13,7 @@ jobs:
       - name: Check code
         uses: actions/checkout@v4
 
-      - name: Check format
-        run: |
-          echo "Using pettier check"
-          yarn format
-
-      - name: Build bunx
+      - name: Deploy
         run: |
           echo "Bun is Building"
           sudo rm -rf /var/www/ie104
