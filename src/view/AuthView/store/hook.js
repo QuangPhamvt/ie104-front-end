@@ -14,6 +14,7 @@ import { authApi } from '@/api'
 import {
   getProfileLocalStorage,
   removeAccessTokenLocalStorage,
+  removeProfileLocalStorage,
   removeRefreshTokenLocalStorage,
   setAccessTokenLocalStorage,
   setProfileLocalStorage,
@@ -92,40 +93,36 @@ export const useSignInSubmitAuthForm = () => {
   } = useRecoilValue(authSignInModalAtom)
   const setAuth = useSetRecoilState(authAtom)
   const setAuthSignInStatusFormSubmit = useSetRecoilState(authSignInStatusFormSubmitAtom)
-  const handleSignInSubmitAuthForm = React.useCallback(
-    async (event) => {
-      event.preventDefault()
-      let response
-      try {
-        setAuthSignInStatusFormSubmit({ status: STATUS_API_POST.LOADING, data: undefined })
-        response = await authApi.postSignIn({ email, password })
-        setAuthSignInStatusFormSubmit({ status: STATUS_API_POST.HAS_VALUE, data: { message: response.data.message } })
-        setAccessTokenLocalStorage(response.data.data.access_token)
-        setRefreshTokenLocalStorage(response.data.data.refresh_token)
-        const profile = jwtDecode(response.data.data.access_token)
-        setProfileLocalStorage(JSON.stringify({ ...profile, isLoggedIn: true }))
-        setAuth({
-          state: STATE.HAS_VALUE,
-          data: {
-            isLoggedIn: true,
-            id: profile.id,
-            role: profile.role,
-            username: profile.username,
-          },
-        })
+  const handleSignInSubmitAuthForm = React.useCallback(async () => {
+    let response
+    try {
+      setAuthSignInStatusFormSubmit({ status: STATUS_API_POST.LOADING, data: undefined })
+      response = await authApi.postSignIn({ email, password })
+      setAuthSignInStatusFormSubmit({ status: STATUS_API_POST.HAS_VALUE, data: { message: response.data.message } })
+      setAccessTokenLocalStorage(response.data.data.access_token)
+      setRefreshTokenLocalStorage(response.data.data.refresh_token)
+      const profile = jwtDecode(response.data.data.access_token)
+      setProfileLocalStorage(JSON.stringify({ ...profile, isLoggedIn: true }))
+      setAuth({
+        state: STATE.HAS_VALUE,
+        data: {
+          isLoggedIn: true,
+          id: profile.id,
+          role: profile.role,
+          username: profile.username,
+        },
+      })
 
-        console.log(response.data)
-      } catch (error) {
-        console.log(error.data)
-        setAuthSignInStatusFormSubmit({
-          status: STATUS_API_POST.HAS_ERROR,
-          message: error.data.message,
-          data: undefined,
-        })
-      }
-    },
-    [email, password, setAuth, setAuthSignInStatusFormSubmit],
-  )
+      console.log(response.data)
+    } catch (error) {
+      console.log(error.data)
+      setAuthSignInStatusFormSubmit({
+        status: STATUS_API_POST.HAS_ERROR,
+        message: error.data.message,
+        data: undefined,
+      })
+    }
+  }, [email, password, setAuth, setAuthSignInStatusFormSubmit])
   return { handleSignInSubmitAuthForm }
 }
 export const useSignUpSubmitAuthForm = () => {
@@ -185,6 +182,7 @@ export const useLogOut = () => {
   const logOut = () => {
     removeAccessTokenLocalStorage()
     removeRefreshTokenLocalStorage()
+    removeProfileLocalStorage()
     setAuth({
       state: STATE.IDLE,
       data: {
