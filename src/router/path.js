@@ -4,4 +4,5 @@ export const PATH = {
   SEARCH: '/search',
   DETAIL_POST: '/post/:id',
   SECURE_CHECKOUT: '/secure',
+  SELLER: '/seller',
 }
