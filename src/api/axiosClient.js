@@ -7,7 +7,8 @@ const axiosClient = axios.create({
   // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
   // to methods of that instance.
   baseURL: 'http://ie104.customafk.com/api/v1/',
-  'Access-Control-Allow-Origin': '*',
+  // baseURL: 'http://localhost:3000/api/v1',
+  headers: {},
   withCredentials: false,
 })
 
