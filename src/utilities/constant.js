@@ -1,4 +1,5 @@
 export * from './acq_id'
+export * from './location_city'
 export const STATE = {
   IDLE: 'idle',
   HAS_VALUE: 'hasValue',

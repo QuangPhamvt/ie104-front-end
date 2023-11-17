@@ -1,6 +1,6 @@
 import { Layout } from '@/components'
 import { HomePage } from './page'
-import { DetailPostView, NotFoundView, SearchView, SecureCheckoutView } from '@/view'
+import { DetailPostView, NotFoundView, SearchView, SecureCheckoutView, SellerView } from '@/view'
 import { PATH } from './path'
 export const routes = [
   {
@@ -26,6 +26,10 @@ export const routes = [
       {
         path: PATH.SECURE_CHECKOUT,
         element: <SecureCheckoutView />,
+      },
+      {
+        path: PATH.SELLER,
+        element: <SellerView />,
       },
       {
         path: '*',
