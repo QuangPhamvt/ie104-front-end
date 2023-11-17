@@ -41,7 +41,8 @@ export const AuthLoginModalComponent = () => {
         <p style={{ color: 'red' }}>{authSignInStatusFormSubmit.message}</p>
       )}
       <button
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault()
           handleSignInSubmitAuthForm()
           resetAuthSignInForm()
         }}

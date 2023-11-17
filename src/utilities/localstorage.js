@@ -18,9 +18,12 @@ export const setRefreshTokenLocalStorage = (value) => {
 export const removeRefreshTokenLocalStorage = () => {
   return localStorage.removeItem(KEY_TOKEN.REFRESH_TOKEN)
 }
+export const getProfileLocalStorage = () => {
+  return JSON.parse(localStorage.getItem(KEY_PROFILE))
+}
 export const setProfileLocalStorage = (value) => {
   return localStorage.setItem(KEY_PROFILE, value)
 }
-export const getProfileLocalStorage = () => {
-  return JSON.parse(localStorage.getItem(KEY_PROFILE))
+export const removeProfileLocalStorage = () => {
+  return localStorage.removeItem(KEY_PROFILE)
 }
