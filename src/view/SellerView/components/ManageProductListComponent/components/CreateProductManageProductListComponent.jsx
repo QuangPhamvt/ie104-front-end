@@ -1,9 +1,12 @@
 import React from 'react'
 import { FaUpload } from 'react-icons/fa'
 import { LOCATION_CITY_ARRAY } from '@/utilities/location_city'
+import { useRecoilValue } from 'recoil'
+import { getCategoriesSelector } from '../store/selector'
 
 const CreateProductManageProductionListComponent = () => {
   const [file, setFile] = React.useState(null)
+  const data = useRecoilValue(getCategoriesSelector)
   const handleUploadImage = (event) => {
     const fileUpload = new FileReader()
     fileUpload.readAsDataURL(event.target.files[0])
@@ -11,7 +14,7 @@ const CreateProductManageProductionListComponent = () => {
       setFile(() => fileUpload.result)
     }
   }
-
+  console.log(data())
   return (
     <article className='w-full p-8 flex flex-col space-y-6 shadow-lg mt-8'>
       <section className=''>
