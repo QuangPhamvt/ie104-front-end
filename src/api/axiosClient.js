@@ -6,7 +6,7 @@ const axiosClient = axios.create({
   // `baseURL` will be prepended to `url` unless `url` is absolute.
   // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
   // to methods of that instance.
-  baseURL: 'htp://ie104.customafk.com/api/v1/',
+  baseURL: 'http://ie104.customafk.com/api/v1/',
   // baseURL: 'http://localhost:3000/api/v1',
   headers: {},
   withCredentials: false,
@@ -17,7 +17,7 @@ const axiosClient = axios.create({
 const onRequest = (config) => {
   const access_token = getAccessTokenLocalStorage()
   if (access_token && config.url !== 'auth/sign-up') {
-    config.headers['Authorization'] = access_token
+    config.headers['Authorization'] = `Bearer ${access_token}`
   }
   return config
 }

@@ -9,6 +9,6 @@ export const productApi = {
   createProduct: (payload) => {
     const { title, description, location, picture, price, categories_id } = payload
     const url = PRODUCT_API.CREATE_PRODUCT
-    return axiosClient.post(url, { title, description, location, picture, price, categories_id })
+    return axiosClient.post(url, { title, description, location, picture, price: +price, categories_id })
   },
 }
