@@ -64,3 +64,40 @@ li {
   margin: 0;
   padding: 0;
 }
+
+dialog[open] {
+  animation: modal-in 500ms forwards ease;
+}
+
+@keyframes modal-in {
+  from {
+    translate: 0 -100%;
+    opacity: 0;
+  }
+}
+
+dialog.close[open] {
+  animation: slideout 0.5s forwards;
+}
+dialog.close[open]::backdrop {
+  background-color: rgba(0, 0, 0, 0.2);
+  animation: fadeout 500ms forward ease;
+}
+@keyframes slideout {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

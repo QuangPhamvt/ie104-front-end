@@ -17,7 +17,7 @@ const axiosClient = axios.create({
 const onRequest = (config) => {
   const access_token = getAccessTokenLocalStorage()
   if (access_token && config.url !== 'auth/sign-up') {
-    config.headers['Authorization'] = access_token
+    config.headers['Authorization'] = `Bearer ${access_token}`
   }
   return config
 }

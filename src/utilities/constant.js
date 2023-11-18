@@ -24,6 +24,10 @@ export const AUTH_API = {
   PROFILE: 'auth/profile',
   CHECK_ACCOUNT: 'auth/check-account',
 }
+export const PRODUCT_API = {
+  GET_CATEGORIES: 'product/categories',
+  CREATE_PRODUCT: 'product/create-product',
+}
 export const ROLE = {
   BUYER: 'buyer',
   SELLER: 'seller',

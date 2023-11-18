@@ -115,7 +115,7 @@ export const useSignInSubmitAuthForm = () => {
 
       console.log(response.data)
     } catch (error) {
-      console.log(error.data)
+      console.log(error)
       setAuthSignInStatusFormSubmit({
         status: STATUS_API_POST.HAS_ERROR,
         message: error.data.message,
