@@ -4,11 +4,13 @@ import { searchProductionAtom } from '@/components/Layout/HeaderLayout/store'
 
 export const ResultSearchComponent = () => {
   const { data } = useRecoilValue(searchProductionAtom)
+  console.log(data)
   return (
     <article className='grid grid-cols-3 gap-x-16 gap-y-24'>
       {data.map((items) => (
         <CardSearchComponent
           key={items.id}
+          id={items.id}
           title={items.title}
           price={items.price}
           author={items.author.username}

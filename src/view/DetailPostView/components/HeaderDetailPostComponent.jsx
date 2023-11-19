@@ -1,19 +1,30 @@
+import { useParams } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { GiMoneyStack } from 'react-icons/gi'
 import { CiDiscount1 } from 'react-icons/ci'
+import { useRecoilValueLoadable } from 'recoil'
+import { searchDetailProductByIdSelectorFamily } from '../store/selectors'
+import { STATUS_API_POST } from '@/utilities'
 export const ContentHeaderDetailPostComponent = () => {
+  const { id } = useParams()
+  const { state, contents } = useRecoilValueLoadable(searchDetailProductByIdSelectorFamily(id))
+  console.log(contents)
   return (
-    <section className='flex pl-4 flex-row space-x-8 h-full w-3/5 justify-between'>
+    <section
+      className={`flex pl-4 flex-row space-x-8 h-full w-3/5 justify-between ${
+        state === STATUS_API_POST.LOADING && 'animate-pulse'
+      }`}
+    >
       <div className='w-2/5 flex justify-center items-center h-full rounded-xl'>
         <img
-          className='w-full h-full object-cover rounded-xl'
-          src='https://cdn.tgdd.vn/Files/2017/03/24/964495/cach-nau-bun-bo-hue-gio-heo-ngon-cong-thuc-chuan-vi-202208251617593627.jpg'
-          alt=''
+          className='w-full h-full object-cover rounded-xl text-white'
+          src={state === STATUS_API_POST.LOADING ? '' : contents.data?.picture || 'asdads'}
+          alt='Something wrong with url'
         />
       </div>
       <section className='w-3/5 text-white flex flex-col space-y-8 justify-end py-8'>
-        <h2>LunchBox - Meals and Thalis</h2>
-        <p>north india</p>
+        <h2>{contents.data?.title || ''}</h2>
+        <p>{contents.data?.author?.username || ''}</p>
         <div className='grid grid-cols-3'>
           <div className='flex flex-col justify-between justify-center'>
             <p className='text-sm'>
@@ -27,7 +38,7 @@ export const ContentHeaderDetailPostComponent = () => {
           </div>
           <div className='flex flex-col items-end'>
             <p className='text-sm'>
-              <GiMoneyStack /> 200
+              <GiMoneyStack /> {contents.data?.price || ''}
             </p>
             <p className='text-sm'>Cost for two</p>
           </div>
