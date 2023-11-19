@@ -21,3 +21,12 @@
     }
   }
 }
+.animate-fadeIn {
+  animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+  @keyframes fadeIn {
+    from {
+      translate: 0 -50%;
+      opacity: 0;
+    }
+  }
+}

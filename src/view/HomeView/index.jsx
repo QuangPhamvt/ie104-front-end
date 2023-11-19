@@ -1,7 +1,7 @@
 import { IntroductionHomeComponent, RecommendHomeComponent, SearchSellerHomeComponent } from './components'
 import { RecommendedFoodHomeComponent } from './components/RecommendFoodHomeComponent'
 
-export const HomeView = () => {
+const HomeView = () => {
   return (
     <main className='flex flex-col mt-28 space-y-28'>
       <IntroductionHomeComponent />
@@ -11,3 +11,4 @@ export const HomeView = () => {
     </main>
   )
 }
+export default HomeView

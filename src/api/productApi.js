@@ -2,6 +2,12 @@ import { PRODUCT_API } from '@/utilities'
 import { axiosClient } from './axiosClient'
 
 export const productApi = {
+  postSearchProduct: (payload) => {
+    const { slug, location, limit, page } = payload
+    const url = PRODUCT_API.POST_SEARCH_PRODUCT
+    if (slug) return axiosClient.post(url, { slug, limit, page })
+    if (location) return axiosClient.post(url, { location, limit, page })
+  },
   getCategories: () => {
     const url = PRODUCT_API.GET_CATEGORIES
     return axiosClient.get(url)

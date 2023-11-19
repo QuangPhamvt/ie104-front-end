@@ -4,7 +4,7 @@ import { AUTH_MODAL_STATE, STATUS_API_POST } from '@/utilities'
 import { AuthLoginModalComponent, AuthSignUpModalComponent } from './components'
 import { LoadingView } from '../LoadingView'
 
-export const AuthView = () => {
+const AuthView = () => {
   const authModalState = useRecoilValue(authModalStateAtom)
   const authSignUpStatusFormSubmit = useRecoilValue(authSignUpStatusFormSubmitAtom)
   const authSignInStatusFormSubmit = useRecoilValue(authSignInStatusFormSubmitAtom)
@@ -36,3 +36,5 @@ export const AuthView = () => {
     </main>
   )
 }
+
+export default AuthView
