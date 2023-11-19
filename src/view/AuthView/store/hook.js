@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil'
 import {
   authAtom,
@@ -23,6 +24,7 @@ import {
 import { jwtDecode } from 'jwt-decode'
 import { isExpired } from '@/utilities/fnc'
 import { authCheckAccountBankSelector } from './selector'
+import { dropDownUserDetailHeaderAtom } from '@/components/Layout/HeaderLayout/store'
 
 // export const useChangeAuthForm = () => {
 //   const setAuthModal = useSetRecoilState(authModalAtom)
@@ -72,7 +74,7 @@ export const useChangeFlowAuthForm = () => {
 }
 export const useGetProfile = () => {
   const setAuth = useSetRecoilState(authAtom)
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const data = getProfileLocalStorage()
     if (!data) return
     if (isExpired(data.exp))
@@ -179,6 +181,8 @@ export const useSignUpSubmitAuthForm = () => {
 
 export const useLogOut = () => {
   const setAuth = useSetRecoilState(authAtom)
+  const navigate = useNavigate()
+  const resetDropDownUserDetail = useResetRecoilState(dropDownUserDetailHeaderAtom)
   const logOut = () => {
     removeAccessTokenLocalStorage()
     removeRefreshTokenLocalStorage()
@@ -192,6 +196,8 @@ export const useLogOut = () => {
         username: undefined,
       },
     })
+    resetDropDownUserDetail()
+    navigate('/')
   }
   return { logOut }
 }

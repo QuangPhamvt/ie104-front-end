@@ -1,7 +1,21 @@
-import { Layout } from '@/components'
+/* eslint-disable react-refresh/only-export-components */
+import React from 'react'
+import withSuspense from '@/HOC/withSuspense'
 import { HomePage } from './page'
-import { DetailPostView, NotFoundView, SearchView, SecureCheckoutView, SellerView } from '@/view'
 import { PATH } from './path'
+const Layout = withSuspense(React.lazy(() => import('@/components/Layout')))
+const SearchView = withSuspense(React.lazy(() => import('@/view/SearchView')))
+const SellerView = withSuspense(React.lazy(() => import('@/view/SellerView')))
+const NotFoundView = withSuspense(React.lazy(() => import('@/view/NotFound')))
+const DetailPostView = withSuspense(React.lazy(() => import('@/view/DetailPostView')))
+const SecureCheckoutView = withSuspense(React.lazy(() => import('@/view/SecureCheckoutView')))
+
+export const PrivateRoute = [
+  {
+    path: PATH.SELLER,
+    element: <SellerView />,
+  },
+]
 export const routes = [
   {
     path: PATH.HOME,
@@ -27,10 +41,7 @@ export const routes = [
         path: PATH.SECURE_CHECKOUT,
         element: <SecureCheckoutView />,
       },
-      {
-        path: PATH.SELLER,
-        element: <SellerView />,
-      },
+      ...PrivateRoute,
       {
         path: '*',
         element: <NotFoundView />,

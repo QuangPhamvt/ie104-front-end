@@ -25,6 +25,7 @@ export const AUTH_API = {
   CHECK_ACCOUNT: 'auth/check-account',
 }
 export const PRODUCT_API = {
+  POST_SEARCH_PRODUCT: 'product/search',
   GET_CATEGORIES: 'product/categories',
   CREATE_PRODUCT: 'product/create-product',
 }
