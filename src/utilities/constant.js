@@ -25,10 +25,15 @@ export const AUTH_API = {
   CHECK_ACCOUNT: 'auth/check-account',
 }
 export const PRODUCT_API = {
+  POST_FIND_PRODUCT_BY_CATEGORY: 'product/search-product/categories',
   POST_SEARCH_PRODUCT_BY_ID: 'product/search-id',
   POST_SEARCH_PRODUCT: 'product/search',
   GET_CATEGORIES: 'product/categories',
   CREATE_PRODUCT: 'product/create-product',
+}
+export const CART_API = {
+  GET_CART: 'cart',
+  CREATE_CART: 'cart/create',
 }
 export const ROLE = {
   BUYER: 'buyer',

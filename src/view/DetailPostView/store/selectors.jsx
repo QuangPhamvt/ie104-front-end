@@ -1,5 +1,5 @@
 import { productApi } from '@/api/productApi'
-import { selectorFamily } from 'recoil'
+import { selector, selectorFamily } from 'recoil'
 
 export const searchDetailProductByIdSelectorFamily = selectorFamily({
   key: 'searchDetailProductByIdSelectorFamily',
@@ -14,6 +14,23 @@ export const searchDetailProductByIdSelectorFamily = selectorFamily({
       console.log(error)
       return {
         message: error.data.message,
+      }
+    }
+  },
+})
+export const getCategoriesSelector = selector({
+  key: 'getCategoriesSelector',
+  get: async () => {
+    try {
+      const response = await productApi.getCategories()
+      return {
+        message: response.data.message,
+        data: response.data.data,
+      }
+    } catch (error) {
+      return {
+        message: error.data.message,
+        data: [],
       }
     }
   },

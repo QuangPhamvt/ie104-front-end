@@ -7,15 +7,11 @@ const Layout = withSuspense(React.lazy(() => import('@/components/Layout')))
 const SearchView = withSuspense(React.lazy(() => import('@/view/SearchView')))
 const SellerView = withSuspense(React.lazy(() => import('@/view/SellerView')))
 const NotFoundView = withSuspense(React.lazy(() => import('@/view/NotFound')))
+const HistoryView = withSuspense(React.lazy(() => import('@/view/HistoryView')))
 const DetailPostView = withSuspense(React.lazy(() => import('@/view/DetailPostView')))
 const SecureCheckoutView = withSuspense(React.lazy(() => import('@/view/SecureCheckoutView')))
 
-export const PrivateRoute = [
-  {
-    path: PATH.SELLER,
-    element: <SellerView />,
-  },
-]
+export const PrivateRoute = []
 export const routes = [
   {
     path: PATH.HOME,
@@ -38,10 +34,17 @@ export const routes = [
         element: <DetailPostView />,
       },
       {
+        path: PATH.HISTORY,
+        element: <HistoryView />,
+      },
+      {
         path: PATH.SECURE_CHECKOUT,
         element: <SecureCheckoutView />,
       },
-      ...PrivateRoute,
+      {
+        path: PATH.SELLER,
+        element: <SellerView />,
+      },
       {
         path: '*',
         element: <NotFoundView />,

@@ -2,13 +2,22 @@ import { useParams } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import { GiMoneyStack } from 'react-icons/gi'
 import { CiDiscount1 } from 'react-icons/ci'
-import { useRecoilValueLoadable } from 'recoil'
+import { useRecoilValueLoadable, useSetRecoilState } from 'recoil'
 import { searchDetailProductByIdSelectorFamily } from '../store/selectors'
 import { STATUS_API_POST } from '@/utilities'
+import { searchDetailProductionAtom } from '../store'
+import React from 'react'
 export const ContentHeaderDetailPostComponent = () => {
   const { id } = useParams()
   const { state, contents } = useRecoilValueLoadable(searchDetailProductByIdSelectorFamily(id))
-  console.log(contents)
+  const setSearchDetailProduction = useSetRecoilState(searchDetailProductionAtom)
+  React.useEffect(() => {
+    setSearchDetailProduction({
+      status: STATUS_API_POST.HAS_VALUE,
+      message: contents.message,
+      data: contents.data,
+    })
+  }, [state])
   return (
     <section
       className={`flex pl-4 flex-row space-x-8 h-full w-3/5 justify-between ${
