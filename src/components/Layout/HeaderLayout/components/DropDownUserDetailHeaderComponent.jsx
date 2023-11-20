@@ -1,4 +1,4 @@
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { dropDownUserDetailHeaderAtom } from '../store'
 import { Auth, authAtom } from '@/view/AuthView/store'
 import { ROLE } from '@/utilities'
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const DropDownUserDetailHeaderComponent = () => {
   const auth = useRecoilValue(authAtom)
-  const openDropDown = useRecoilValue(dropDownUserDetailHeaderAtom)
+  const [openDropDown, setOpenDropDown] = useRecoilState(dropDownUserDetailHeaderAtom)
   const navigate = useNavigate()
   const { logOut } = Auth.useLogOut()
   return (
@@ -23,6 +23,7 @@ export const DropDownUserDetailHeaderComponent = () => {
           <button
             onClick={(event) => {
               event.preventDefault()
+              setOpenDropDown({ open: false })
               navigate('/seller')
             }}
             className='menu--btn rounded py-2 px-4 font-semibold bg-white border-b-1 border-solid border-gray-400'
@@ -31,9 +32,20 @@ export const DropDownUserDetailHeaderComponent = () => {
           </button>
         )}
         <button
+          onClick={(event) => {
+            event.preventDefault()
+            setOpenDropDown({ open: false })
+            navigate('/history')
+          }}
+          className='menu--btn rounded py-2 px-4 font-semibold bg-white border-b-1 border-solid border-gray-400'
+        >
+          History
+        </button>
+        <button
           className='menu--btn rounded py-2 px-4 font-semibold bg-white border-b-1 border-solid border-gray-400'
           onClick={(event) => {
             event.stopPropagation()
+            setOpenDropDown({ open: false })
             event.preventDefault()
             logOut()
           }}

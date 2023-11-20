@@ -2,6 +2,11 @@ import { PRODUCT_API } from '@/utilities'
 import { axiosClient } from './axiosClient'
 
 export const productApi = {
+  postFindProductByCategory: (payload) => {
+    const { categories_id, author_id } = payload
+    const url = PRODUCT_API.POST_FIND_PRODUCT_BY_CATEGORY
+    return axiosClient.post(url, { categories_id, author_id })
+  },
   postSearchProductById: (payload) => {
     const { id } = payload
     const url = PRODUCT_API.POST_SEARCH_PRODUCT_BY_ID

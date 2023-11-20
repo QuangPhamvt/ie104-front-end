@@ -3,6 +3,7 @@ export const PATH = {
   DASHBOARD: '/dashboard',
   SEARCH: '/search',
   DETAIL_POST: '/post/:id',
-  SECURE_CHECKOUT: '/secure',
+  HISTORY: '/history',
+  SECURE_CHECKOUT: '/secure/:cartId',
   SELLER: '/seller',
 }
