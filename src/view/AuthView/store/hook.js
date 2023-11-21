@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue, useRecoilValueLoadable, useResetRecoilState, useSetRecoilState } from 'recoil'
 import {
   authAtom,
   authCheckAccountBankModalAtom,
@@ -9,6 +9,8 @@ import {
   authSignInStatusFormSubmitAtom,
   authSignUpModalAtom,
   authSignUpStatusFormSubmitAtom,
+  districtAtom,
+  wardAtom,
 } from './atom'
 import { AUTH_MODAL_STATE, AUTH_SIGN_UP_MODAL_STATE, ROLE, STATE, STATUS_API_POST } from '@/utilities'
 import { authApi } from '@/api'
@@ -23,18 +25,10 @@ import {
 } from '@/utilities/localstorage'
 import { jwtDecode } from 'jwt-decode'
 import { isExpired } from '@/utilities/fnc'
-import { authCheckAccountBankSelector } from './selector'
+import { authCheckAccountBankSelector, getListProvinceSelector } from './selector'
 import { dropDownUserDetailHeaderAtom } from '@/components/Layout/HeaderLayout/store'
+import locationApi from '@/api/locationApi'
 
-// export const useChangeAuthForm = () => {
-//   const setAuthModal = useSetRecoilState(authModalAtom)
-//   const handleChangeAuthForm = React.useCallback((e) => {
-//     const name = e.target.name
-//     const value = e.target.value
-//     setAuthModal((preState) => ({ ...preState, data: { ...preState.data, [name]: value } }))
-//   }, [])
-//   return { handleChangeAuthForm }
-// }
 export const useChangeAuthSignInForm = () => {
   const setAuthSignInModal = useSetRecoilState(authSignInModalAtom)
   const handleChangeAuthSignInForm = React.useCallback(
@@ -85,6 +79,9 @@ export const useGetProfile = () => {
           id: data.id,
           role: data.role,
           username: data.username,
+          province: data.province,
+          district: data.district,
+          ward: data.ward,
         },
       })
   }, [setAuth])
@@ -112,6 +109,9 @@ export const useSignInSubmitAuthForm = () => {
           id: profile.id,
           role: profile.role,
           username: profile.username,
+          province: profile.province,
+          district: profile.district,
+          ward: profile.ward,
         },
       })
 
@@ -139,12 +139,24 @@ export const useSignUpSubmitAuthForm = () => {
         let response
         setAuthSignUpStatusFormSubmit({ status: STATUS_API_POST.LOADING, data: undefined })
         if (authSignUpModal.data.role === ROLE.SELLER) {
-          const { email, username, password, role, acqId, accountNo, accountName } = authSignUpModal.data
-          response = await authApi.postSignUp({ email, username, password, role, acqId, accountNo, accountName })
+          const { email, username, password, role, province, district, ward, acqId, accountNo, accountName } =
+            authSignUpModal.data
+          response = await authApi.postSignUp({
+            email,
+            username,
+            password,
+            role,
+            province,
+            district,
+            ward,
+            acqId,
+            accountNo,
+            accountName,
+          })
         }
         if (authSignUpModal.data.role === ROLE.BUYER) {
-          const { email, username, password, role } = authSignUpModal.data
-          response = await authApi.postSignUp({ email, username, password, role })
+          const { email, username, password, role, province, district, ward } = authSignUpModal.data
+          response = await authApi.postSignUp({ email, username, password, role, province, district, ward })
         }
 
         setAuthSignUpStatusFormSubmit({
@@ -163,6 +175,9 @@ export const useSignUpSubmitAuthForm = () => {
             id: profile.id,
             role: profile.role,
             username: profile.username,
+            province: profile.province,
+            district: profile.district,
+            ward: profile.ward,
           },
         })
       } catch (error) {
@@ -246,6 +261,53 @@ export const useCheckoutAccountBank = () => {
   }, [accountNo, acqId, setAuthCheckAccountBankModal, setAuthSignUpModal])
   return { open, handleCloseCheckAccountModal, handleOpenCheckAccountModal }
 }
+const useGetListDistrictSignUp = () => {
+  const { state, contents } = useRecoilValueLoadable(getListProvinceSelector)
+  const authSignUpModal = useRecoilValue(authSignUpModalAtom)
+  const setDistrict = useSetRecoilState(districtAtom)
+  const handleGetListDistrictSignUp = async () => {
+    // GET CODE PROVINCE
+    let code_province
+    if (state === 'hasValue') {
+      for (let key in contents) {
+        const province = contents[key]
+        if (province.name === authSignUpModal.data.province) {
+          code_province = province.code
+        }
+      }
+      //LOADING
+      setDistrict({ states: STATE.LOADING, data: [] })
+      const response = await locationApi.getListDistrict({ code: code_province })
+      console.log(response.data.districts)
+      setDistrict({ states: STATE.HAS_VALUE, data: response.data.districts })
+    }
+  }
+  return { handleGetListDistrictSignUp }
+}
+
+const useGetListWardSignUp = () => {
+  const { states, data } = useRecoilValue(districtAtom)
+  const authSignUpModal = useRecoilValue(authSignUpModalAtom)
+  const setWard = useSetRecoilState(wardAtom)
+  const handleGetListWardSignUp = async () => {
+    let code_district
+    if (states === STATE.HAS_VALUE) {
+      for (let key in data) {
+        const district = data[key]
+        if (district.name === authSignUpModal.data.district) {
+          code_district = district.code
+        }
+      }
+      //LOADING
+      setWard({ state: STATE.LOADING, data: [] })
+      const response = await locationApi.getListWard({ code: code_district })
+      console.log(response.data)
+      setWard({ state: STATE.HAS_VALUE, data: response.data.wards })
+    }
+  }
+  return { handleGetListWardSignUp }
+}
+
 const Auth = {
   useChangeAuthSignInForm,
   useChangeAuthSignUpForm,
@@ -254,5 +316,7 @@ const Auth = {
   useSignUpSubmitAuthForm,
   useCheckoutAccountBank,
   useLogOut,
+  useGetListDistrictSignUp,
+  useGetListWardSignUp,
 }
 export default Auth

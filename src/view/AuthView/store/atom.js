@@ -11,6 +11,9 @@ export const authAtom = atom({
       email: undefined,
       username: undefined,
       role: undefined,
+      province: undefined,
+      district: undefined,
+      ward: undefined,
     },
   },
 })
@@ -37,6 +40,9 @@ export const authSignUpModalAtom = atom({
       password: '',
       username: '',
       role: '',
+      province: '',
+      district: '',
+      ward: '',
       acqId: undefined,
       accountNo: undefined,
       accountName: undefined,
@@ -82,5 +88,20 @@ export const authCheckAccountBankModalAtom = atom({
       shortName: undefined,
       logo: undefined,
     },
+  },
+})
+
+export const districtAtom = atom({
+  key: 'districtSignUpAtom',
+  default: {
+    states: STATE.IDLE,
+    data: [],
+  },
+})
+export const wardAtom = atom({
+  key: 'districtAtom',
+  default: {
+    state: STATE.IDLE,
+    data: [],
   },
 })

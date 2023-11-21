@@ -12,13 +12,27 @@ export const authApi = {
       email = '',
       username = '',
       role = '',
+      province = '',
+      district = '',
+      ward = '',
       password = '',
       acqId = '',
       accountNo = '',
       accountName = '',
     } = payload
     const url = AUTH_API.SIGN_UP
-    return axiosClient.post(url, { email, username, password, role, acqId, accountNo, accountName })
+    return axiosClient.post(url, {
+      email,
+      username,
+      password,
+      role,
+      province,
+      district,
+      ward,
+      acqId,
+      accountNo,
+      accountName,
+    })
   },
   postRefreshToken: (payload) => {
     const { refresh_token = '' } = payload
