@@ -1,6 +1,12 @@
+import { authAtom } from '@/view/AuthView/store'
 import { IoLocationSharp } from 'react-icons/io5'
+import { useRecoilValue } from 'recoil'
 
 export const DeliveryAddressDetailContentSecureCheckoutComponent = () => {
+  const auth = useRecoilValue(authAtom)
+  const {
+    data: { province, district, ward },
+  } = auth
   return (
     <section className='flex flex-col space-y-8'>
       <h2 className='inline-flex space-x-2'>
@@ -10,12 +16,12 @@ export const DeliveryAddressDetailContentSecureCheckoutComponent = () => {
         />
         <p className='font-semibold'>Delivery Address</p>
       </h2>
-      <section className='p-8 h-32 bg-orange-500 opacity-95 w-2/5 border-1 border-solid rounded-2xl flex flex-col justify-between'>
+      <section className='p-4 h-32 bg-orange-500 opacity-95 w-2/5 border-1 border-solid rounded-2xl flex flex-col justify-around '>
         <IoLocationSharp
           size={28}
           color='white'
         />
-        <p className='text-white font-normal'>Ho Chi Minh city, phuong 10, thu duc</p>
+        <p className='text-white font-normal'>{`${province}, ${district}, ${ward}`}</p>
       </section>
     </section>
   )
