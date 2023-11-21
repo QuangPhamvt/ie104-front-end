@@ -27,7 +27,8 @@ export const ItemCartListHistoryComponent = (props) => {
         </td>
         <td>
           <p className='w-full flex justify-center items-center'>
-            {status === 'prepare' ? <p style={{ color: '#A9A9A9' }}>Prepare</p> : <p>Ordered</p>}
+            {status === 'prepare' && <p style={{ color: '#A9A9A9' }}>Prepare</p>}
+            {status === 'processing' && <p style={{ color: '#FFA33C' }}>Processing</p>}
           </p>
         </td>
       </tr>

@@ -1,6 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { GiMoneyStack } from 'react-icons/gi'
+import { IoReload } from 'react-icons/io5'
+import { MdOutlineFileDownloadDone } from 'react-icons/md'
+
+import { useRecoilValue } from 'recoil'
+import { statusPostCreateOrderAtom } from '../store'
+import { STATUS_API_POST } from '@/utilities'
+import SecureCheckout from '../store/hook'
 
 export const ItemListPaymentContentSecureCheckoutComponent = (props) => {
   const { price, title, quantity } = props
@@ -63,7 +70,9 @@ export const BillDetailPaymentContentSecureCheckoutComponent = (props) => {
   )
 }
 export const PaymentContentSecureCheckoutComponent = (props) => {
-  const { cart_id = '', price = 0, cart_items = [] } = props
+  const { seller_id = '', cart_id = '', status = '', price = 0, cart_items = [] } = props
+  const statusPostCreateOrder = useRecoilValue(statusPostCreateOrderAtom)
+  const { handlePostCreateOrder } = SecureCheckout.usePostCreateOrder()
   return (
     <section className='px-8'>
       <section className='bg-gray-50 col-span-1 p-4 rounded-xl space-y-10'>
@@ -77,8 +86,22 @@ export const PaymentContentSecureCheckoutComponent = (props) => {
           <h2 className='font-normal'>Total</h2>
           <p className='text-2xl'>${price}</p>
         </section>
-        <button className='w-full py-4 bg-orange-500 rounded-2xl'>
-          <p className='text-xl text-white'>Processed to payment</p>
+        <button
+          className='w-full py-4 bg-orange-500 rounded-2xl'
+          onClick={(event) => {
+            event.preventDefault()
+            if (statusPostCreateOrder.status !== STATUS_API_POST.HAS_VALUE && status === 'prepare')
+              handlePostCreateOrder({ cart_id, price, cart_items, seller_id })
+          }}
+        >
+          {statusPostCreateOrder.status === STATUS_API_POST.LOADING && (
+            <IoReload
+              className='animate-spin'
+              size={24}
+            />
+          )}
+          {statusPostCreateOrder.status === STATUS_API_POST.HAS_VALUE && <MdOutlineFileDownloadDone size={24} />}
+          {statusPostCreateOrder.status === STATUS_API_POST.IDLE && <p className='text-xl text-white'>{status}</p>}
         </button>
       </section>
     </section>
