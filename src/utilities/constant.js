@@ -37,6 +37,7 @@ export const CART_API = {
 }
 export const ORDER_API = {
   FIND_BY_CART_ID: 'order/find/cartId',
+  CREATE_ORDER: 'order/create',
 }
 export const ROLE = {
   BUYER: 'buyer',

@@ -19,6 +19,8 @@ export const ContentSecureCheckoutComponent = () => {
             price={contents.data[0].cart.price}
             cart_id={contents.data[0].cart.cart_id}
             cart_items={contents.data[0].cart.cart_items}
+            status={contents.data[0].cart.status}
+            seller_id={contents.data[0].seller.seller_id}
           />
         </>
       )}

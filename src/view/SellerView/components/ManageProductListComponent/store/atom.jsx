@@ -36,3 +36,12 @@ export const statusCreateProductAtom = atom({
     message: undefined,
   },
 })
+export const openModalStatusOrderAtom = atom({
+  key: 'openModalStatusOrder',
+  default: {
+    status: STATUS_API_POST.IDLE,
+    open: false,
+    message: undefined,
+    data: [],
+  },
+})
