@@ -2,6 +2,7 @@
 import dayjs from 'dayjs'
 import { useRecoilValueLoadable } from 'recoil'
 import { useNavigate } from 'react-router-dom'
+import { ThreeCircles } from 'react-loader-spinner'
 import { cartListSelector } from '../store'
 export const ItemCartListHistoryComponent = (props) => {
   const { id, status, price, create_at } = props
@@ -29,6 +30,8 @@ export const ItemCartListHistoryComponent = (props) => {
           <p className='w-full flex justify-center items-center'>
             {status === 'prepare' && <p style={{ color: '#A9A9A9' }}>Prepare</p>}
             {status === 'processing' && <p style={{ color: '#FFA33C' }}>Processing</p>}
+            {status === 'deny' && <p style={{ color: '#DF2E38' }}>Deny</p>}
+            {status === 'ordered' && <p style={{ color: '#54B435' }}>Ordered</p>}
           </p>
         </td>
       </tr>
@@ -80,7 +83,15 @@ export const CartListHistoryComponent = () => {
           </table>
         </div>
       )}
-      {state === 'loading' && <p>Loading ... </p>}
+      {state === 'loading' && (
+        <div className='w-full flex justify-center items-center'>
+          <ThreeCircles
+            color='#FFA33C'
+            height={100}
+            width={100}
+          />
+        </div>
+      )}
     </>
   )
 }

@@ -1,9 +1,16 @@
 import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil'
-import { categoriesAtom, createProductFormAtom, statusCreateProductAtom } from '..'
+import {
+  categoriesAtom,
+  createProductFormAtom,
+  openModalStatusOrderAtom,
+  statusCreateProductAtom,
+  statusUpdateOrderAtom,
+} from '..'
 import { getCategoriesSelector } from './selector'
 import React from 'react'
 import { STATUS_API_POST } from '@/utilities'
 import { productApi } from '@/api/productApi'
+import { orderApi } from '@/api'
 
 const useGetCategories = () => {
   const setCategoriesAtom = useSetRecoilState(categoriesAtom)
@@ -37,8 +44,42 @@ const useCreateProduct = () => {
   }, [categories_id, description, location, picture, price, setStatusCreateProduct, statusCreateProduct, title])
   return { handleSubmitCreateProductForm }
 }
+const useDenyOrder = () => {
+  const setStatusUpdateOrder = useSetRecoilState(statusUpdateOrderAtom)
+  const resetModalStatusOrder = useResetRecoilState(openModalStatusOrderAtom)
+  const handleDenyOrder = async (order_id) => {
+    try {
+      setStatusUpdateOrder({ status: STATUS_API_POST.LOADING, message: undefined })
+      const response = await orderApi.updateOriginOrder({ order_id, status: 'deny' })
+      setStatusUpdateOrder({ status: STATUS_API_POST.HAS_VALUE, message: response.data.message })
+      resetModalStatusOrder()
+    } catch (error) {
+      console.error(error.response.data.message)
+      setStatusUpdateOrder({ status: STATUS_API_POST.HAS_ERROR, message: error.response.data.message })
+    }
+  }
+  return { handleDenyOrder }
+}
+const useAcceptOrder = () => {
+  const setStatusUpdateOrder = useSetRecoilState(statusUpdateOrderAtom)
+  const resetModalStatusOrder = useResetRecoilState(openModalStatusOrderAtom)
+  const handleAcceptOrder = async (order_id) => {
+    try {
+      setStatusUpdateOrder({ status: STATUS_API_POST.LOADING, message: undefined })
+      const response = await orderApi.updateOriginOrder({ order_id, status: 'ordered' })
+      setStatusUpdateOrder({ status: STATUS_API_POST.HAS_VALUE, message: response.data.message })
+      resetModalStatusOrder()
+    } catch (error) {
+      console.error(error.response.data.message)
+      setStatusUpdateOrder({ status: STATUS_API_POST.HAS_ERROR, message: error.response.data.message })
+    }
+  }
+  return { handleAcceptOrder }
+}
 const ManageProductList = {
   useGetCategories,
   useCreateProduct,
+  useDenyOrder,
+  useAcceptOrder,
 }
 export default ManageProductList

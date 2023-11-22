@@ -196,7 +196,6 @@ export const useSignUpSubmitAuthForm = () => {
 
 export const useLogOut = () => {
   const setAuth = useSetRecoilState(authAtom)
-  const navigate = useNavigate()
   const resetDropDownUserDetail = useResetRecoilState(dropDownUserDetailHeaderAtom)
   const logOut = () => {
     removeAccessTokenLocalStorage()
@@ -212,7 +211,7 @@ export const useLogOut = () => {
       },
     })
     resetDropDownUserDetail()
-    navigate('/')
+    window.location.href = '/'
   }
   return { logOut }
 }
