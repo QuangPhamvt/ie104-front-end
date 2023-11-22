@@ -65,17 +65,18 @@ export const ListCartMainDetailPostComponent = () => {
   } = useRecoilValue(createCartDetailProductAtom)
   return (
     <section className='flex flex-col space-y-6'>
-      {cart_items.map((item) => {
-        return (
-          <ItemListCartMainDetailPostComponent
-            key={item.product_id}
-            title={item.title}
-            product_id={item.product_id}
-            quantity={item.quantity}
-            price={item.price}
-          />
-        )
-      })}
+      {!!cart_items[0]?.title &&
+        cart_items.map((item) => {
+          return (
+            <ItemListCartMainDetailPostComponent
+              key={item.product_id}
+              title={item.title}
+              product_id={item.product_id}
+              quantity={item.quantity}
+              price={item.price}
+            />
+          )
+        })}
     </section>
   )
 }

@@ -2,13 +2,31 @@ import { productApi } from '@/api/productApi'
 import { selector, selectorFamily } from 'recoil'
 import { createProductFormAtom } from '..'
 import { STATE } from '@/utilities'
+import { orderApi } from '@/api'
 
 export const getCategoriesSelector = selector({
-  key: 'getCategoriesSelector',
+  key: 'getCategoriesSellerViewSelector',
   get: async () => {
     const response = await productApi.getCategories()
     console.log(response.data)
     return response.data
+  },
+})
+export const getOrderListSelector = selector({
+  key: 'getOrderListSelector',
+  get: async () => {
+    try {
+      const response = await orderApi.getOrderList()
+      return {
+        message: response.data.message,
+        data: response.data.data,
+      }
+    } catch (error) {
+      return {
+        message: error.response.data.message,
+        data: [],
+      }
+    }
   },
 })
 

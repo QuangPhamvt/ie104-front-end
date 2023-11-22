@@ -3,6 +3,7 @@ import { DetailContentSecureCheckoutComponent } from './DetailContentSecureCheck
 import { PaymentContentSecureCheckoutComponent } from './PaymentContentSecureCheckoutComponent'
 import { useParams } from 'react-router-dom'
 import { findByCartIdSelector } from '../store'
+import { ThreeCircles } from 'react-loader-spinner'
 
 export const ContentSecureCheckoutComponent = () => {
   const { cartId } = useParams()
@@ -11,7 +12,15 @@ export const ContentSecureCheckoutComponent = () => {
   console.log(contents)
   return (
     <article className='grid grid-cols-3 gap-x-12'>
-      {state === 'loading' && <p>Loading...</p>}
+      {state === 'loading' && (
+        <div className='w-full flex justify-center items-center col-span-3'>
+          <ThreeCircles
+            color='#FFA33C'
+            height={100}
+            width={100}
+          />
+        </div>
+      )}
       {state === 'hasValue' && (
         <>
           <DetailContentSecureCheckoutComponent qr={contents.data[0].seller.qr} />

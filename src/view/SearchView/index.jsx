@@ -3,6 +3,7 @@ import { OptionSearchComponent, ResultSearchComponent } from './components'
 import { RiArrowRightSLine } from 'react-icons/ri'
 import { searchProductFormAtom, searchProductionAtom } from '@/components/Layout/HeaderLayout/store'
 import { STATUS_API_POST } from '@/utilities'
+import './styles.scss'
 
 const SearchView = () => {
   const {

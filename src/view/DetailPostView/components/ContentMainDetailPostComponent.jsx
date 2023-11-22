@@ -1,6 +1,7 @@
 import { GiMoneyStack } from 'react-icons/gi'
 import { useRecoilValue } from 'recoil'
 import { DetailProduct, findProductByCategoryAtom } from '../store'
+import { ThreeCircles } from 'react-loader-spinner'
 export const ItemContentMainDetailPostComponent = (props) => {
   // eslint-disable-next-line react/prop-types
   const { product_id, title, picture, description, price } = props
@@ -47,17 +48,28 @@ export const ContentMainDetailPostComponent = () => {
   console.log(status)
   return (
     <article>
-      {data.map((item) => (
-        <>
-          <ItemContentMainDetailPostComponent
-            product_id={item.product_id}
-            title={item.title}
-            price={item.price}
-            picture={item.picture}
-            description={item.description}
+      {status === 'loading' ? (
+        <div className='w-full flex justify-center items-center py-4'>
+          <ThreeCircles
+            color='#FFA33C'
+            height={50}
+            width={50}
           />
+        </div>
+      ) : (
+        <>
+          {data.map((item) => (
+            <ItemContentMainDetailPostComponent
+              key={item.product_id}
+              product_id={item.product_id}
+              title={item.title}
+              price={item.price}
+              picture={item.picture}
+              description={item.description}
+            />
+          ))}
         </>
-      ))}
+      )}
     </article>
   )
 }

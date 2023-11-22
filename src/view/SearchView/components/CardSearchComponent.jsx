@@ -8,7 +8,7 @@ const CardSearchComponent = (props) => {
     <NavLink to={`/post/${id}`}>
       <section
         style={{ borderRadius: 8 }}
-        className='p-4 flex flex-row bg-gray-100 space-x-6 '
+        className='p-4 flex flex-row bg-gray-100 space-x-6 cart--search'
       >
         <img
           className='h-24 aspect-square object-cover rounded-lg'

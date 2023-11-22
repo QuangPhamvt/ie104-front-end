@@ -86,23 +86,42 @@ export const PaymentContentSecureCheckoutComponent = (props) => {
           <h2 className='font-normal'>Total</h2>
           <p className='text-2xl'>${price}</p>
         </section>
-        <button
-          className='w-full py-4 bg-orange-500 rounded-2xl'
-          onClick={(event) => {
-            event.preventDefault()
-            if (statusPostCreateOrder.status !== STATUS_API_POST.HAS_VALUE && status === 'prepare')
-              handlePostCreateOrder({ cart_id, price, cart_items, seller_id })
-          }}
-        >
-          {statusPostCreateOrder.status === STATUS_API_POST.LOADING && (
-            <IoReload
-              className='animate-spin'
-              size={24}
-            />
-          )}
-          {statusPostCreateOrder.status === STATUS_API_POST.HAS_VALUE && <MdOutlineFileDownloadDone size={24} />}
-          {statusPostCreateOrder.status === STATUS_API_POST.IDLE && <p className='text-xl text-white'>{status}</p>}
-        </button>
+        {status === 'prepare' && (
+          <button
+            className='w-full py-4 bg-gray-100 rounded-2xl border-1 border-solid border-black'
+            onClick={(event) => {
+              event.preventDefault()
+              if (statusPostCreateOrder.status !== STATUS_API_POST.HAS_VALUE)
+                handlePostCreateOrder({ cart_id, price, cart_items, seller_id })
+            }}
+          >
+            {statusPostCreateOrder.status === STATUS_API_POST.LOADING && (
+              <IoReload
+                className='animate-spin'
+                size={24}
+              />
+            )}
+            {statusPostCreateOrder.status === STATUS_API_POST.HAS_VALUE && <MdOutlineFileDownloadDone size={24} />}
+            {statusPostCreateOrder.status === STATUS_API_POST.IDLE && (
+              <p className='text-xl font-bold text-black'>PREPARE</p>
+            )}
+          </button>
+        )}
+        {status === 'processing' && (
+          <div className='w-full py-4 bg-orange-400 rounded-2xl flex justify-center items-center'>
+            <p className='text-xl font-bold text-white'>PROCESSING</p>
+          </div>
+        )}
+        {status === 'deny' && (
+          <div className='w-full py-4 bg-red-700 rounded-2xl flex justify-center items-center'>
+            <p className='text-xl font-bold text-white'>DENY</p>
+          </div>
+        )}
+        {status === 'ordered' && (
+          <div className='w-full py-4 bg-green-400 rounded-2xl flex justify-center items-center'>
+            <p className='text-xl font-bold text-white'>ORDERED</p>
+          </div>
+        )}
       </section>
     </section>
   )

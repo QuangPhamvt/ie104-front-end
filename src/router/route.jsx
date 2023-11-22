@@ -3,7 +3,11 @@ import React from 'react'
 import withSuspense from '@/HOC/withSuspense'
 import { HomePage } from './page'
 import { PATH } from './path'
-const Layout = withSuspense(React.lazy(() => import('@/components/Layout')))
+import { LoadingPage } from '@/components/LoadingPage'
+const Layout = withSuspense(
+  React.lazy(() => import('@/components/Layout')),
+  <LoadingPage />,
+)
 const SearchView = withSuspense(React.lazy(() => import('@/view/SearchView')))
 const SellerView = withSuspense(React.lazy(() => import('@/view/SellerView')))
 const NotFoundView = withSuspense(React.lazy(() => import('@/view/NotFound')))
@@ -13,6 +17,10 @@ const SecureCheckoutView = withSuspense(React.lazy(() => import('@/view/SecureCh
 
 export const PrivateRoute = []
 export const routes = [
+  {
+    path: '/loading',
+    element: <LoadingPage />,
+  },
   {
     path: PATH.HOME,
     element: <Layout />,

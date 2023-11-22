@@ -36,6 +36,8 @@ export const CART_API = {
   CREATE_CART: 'cart/create',
 }
 export const ORDER_API = {
+  GET_ORDER_LIST: 'order',
+  UPDATE_ORIGIN_ORDER: 'order/update',
   FIND_BY_CART_ID: 'order/find/cartId',
   CREATE_ORDER: 'order/create',
 }

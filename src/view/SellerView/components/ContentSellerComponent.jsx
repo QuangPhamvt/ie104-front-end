@@ -3,26 +3,34 @@ import { STATUS_CONTENT_SELLER_VIEW } from '../constant'
 import withSuspense from '@/HOC/withSuspense'
 import { useRecoilValue } from 'recoil'
 import { statusSellerViewAtom } from '../store'
+import { LoadingSellerViewComponent } from './LoadingSellerViewComponent'
 const DetailProfileManageAccountComponent = withSuspense(
   React.lazy(() => import('./ManageAccountComponent/components/DetailProfileManageAccountComponent')),
+  <LoadingSellerViewComponent />,
 )
 const ChangeProfileManageAccountComponent = withSuspense(
   React.lazy(() => import('./ManageAccountComponent/components/ChangeProfileManageAccountComponent')),
+  <LoadingSellerViewComponent />,
 )
 const CreateProductManageProductionListComponent = withSuspense(
   React.lazy(() => import('./ManageProductListComponent/components/CreateProductManageProductListComponent')),
+  <LoadingSellerViewComponent />,
 )
 const ListProductManageProductListComponent = withSuspense(
   React.lazy(() => import('./ManageProductListComponent/components/ListProductManageProductListComponent')),
+  <LoadingSellerViewComponent />,
 )
 const DeliveredDetailOrderComponent = withSuspense(
   React.lazy(() => import('./DetailOrderComponent/components/DeliveredDetailOrderComponent')),
+  <LoadingSellerViewComponent />,
 )
 const ProcessingDetailOrderComponent = withSuspense(
   React.lazy(() => import('./DetailOrderComponent/components/ProcessingDetailOrderComponent')),
+  <LoadingSellerViewComponent />,
 )
 const NotificationDetailOrderComponent = withSuspense(
   React.lazy(() => import('./DetailOrderComponent/components/NotificationDetailOrderComponent')),
+  <LoadingSellerViewComponent />,
 )
 const ContentSellerComponentFactories = {
   [STATUS_CONTENT_SELLER_VIEW.DETAIL_PROFILE]: () => <DetailProfileManageAccountComponent />,
