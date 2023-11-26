@@ -1,9 +1,15 @@
 import { FiFacebook } from 'react-icons/fi'
 import { FaInstagram } from 'react-icons/fa'
 import { CiTwitter } from 'react-icons/ci'
+import { FaYoutube } from 'react-icons/fa'
+import { FaCcMastercard } from 'react-icons/fa'
+import { FaCcPaypal } from 'react-icons/fa'
+import { FaCcApplePay } from 'react-icons/fa'
+import { FaCcVisa } from 'react-icons/fa'
 import { useRecoilValue } from 'recoil'
 import { authAtom } from '@/view/AuthView/store'
 import { STATE } from '@/utilities'
+import { PUBLIC_IMAGE } from '@/utilities'
 export const FooterLayout = () => {
   const auth = useRecoilValue(authAtom)
   return (
@@ -11,21 +17,32 @@ export const FooterLayout = () => {
       {auth.state === STATE.HAS_VALUE && (
         <footer
           style={{ bottom: 0 }}
-          className='sticky grid w-screen grid-cols-3 bg-orange-500 h-96 mt-28'
+          className=' sticky grid w-screen grid-cols-4 bg-orange-500 h-96 mt-28'
         >
-          <article className='flex items-center justify-center'>
-            <div>Logo</div>
+          <article className='flex flex-col p-8'>
+            <div className='flex flex-row space-y-6 text-white'>
+              <img
+                src={PUBLIC_IMAGE.BRAND}
+                width={75}
+                height={75}
+                className='ml-0'
+              />
+              <h1 className='text-3xl'>Bun ShopFOOD</h1>
+            </div>
+            <p className='text-xl mt-5 text-white'>Bun ShopFOOD Thưởng - thức ẩm thực nhanh chóng - tận nhà!</p>
           </article>
-          <article className='flex flex-col items-center justify-center gap-4'>
-            <section className='flex justify-center w-full'>
-              <ul className='flex flex-row items-center justify-center w-4/5 space-x-8 text-white'>
-                <li>About us</li>
-                <li>Delivery</li>
-                <li>Help & Support</li>
-                <li>T & C</li>
-              </ul>
-            </section>
-            <section className='flex flex-row justify-center w-full space-x-4 '>
+          <article className='flex flex-col  px-10 py-20 space-y-2'>
+            <p className='text-xl text-white'>Bạn cần hỗ trợ</p>
+            <p className='text-2xl text-white'>086051898</p>
+            <ul className='flex flex-col items-start justify-center space-y-2 text-white'>
+              <li>
+                <strong>Địa chỉ: </strong>138 Topaz Home, Ward Tan Phu, District 9, Ho Chi Minh City.
+              </li>
+              <li>
+                <strong>Email: </strong>BunShopFood@gmail.com
+              </li>
+            </ul>
+            <section className='flex flex-row space-x-4 '>
               <FiFacebook
                 size={24}
                 color='white'
@@ -38,10 +55,49 @@ export const FooterLayout = () => {
                 size={24}
                 color='white'
               />
+              <FaYoutube
+                size={24}
+                color='white'
+              />
+            </section>
+            <section className='flex flex-row space-x-4 '>
+              <FaCcMastercard
+                size={40}
+                color='white'
+              />
+              <FaCcPaypal
+                size={40}
+                color='white'
+              />
+              <FaCcApplePay
+                size={40}
+                color='white'
+              />
+              <FaCcVisa
+                size={40}
+                color='white'
+              />
             </section>
           </article>
-          <article className='flex items-center justify-center pb-10 text-white'>
-            <p>Contact: +8486051898</p>
+          <article className='flex flex-col space-y-4  p-20'>
+            <p className='text-xl  text-white'>Về chúng tôi</p>
+            <ul className='flex flex-col items-start justify-center w-4/5 space-y-2  text-white'>
+              <li>Trang chủ</li>
+              <li>Giới thiệu</li>
+              <li>Danh mục</li>
+              <li>Thành viên</li>
+              <li>Blog</li>
+            </ul>
+          </article>
+          <article className='flex flex-col space-y-4 p-10 py-20'>
+            <p className='text-xl text-white'>Chính sách</p>
+            <ul className='flex flex-col items-start justify-center space-y-2 text-white '>
+              <li>Chính sách giao hàng</li>
+              <li>Chính sách thanh toán</li>
+              <li>Chính sách đổi trả</li>
+              <li>Chính sách kiểm hàng</li>
+              <li>Chính sách bảo mật thông tin</li>
+            </ul>
           </article>
         </footer>
       )}
