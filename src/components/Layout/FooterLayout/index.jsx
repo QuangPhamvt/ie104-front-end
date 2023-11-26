@@ -79,7 +79,7 @@ export const FooterLayout = () => {
               />
             </section>
           </article>
-          <article className='flex flex-col space-y-4  p-20'>
+          <article className='flex flex-col space-y-4  px-10 py-20'>
             <p className='text-xl  text-white'>Về chúng tôi</p>
             <ul className='flex flex-col items-start justify-center w-4/5 space-y-2  text-white'>
               <li>Trang chủ</li>
