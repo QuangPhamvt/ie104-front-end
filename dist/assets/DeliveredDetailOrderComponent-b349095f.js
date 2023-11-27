@@ -1,0 +1,1 @@
+import{j as e}from"./index-81d40cd2.js";const t=()=>e.jsx("div",{children:"Delivered Detail Order Component"});export{t as default};
