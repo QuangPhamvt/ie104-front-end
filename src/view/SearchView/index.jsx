@@ -14,7 +14,7 @@ const SearchView = () => {
     <article className='mt-28 container mx-auto space-y-12 pt-12'>
       {status === STATUS_API_POST.HAS_VALUE ? (
         <>
-          <h2>Search result for &quot; {slug} &quot;</h2>
+          <h2 className='search--value'>Search result for &quot; {slug} &quot;</h2>
           <OptionSearchComponent />
           <ResultSearchComponent />
           <section className='w-full inline-flex justify-end items-center'>

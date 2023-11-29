@@ -90,7 +90,7 @@ const BackGroundImage = () => {
 }
 export const ImageIntroductionHomeComponent = () => {
   return (
-    <article className='relative w-1/2 '>
+    <article className='intro--image relative '>
       <BackGroundImage />
     </article>
   )

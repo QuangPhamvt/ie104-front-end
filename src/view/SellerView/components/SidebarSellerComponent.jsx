@@ -18,7 +18,9 @@ export const ItemsListSidebarSellerComponent = (props) => {
         return (
           <p
             key={item}
-            className={`${statusSellerView === item ? 'text-orange-400' : 'text-gray-400'} cursor-pointer`}
+            className={`${
+              statusSellerView === item ? 'text-orange-400' : 'text-gray-400'
+            } cursor-pointer  sidebar--item`}
             onClick={() => handleChangeStatusContentSellerView(item)}
           >
             {item}
@@ -49,8 +51,8 @@ export const ListSidebarSellerComponent = (props) => {
 }
 export const SidebarSellerComponent = () => {
   return (
-    <section className='w-full col-span-2 px-4'>
-      <article className=''>
+    <section className='w-full col-span-2 pl-4 pr-12'>
+      <article className='border-r-1 border-solid border-gray-300 py-4 h-full'>
         <ListSidebarSellerComponent items={LIST_SIDEBAR_SELLER} />
       </article>
     </section>

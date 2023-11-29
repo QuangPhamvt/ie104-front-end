@@ -102,7 +102,7 @@ const AppleIcon = () => (
 
 export const ContentIntroductionHomeComponent = () => {
   return (
-    <article className='w-1/2 flex flex-col space-y-8'>
+    <article className='intro--content flex flex-col space-y-8'>
       <section className='flex flex-col space-y-6'>
         <h2 className='text-6xl font-light inline mt-6'>
           Premium <p className='text-orange-400 inline'>quality</p>
