@@ -8,7 +8,7 @@ const styleButton = {
 export const OptionSearchComponent = () => {
   const [optionSearch, setOptionSearch] = useRecoilState(optionSearchAtom)
   return (
-    <section className='flex flex-row space-x-8'>
+    <section className='flex flex-row space-x-8 search--value'>
       <button
         onClick={() => setOptionSearch(OPTION_SEARCH.DISHES)}
         className={optionSearch === OPTION_SEARCH.DISHES ? styleButton.isChoose : styleButton.notChoose}

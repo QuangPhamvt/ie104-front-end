@@ -101,3 +101,32 @@
     opacity: 80;
   }
 }
+
+.intro-- {
+  &image {
+    width: 50%;
+  }
+  &content {
+    width: 50%;
+  }
+}
+.recommended--food {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media screen and (max-width: 1280px) {
+  .recommended--food {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .intro--image {
+    width: 0;
+    overflow: hidden;
+  }
+  .intro--content {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .recommended--food {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

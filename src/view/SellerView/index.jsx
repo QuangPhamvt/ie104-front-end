@@ -3,6 +3,7 @@ import { ContentSellerComponent, SidebarSellerComponent } from './components'
 import { authAtom } from '../AuthView/store'
 import { ROLE } from '@/utilities'
 import { Navigate } from 'react-router-dom'
+import './styles/index.scss'
 
 const SellerView = () => {
   const {
@@ -11,7 +12,7 @@ const SellerView = () => {
   return (
     <>
       {isLoggedIn && role === ROLE.SELLER ? (
-        <main className='container mx-auto mt-28 grid grid-cols-7 justify-items-center'>
+        <main className='container mx-auto mt-32 grid grid-cols-7 justify-items-center'>
           <SidebarSellerComponent />
           <ContentSellerComponent />
         </main>

@@ -15,11 +15,13 @@ const HomeView = () => {
       })
     })
     const hiddenElements = document.querySelectorAll('.home--content-hidden')
+    const hiddenElementsRight = document.querySelectorAll('.home--content-hidden-right')
     hiddenElements.forEach((el) => observer.observe(el))
+    hiddenElementsRight.forEach((el) => observer.observe(el))
   }, [])
   return (
     <main
-      className='flex flex-col mt-28 space-y-28'
+      className='flex flex-col mt-28 space-y-28 '
       style={{ backgroundColor: '#F7FAFC' }}
     >
       <IntroductionHomeComponent />

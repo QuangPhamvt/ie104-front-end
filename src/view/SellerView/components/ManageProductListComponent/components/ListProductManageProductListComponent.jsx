@@ -5,11 +5,12 @@ import React from 'react'
 import { useRecoilValue, useRecoilValueLoadable, useResetRecoilState, useSetRecoilState } from 'recoil'
 import { ManageProductList, openModalStatusOrderAtom } from '..'
 import { getOrderListSelector } from '../store/selector'
+import '../styles.scss'
 
 const HeaderListProductListComponent = () => {
   return (
     <section className='flex flex-row pb-2 border-b-1 border-solid border-gray-500'>
-      <div className='text-2xl'>List Product</div>
+      <div className='text-2xl font-bold'>List Product</div>
     </section>
   )
 }
@@ -76,7 +77,7 @@ const ItemListProductListComponent = (props) => {
         event.preventDefault()
         handleOpen()
       }}
-      className='flex flex-row w-full hover-cursor hover-box  py-6 border-solid border-1 rounded border-black mt-4 shadow'
+      className='product--list--item flex flex-row w-full hover-cursor hover-box  py-6 border-solid border-1 rounded border-black mt-4 shadow '
     >
       <div className='w-2/5 flex justify-center items-center'>{order_id}</div>
 

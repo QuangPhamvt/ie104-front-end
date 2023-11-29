@@ -1,0 +1,24 @@
+.product-- {
+  &list-- {
+    &item {
+      position: relative;
+      &:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      &::before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgb(245, 245, 245);
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.25s ease;
+      }
+    }
+  }
+}
