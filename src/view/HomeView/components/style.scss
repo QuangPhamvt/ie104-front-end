@@ -51,3 +51,53 @@
   transform: translateY(-10%);
   opacity: 0;
 }
+
+.cart--search:hover {
+  background-color: white;
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.cart--detail:hover {
+  background-color: rgb(243 238 234 / 0.8);
+  opacity: 80;
+  animation: fadeInCart 300ms linear;
+}
+.cart--recommend-default {
+}
+.cart--recommend-default:nth-child(2) {
+  transition-delay: 200ms;
+}
+.cart--recommend-default:nth-child(3) {
+  transition-delay: 400ms;
+}
+.cart--recommend-default:nth-child(4) {
+  transition-delay: 600ms;
+}
+
+.cart--recommend-mind:nth-child(2) {
+  transition-delay: 200ms;
+}
+.cart--recommend-mind:nth-child(3) {
+  transition-delay: 400ms;
+}
+.cart--recommend-mind:nth-child(4) {
+  transition-delay: 600ms;
+}
+.cart--recommend-mind:nth-child(5) {
+  transition-delay: 800ms;
+}
+.cart--recommend-mind:nth-child(6) {
+  transition-delay: 1000ms;
+}
+@keyframes fadeInCart {
+  0% {
+    background-color: rgb(243 238 234 / 0.2);
+    opacity: 0;
+  }
+  100% {
+    background-color: rgb(243 238 234 / 0.8);
+    opacity: 80;
+  }
+}

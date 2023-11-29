@@ -15,6 +15,7 @@ export const DropDownUserDetailHeaderComponent = () => {
       style={{
         top: 54,
         right: 0,
+        zIndex: 10000,
       }}
       className='animate-fadeIn absolute z-50 w-40 p-2 rounded border-1 border-solid border-gray-400 bg-white'
     >

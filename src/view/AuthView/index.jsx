@@ -3,6 +3,7 @@ import { authModalStateAtom, authSignInStatusFormSubmitAtom, authSignUpStatusFor
 import { AUTH_MODAL_STATE, STATUS_API_POST } from '@/utilities'
 import { AuthLoginModalComponent, AuthSignUpModalComponent } from './components'
 import { LoadingView } from '../LoadingView'
+import './style/index.scss'
 
 const AuthView = () => {
   const authModalState = useRecoilValue(authModalStateAtom)
@@ -12,14 +13,16 @@ const AuthView = () => {
     <main className='w-screen h-screen flex flex-row'>
       <article
         className='w-1/2'
-        style={{ backgroundColor: '#F99417' }}
-      ></article>
+        style={{ backgroundColor: '#F5F5F5' }}
+      >
+        <section className='w-full h-full bg-gray-300 background--layout-left'></section>
+      </article>
       <article
         className='w-1/2 h-full flex justify-center items-center'
         style={{ backgroundColor: '#F5F5F5' }}
       >
         <section
-          className='p-2 space-y-6 flex flex-col items-center justify-center rounded-2xl'
+          className='p-2 space-y-6 flex flex-col items-center justify-center rounded-2xl modal--auth-layout'
           style={{ width: '60%', height: '540px', backgroundColor: '#EBE4D1' }}
         >
           <h2 className='text-5xl'>FoodShop</h2>

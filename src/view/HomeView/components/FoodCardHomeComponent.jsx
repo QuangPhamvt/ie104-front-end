@@ -1,43 +1,40 @@
 /* eslint-disable react/prop-types */
 import { FaStar } from 'react-icons/fa'
-import { GiMoneyStack } from 'react-icons/gi'
-import { IoPeopleOutline } from 'react-icons/io5'
+import { FaMoneyCheckAlt } from 'react-icons/fa'
+
 import { Home } from '../store'
 export const FoodCardHomeComponent = (props) => {
   const {
-    start = 0,
-    uri = 'https://cdn.tgdd.vn/Files/2017/03/24/964495/cach-nau-bun-bo-hue-gio-heo-ngon-cong-thuc-chuan-vi-202208251617593627.jpg',
+    star = 0,
+    url = 'https://voyado.com/wp-content/uploads/2023/05/food-ecommerce-hero.jpg',
+    name = '',
+    money = '',
   } = props
-  const { color } = Home.useSetStart(start)
+  const { color } = Home.useSetStart(star)
   return (
     <article
-      style={{ borderRadius: 8 }}
-      className='w-full h-108 bg-gray-50 p-6 space-y-8'
+      className='w-full space-y-4 cart--search rounded cart--recommend-default home--content-hidden'
+      style={{
+        borderRadius: 8,
+        backgroundImage: `url(${url})`,
+        backgroundPosition: 'center center',
+      }}
     >
-      <section className='w-full aspect-square bg-gray-300 rounded-lg flex justify-center items-center overflow-hidden'>
-        <img
-          className='w-full h-full object-cover'
-          src={uri}
-          alt='Something wrong with image'
-        />
-      </section>
-      <h2 className='font-normal text-xl'>Ramachanadara Parlour</h2>
-      <section className='flex flex-row justify-between'>
-        <address className='not-italic text-gray-300'>Ho Chi Minh city</address>
-        <div className='inline-flex space-x-2'>
-          <FaStar color={color} />
-          <p className=''>{start}</p>
-        </div>
-      </section>
-      <section className='flex flex-row justify-between'>
-        <div className='flex flex-row space-x-1'>
-          <GiMoneyStack color='green' />
-          <p>420</p>
-        </div>
-        <div className='flex flex-row space-x-1'>
-          <IoPeopleOutline color='#F87315' />
-          <p>{420} orders</p>
-        </div>
+      <section className='flex flex-col space-y-4 p-4 cart--detail opacity-0 h-92 justify-end pb-12'>
+        <section className='flex flex-row items-center justify-center'>
+          <h2 className='font-normal text-xl font-mono'>{name}</h2>
+        </section>
+        <section className='flex flex-row justify-between justify-center items-center w-full'>
+          <div className='inline-flex space-x-2 justify-center items-center w-full'>
+            <FaStar color={color} />
+          </div>
+        </section>
+        <section className='flex flex-row justify-between'>
+          <div className='flex flex-row w-full justify-center items-center space-x-1'>
+            <p>{money}</p>
+            <FaMoneyCheckAlt color='#617A55' />
+          </div>
+        </section>
       </section>
     </article>
   )

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useRecoilState, useRecoilValue, useRecoilValueLoadable, useResetRecoilState, useSetRecoilState } from 'recoil'
 import {
   authAtom,
@@ -24,7 +23,7 @@ import {
   setRefreshTokenLocalStorage,
 } from '@/utilities/localstorage'
 import { jwtDecode } from 'jwt-decode'
-import { isExpired } from '@/utilities/fnc'
+import { checkIsMail, isExpired } from '@/utilities/fnc'
 import { authCheckAccountBankSelector, getListProvinceSelector } from './selector'
 import { dropDownUserDetailHeaderAtom } from '@/components/Layout/HeaderLayout/store'
 import locationApi from '@/api/locationApi'
@@ -95,6 +94,7 @@ export const useSignInSubmitAuthForm = () => {
   const handleSignInSubmitAuthForm = React.useCallback(async () => {
     let response
     try {
+      if (!checkIsMail(email) || !email || !password) throw { data: { message: 'Some thing wrong' } }
       setAuthSignInStatusFormSubmit({ status: STATUS_API_POST.LOADING, data: undefined })
       response = await authApi.postSignIn({ email, password })
       setAuthSignInStatusFormSubmit({ status: STATUS_API_POST.HAS_VALUE, data: { message: response.data.message } })
@@ -120,7 +120,7 @@ export const useSignInSubmitAuthForm = () => {
       console.log(error)
       setAuthSignInStatusFormSubmit({
         status: STATUS_API_POST.HAS_ERROR,
-        message: error.data.message,
+        message: 'Some thing wrong with password or email',
         data: undefined,
       })
     }
