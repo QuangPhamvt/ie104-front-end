@@ -1,3 +1,25 @@
 .modal--auth__changeFlow:hover {
   cursor: pointer;
 }
+.modal--auth-layout {
+  animation: animationModalAuth 1s ease-out;
+}
+.background--layout-left {
+  animation: animationBackground 1500ms ease-in-out;
+}
+@keyframes animationBackground {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: full;
+  }
+}
+@keyframes animationModalAuth {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

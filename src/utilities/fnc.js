@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export const isExpired = (exp) => {
   if (!exp) return false
   return exp < Date.now() + 1 / 1000
@@ -25,4 +26,8 @@ export const toSlug = (str) => {
 
   // return
   return str
+}
+export function checkIsMail(mail) {
+  const isMatch = mail.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
+  return !!isMatch
 }
