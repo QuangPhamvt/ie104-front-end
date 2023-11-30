@@ -8,9 +8,10 @@ import {
 } from '..'
 import { getCategoriesSelector } from './selector'
 import React from 'react'
-import { STATUS_API_POST } from '@/utilities'
+import { STATUS_API_POST, TYPE } from '@/utilities'
 import { productApi } from '@/api/productApi'
 import { orderApi } from '@/api'
+import NotificationAction from '@/components/Notification/store/hook'
 
 const useGetCategories = () => {
   const setCategoriesAtom = useSetRecoilState(categoriesAtom)
@@ -47,12 +48,14 @@ const useCreateProduct = () => {
 const useDenyOrder = () => {
   const setStatusUpdateOrder = useSetRecoilState(statusUpdateOrderAtom)
   const resetModalStatusOrder = useResetRecoilState(openModalStatusOrderAtom)
+  const { handlePushNotificationItem } = NotificationAction.usePushNotificationItem()
   const handleDenyOrder = async (order_id) => {
     try {
       setStatusUpdateOrder({ status: STATUS_API_POST.LOADING, message: undefined })
       const response = await orderApi.updateOriginOrder({ order_id, status: 'deny' })
       setStatusUpdateOrder({ status: STATUS_API_POST.HAS_VALUE, message: response.data.message })
       resetModalStatusOrder()
+      handlePushNotificationItem(TYPE.SUCCESS, response.data.message)
     } catch (error) {
       console.error(error.response.data.message)
       setStatusUpdateOrder({ status: STATUS_API_POST.HAS_ERROR, message: error.response.data.message })
@@ -63,12 +66,14 @@ const useDenyOrder = () => {
 const useAcceptOrder = () => {
   const setStatusUpdateOrder = useSetRecoilState(statusUpdateOrderAtom)
   const resetModalStatusOrder = useResetRecoilState(openModalStatusOrderAtom)
+  const { handlePushNotificationItem } = NotificationAction.usePushNotificationItem()
   const handleAcceptOrder = async (order_id) => {
     try {
       setStatusUpdateOrder({ status: STATUS_API_POST.LOADING, message: undefined })
       const response = await orderApi.updateOriginOrder({ order_id, status: 'ordered' })
       setStatusUpdateOrder({ status: STATUS_API_POST.HAS_VALUE, message: response.data.message })
       resetModalStatusOrder()
+      handlePushNotificationItem(TYPE.SUCCESS, response.data.message)
     } catch (error) {
       console.error(error.response.data.message)
       setStatusUpdateOrder({ status: STATUS_API_POST.HAS_ERROR, message: error.response.data.message })

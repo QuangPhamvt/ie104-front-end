@@ -8,10 +8,10 @@ const CardSearchComponent = (props) => {
     <NavLink to={`/post/${id}`}>
       <section
         style={{ borderRadius: 8 }}
-        className='p-4 flex flex-row bg-gray-100 space-x-6 cart--search'
+        className='flex flex-row p-4 space-x-6 bg-gray-100 cart--search cart--item'
       >
         <img
-          className='h-24 aspect-square object-cover rounded-lg'
+          className='object-cover h-24 rounded-lg aspect-square'
           src={picture}
           alt='Not have image'
           loading='Is loading'
@@ -19,7 +19,7 @@ const CardSearchComponent = (props) => {
         <div className='flex flex-col justify-around grow'>
           <h3 className='text-base font-normal'>{title}</h3>
           <h4 className='text-xs font-normal text-gray-400'>{author}</h4>
-          <div className='flex flex-row justify-between items-center w-full'>
+          <div className='flex flex-row items-center justify-between w-full'>
             <div className='flex flex-row space-x-2'>
               <GiMoneyStack color='orange' />
               <h5 className='font-normal'>{price}</h5>

@@ -87,7 +87,7 @@ export const CartMainDetailPostComponent = () => {
   return (
     <>
       <DialogCreateCartComponent open={open} />
-      <article className='flex flex-col space-y-10'>
+      <article className='flex flex-col space-y-10 '>
         <div className='w-full flex flex-row justify-between items-center'>
           <h2 className='text-2xl'>Cart</h2>
           <p>2 items</p>

@@ -11,7 +11,7 @@ import {
   districtAtom,
   wardAtom,
 } from './atom'
-import { AUTH_MODAL_STATE, AUTH_SIGN_UP_MODAL_STATE, ROLE, STATE, STATUS_API_POST } from '@/utilities'
+import { AUTH_MODAL_STATE, AUTH_SIGN_UP_MODAL_STATE, ROLE, STATE, STATUS_API_POST, TYPE } from '@/utilities'
 import { authApi } from '@/api'
 import {
   getProfileLocalStorage,
@@ -28,6 +28,8 @@ import { authCheckAccountBankSelector, getListProvinceSelector } from './selecto
 import { dropDownUserDetailHeaderAtom } from '@/components/Layout/HeaderLayout/store'
 import locationApi from '@/api/locationApi'
 import { useNavigate } from 'react-router-dom'
+import NotificationAction from '@/components/Notification/store/hook'
+
 export const useChangeAuthSignInForm = () => {
   const setAuthSignInModal = useSetRecoilState(authSignInModalAtom)
   const handleChangeAuthSignInForm = React.useCallback(
@@ -91,7 +93,8 @@ export const useSignInSubmitAuthForm = () => {
   } = useRecoilValue(authSignInModalAtom)
   const setAuth = useSetRecoilState(authAtom)
   const setAuthSignInStatusFormSubmit = useSetRecoilState(authSignInStatusFormSubmitAtom)
-  const handleSignInSubmitAuthForm = React.useCallback(async () => {
+  const { handlePushNotificationItem } = NotificationAction.usePushNotificationItem()
+  const handleSignInSubmitAuthForm = async () => {
     let response
     try {
       if (!checkIsMail(email) || !email || !password) throw { data: { message: 'Some thing wrong' } }
@@ -114,8 +117,8 @@ export const useSignInSubmitAuthForm = () => {
           ward: profile.ward,
         },
       })
-
       console.log(response.data)
+      handlePushNotificationItem(TYPE.SUCCESS, 'Welcome to shop!')
     } catch (error) {
       console.log(error)
       setAuthSignInStatusFormSubmit({
@@ -123,15 +126,16 @@ export const useSignInSubmitAuthForm = () => {
         message: 'Some thing wrong with password or email',
         data: undefined,
       })
+      handlePushNotificationItem(TYPE.ERROR, 'Some thing wrong with password or email')
     }
-  }, [email, password, setAuth, setAuthSignInStatusFormSubmit])
+  }
   return { handleSignInSubmitAuthForm }
 }
 export const useSignUpSubmitAuthForm = () => {
   const navigate = useNavigate()
   const authSignUpModal = useRecoilValue(authSignUpModalAtom)
-  // const setAuth = useSetRecoilState(authAtom)
   const setAuthSignUpStatusFormSubmit = useSetRecoilState(authSignUpStatusFormSubmitAtom)
+  const { handlePushNotificationItem } = NotificationAction.usePushNotificationItem()
 
   const handleSignUpSubmitAuthForm = async (event) => {
     event.preventDefault()
@@ -154,7 +158,7 @@ export const useSignUpSubmitAuthForm = () => {
           !accountName ||
           !checkIsMail(email)
         ) {
-          throw { data: { message: 'SomeThing not sign in form!' } }
+          throw { data: { message: 'Something not sign in form!' } }
         }
 
         response = await authApi.postSignUp({
@@ -179,35 +183,20 @@ export const useSignUpSubmitAuthForm = () => {
         response = await authApi.postSignUp({ email, username, password, role, province, district, ward })
       }
       if (!authSignUpModal.data.role) {
-        throw { data: { message: 'SomeThing not sign in form!' } }
+        throw { data: { message: 'Something not sign in form!' } }
       }
       setAuthSignUpStatusFormSubmit({
         status: STATUS_API_POST.HAS_VALUE,
         message: response.data.message,
       })
       navigate('/signup/redirect')
-      // setAccessTokenLocalStorage(response.data.data.access_token)
-      // setRefreshTokenLocalStorage(response.data.data.refresh_token)
-      // const profile = jwtDecode(response.data.data.access_token)
-      // setProfileLocalStorage(JSON.stringify({ ...profile, isLoggedIn: true }))
-      // setAuth({
-      //   state: STATE.HAS_VALUE,
-      //   data: {
-      //     isLoggedIn: true,
-      //     id: profile.id,
-      //     role: profile.role,
-      //     username: profile.username,
-      //     province: profile.province,
-      //     district: profile.district,
-      //     ward: profile.ward,
-      //   },
-      // })
     } catch (error) {
       console.error(error)
       setAuthSignUpStatusFormSubmit({
         status: STATUS_API_POST.HAS_ERROR,
         message: error.data.message,
       })
+      handlePushNotificationItem(TYPE.ERROR, error.data.message)
     }
   }
   return { handleSignUpSubmitAuthForm }

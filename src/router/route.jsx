@@ -55,10 +55,6 @@ export const routes = [
         path: PATH.SELLER,
         element: <SellerView />,
       },
-      {
-        path: '*',
-        element: <NotFoundView />,
-      },
     ],
   },
   {
@@ -68,5 +64,9 @@ export const routes = [
   {
     path: PATH.CHECK_SIGNUP_VERIFY,
     element: <VerifyTokenView />,
+  },
+  {
+    path: '*',
+    element: <NotFoundView />,
   },
 ]

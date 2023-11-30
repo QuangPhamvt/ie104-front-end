@@ -12,18 +12,18 @@ const AuthView = () => {
   return (
     <main className='w-screen h-screen flex flex-row'>
       <article
-        className='w-1/2'
+        className='layout--left'
         style={{ backgroundColor: '#F5F5F5' }}
       >
         <section className='w-full h-full bg-gray-300 background--layout-left'></section>
       </article>
       <article
-        className='w-1/2 h-full flex justify-center items-center'
+        className='layout--right h-full flex justify-center items-center'
         style={{ backgroundColor: '#F5F5F5' }}
       >
         <section
-          className='p-2 space-y-6 flex flex-col items-center justify-center rounded-2xl modal--auth-layout'
-          style={{ width: '60%', height: '540px', backgroundColor: '#EBE4D1' }}
+          className='p-2 layout--right--content space-y-6 flex flex-col items-center justify-center rounded-2xl modal--auth-layout shadow-xl'
+          style={{ height: '540px', backgroundColor: '#EBE4D1' }}
         >
           <h2 className='text-5xl'>FoodShop</h2>
           {authModalState === AUTH_MODAL_STATE.LOG_IN && <AuthLoginModalComponent />}

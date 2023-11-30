@@ -7,6 +7,14 @@
 .background--layout-left {
   animation: animationBackground 1500ms ease-in-out;
 }
+.btn-sign {
+  &:hover {
+    background-color: rgb(251, 146, 60);
+  }
+  &:active {
+    background-color: rgb(234, 88, 12);
+  }
+}
 @keyframes animationBackground {
   0% {
     width: 0;
@@ -21,5 +29,35 @@
   }
   100% {
     opacity: 100%;
+  }
+}
+
+.layout--left {
+  width: 50%;
+}
+.layout--right {
+  width: 50%;
+  &--content {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .layout--left {
+    display: none;
+    width: 0;
+  }
+  .layout--right {
+    width: 100%;
+    &--content {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .layout--right {
+    &--content {
+      width: 90%;
+    }
   }
 }

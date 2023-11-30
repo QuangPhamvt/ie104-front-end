@@ -1,0 +1,1 @@
+import{X as r,Y as e}from"./index-1721314b.js";const n={getCart:()=>{const t=e.GET_CART;return r.get(t)},createCart:t=>{const{price:s,cart_items:a}=t,c=e.CREATE_CART;return r.post(c,{price:s,cart_items:a})}};export{n as c};

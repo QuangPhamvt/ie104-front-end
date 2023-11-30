@@ -4,7 +4,7 @@ import { UserDetailHeaderComponent } from './UserDetailHeaderComponent'
 
 export const ContentHeaderComponent = () => {
   return (
-    <section className='w-5/12 flex flex-row justify-center items-center space-x-3'>
+    <section className='w-4/5 flex flex-row justify-end items-center space-x-3'>
       <SearchHeaderComponent />
       <NotificationHeaderComponent />
       <UserDetailHeaderComponent />

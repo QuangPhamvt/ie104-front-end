@@ -12,7 +12,7 @@ export const MainDetailPostComponent = () => {
         <section className='col-span-3 h-92'>
           <ContentMainDetailPostComponent />
         </section>
-        <section className='col-span-2 px-8'>
+        <section className='col-span-2 px-8 shadow pt-4 pb-8 rounded-xl'>
           <CartMainDetailPostComponent />
         </section>
       </div>

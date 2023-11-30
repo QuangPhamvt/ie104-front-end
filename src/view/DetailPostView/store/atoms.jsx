@@ -4,6 +4,12 @@ export const openDialogCreateCartDetailProductAtom = atom({
   key: 'openDialogCreateCartDetailProductAtom',
   default: false,
 })
+export const chooseCategoryAtom = atom({
+  key: 'chooseCategoryAtom',
+  default: {
+    contents: null,
+  },
+})
 export const createCartDetailProductAtom = atom({
   key: 'createCartDetailProductAtom',
   default: {
