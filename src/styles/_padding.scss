@@ -65,6 +65,9 @@
 .p-12 {
   padding: 3rem;
 }
+.p-20{
+  padding: 5rem;
+}
 
 //PADDING X
 .px-1 {
@@ -114,6 +117,10 @@
 .px-12 {
   padding-left: 3rem;
   padding-right: 3rem;
+}
+.px-15 {
+  padding-left: 3.75rem;
+  padding-right: 3.75rem;
 }
 // PADDING Y
 .py-1 {
@@ -334,4 +341,9 @@
 }
 .pl-12 {
   padding-left: 3rem;
+}
+.pl-py-20{
+  padding-left: 5rem;
+  padding-top: 5rem;
+padding-bottom: 5rem;
 }

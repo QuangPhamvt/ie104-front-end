@@ -17,19 +17,19 @@ export const FooterLayout = () => {
       {auth.state === STATE.HAS_VALUE && (
         <footer
           style={{ bottom: 0 }}
-          className=' sticky grid w-screen grid-cols-4 bg-orange-500 h-96 mt-28'
+          className=' sticky grid w-screen grid-cols-4 bg-gray-800 h-76 mt-28 '
         >
           <article className='flex flex-col p-8'>
             <div className='flex flex-row space-y-6 text-white'>
               <img
                 src={PUBLIC_IMAGE.BRAND}
-                width={75}
-                height={75}
+                width={70}
+                height={70}
                 className='ml-0'
               />
-              <h1 className='text-3xl'>Bun ShopFOOD</h1>
+              <h1 className='text-3xl'>BunShop</h1>
             </div>
-            <p className='text-xl mt-5 text-white'>Bun ShopFOOD Thưởng - thức ẩm thực nhanh chóng - tận nhà!</p>
+            <p className='text-xl mt-5 text-white'>BunShop - Thưởng thức ẩm thực nhanh chóng - tận nhà!</p>
           </article>
           <article className='flex flex-col  px-10 py-20 space-y-2'>
             <p className='text-xl text-white'>Bạn cần hỗ trợ</p>
@@ -79,7 +79,7 @@ export const FooterLayout = () => {
               />
             </section>
           </article>
-          <article className='flex flex-col space-y-4  px-10 py-20'>
+          <article className='flex flex-col space-y-4  pl-py-20'>
             <p className='text-xl  text-white'>Về chúng tôi</p>
             <ul className='flex flex-col items-start justify-center w-4/5 space-y-2  text-white'>
               <li>Trang chủ</li>
@@ -89,7 +89,7 @@ export const FooterLayout = () => {
               <li>Blog</li>
             </ul>
           </article>
-          <article className='flex flex-col space-y-4 p-10 py-20'>
+          <article className='flex flex-col space-y-4 py-20'>
             <p className='text-xl text-white'>Chính sách</p>
             <ul className='flex flex-col items-start justify-center space-y-2 text-white '>
               <li>Chính sách giao hàng</li>

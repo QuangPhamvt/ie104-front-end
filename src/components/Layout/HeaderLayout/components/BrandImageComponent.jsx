@@ -10,11 +10,11 @@ export const BrandImageComponent = () => {
     >
       <img
         src={PUBLIC_IMAGE.BRAND}
-        width={36}
-        height={36}
+        width={50}
+        height={50}
         className='ml-4'
       />
-      <h1 className='text-xl'>Bun</h1>
+      <h1 className='text-2xl text-white'>BunShop</h1>
     </section>
   )
 }

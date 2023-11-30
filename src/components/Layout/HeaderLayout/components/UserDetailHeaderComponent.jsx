@@ -2,6 +2,7 @@ import { authAtom } from '@/view/AuthView/store'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { DropDownUserDetailHeaderComponent } from './DropDownUserDetailHeaderComponent'
 import { dropDownUserDetailHeaderAtom } from '../store'
+import { FaUserAlt } from 'react-icons/fa'
 import React from 'react'
 
 export const UserDetailHeaderComponent = () => {
@@ -27,9 +28,14 @@ export const UserDetailHeaderComponent = () => {
     >
       <button
         onClick={handelOpenDropDown}
-        className='px-4 py-3 rounded-lg bg-black'
+        className='flex items-center px-3 py-2 rounded-lg bg-amber-500  border-1 border-solid border-gray-300'
       >
-        <p className='text-sm text-white font-bold'>{auth.data.username}</p>
+        <FaUserAlt
+          size={24}
+          color='white'
+          className='mr-1'
+        />
+        <p className='text-lg text-white font-bold'>{auth.data.username}</p>
       </button>
       <DropDownUserDetailHeaderComponent />
     </section>
