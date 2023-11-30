@@ -73,7 +73,6 @@ export const authSignUpStatusFormSubmitAtom = atom({
   default: {
     status: STATUS_API_POST.IDLE,
     message: undefined,
-    data: undefined,
   },
 })
 export const authCheckAccountBankModalAtom = atom({

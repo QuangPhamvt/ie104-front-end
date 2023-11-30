@@ -34,6 +34,11 @@ export const authApi = {
       accountName,
     })
   },
+  postSignUpVerify: (payload) => {
+    const { token = '' } = payload
+    const url = AUTH_API.SIGN_UP_VERIFY
+    return axiosClient.post(url, { token })
+  },
   postRefreshToken: (payload) => {
     const { refresh_token = '' } = payload
     const url = AUTH_API.REFRESH_TOKEN

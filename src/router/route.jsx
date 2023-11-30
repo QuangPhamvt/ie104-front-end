@@ -14,6 +14,8 @@ const NotFoundView = withSuspense(React.lazy(() => import('@/view/NotFound')))
 const HistoryView = withSuspense(React.lazy(() => import('@/view/HistoryView')))
 const DetailPostView = withSuspense(React.lazy(() => import('@/view/DetailPostView')))
 const SecureCheckoutView = withSuspense(React.lazy(() => import('@/view/SecureCheckoutView')))
+const CheckEmailView = withSuspense(React.lazy(() => import('@/view/CheckEmailView')))
+const VerifyTokenView = withSuspense(React.lazy(() => import('@/view/VerifyTokenView')))
 
 export const PrivateRoute = []
 export const routes = [
@@ -58,5 +60,13 @@ export const routes = [
         element: <NotFoundView />,
       },
     ],
+  },
+  {
+    path: PATH.CHECK_EMAIL_REDIRECT,
+    element: <CheckEmailView />,
+  },
+  {
+    path: PATH.CHECK_SIGNUP_VERIFY,
+    element: <VerifyTokenView />,
   },
 ]

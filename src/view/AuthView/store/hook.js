@@ -27,7 +27,7 @@ import { checkIsMail, isExpired } from '@/utilities/fnc'
 import { authCheckAccountBankSelector, getListProvinceSelector } from './selector'
 import { dropDownUserDetailHeaderAtom } from '@/components/Layout/HeaderLayout/store'
 import locationApi from '@/api/locationApi'
-
+import { useNavigate } from 'react-router-dom'
 export const useChangeAuthSignInForm = () => {
   const setAuthSignInModal = useSetRecoilState(authSignInModalAtom)
   const handleChangeAuthSignInForm = React.useCallback(
@@ -128,69 +128,88 @@ export const useSignInSubmitAuthForm = () => {
   return { handleSignInSubmitAuthForm }
 }
 export const useSignUpSubmitAuthForm = () => {
+  const navigate = useNavigate()
   const authSignUpModal = useRecoilValue(authSignUpModalAtom)
-  const setAuth = useSetRecoilState(authAtom)
+  // const setAuth = useSetRecoilState(authAtom)
   const setAuthSignUpStatusFormSubmit = useSetRecoilState(authSignUpStatusFormSubmitAtom)
 
-  const handleSignUpSubmitAuthForm = React.useCallback(
-    async (event) => {
-      event.preventDefault()
-      try {
-        let response
-        setAuthSignUpStatusFormSubmit({ status: STATUS_API_POST.LOADING, data: undefined })
-        if (authSignUpModal.data.role === ROLE.SELLER) {
-          const { email, username, password, role, province, district, ward, acqId, accountNo, accountName } =
-            authSignUpModal.data
-          response = await authApi.postSignUp({
-            email,
-            username,
-            password,
-            role,
-            province,
-            district,
-            ward,
-            acqId,
-            accountNo,
-            accountName,
-          })
-        }
-        if (authSignUpModal.data.role === ROLE.BUYER) {
-          const { email, username, password, role, province, district, ward } = authSignUpModal.data
-          response = await authApi.postSignUp({ email, username, password, role, province, district, ward })
+  const handleSignUpSubmitAuthForm = async (event) => {
+    event.preventDefault()
+    try {
+      let response
+      setAuthSignUpStatusFormSubmit({ status: STATUS_API_POST.LOADING, data: undefined })
+      if (authSignUpModal.data.role === ROLE.SELLER) {
+        const { email, username, password, role, province, district, ward, acqId, accountNo, accountName } =
+          authSignUpModal.data
+        if (
+          !email ||
+          !username ||
+          !password ||
+          !role ||
+          !province ||
+          !district ||
+          !ward ||
+          !acqId ||
+          !accountNo ||
+          !accountName ||
+          !checkIsMail(email)
+        ) {
+          throw { data: { message: 'SomeThing not sign in form!' } }
         }
 
-        setAuthSignUpStatusFormSubmit({
-          status: STATUS_API_POST.HAS_VALUE,
-          message: response.data.data.message,
-          data: { ...response.data.data },
-        })
-        setAccessTokenLocalStorage(response.data.data.access_token)
-        setRefreshTokenLocalStorage(response.data.data.refresh_token)
-        const profile = jwtDecode(response.data.data.access_token)
-        setProfileLocalStorage(JSON.stringify({ ...profile, isLoggedIn: true }))
-        setAuth({
-          state: STATE.HAS_VALUE,
-          data: {
-            isLoggedIn: true,
-            id: profile.id,
-            role: profile.role,
-            username: profile.username,
-            province: profile.province,
-            district: profile.district,
-            ward: profile.ward,
-          },
-        })
-      } catch (error) {
-        console.log(error.data)
-        setAuthSignUpStatusFormSubmit({
-          status: STATUS_API_POST.HAS_ERROR,
-          message: error.data.message,
-          data: undefined,
+        response = await authApi.postSignUp({
+          email,
+          username,
+          password,
+          role,
+          province,
+          district,
+          ward,
+          acqId,
+          accountNo,
+          accountName,
         })
       }
-    },
-    [authSignUpModal.data, setAuth, setAuthSignUpStatusFormSubmit],
-  )
+      if (authSignUpModal.data.role === ROLE.BUYER) {
+        const { email, username, password, role, province, district, ward } = authSignUpModal.data
+        console.log(authSignUpModal.data)
+        if (!email || !username || !password || !role || !province || !district || !ward || !checkIsMail(email)) {
+          throw { data: { message: 'SomeThing not sign in form!' } }
+        }
+        response = await authApi.postSignUp({ email, username, password, role, province, district, ward })
+      }
+      if (!authSignUpModal.data.role) {
+        throw { data: { message: 'SomeThing not sign in form!' } }
+      }
+      setAuthSignUpStatusFormSubmit({
+        status: STATUS_API_POST.HAS_VALUE,
+        message: response.data.message,
+      })
+      navigate('/signup/redirect')
+      // setAccessTokenLocalStorage(response.data.data.access_token)
+      // setRefreshTokenLocalStorage(response.data.data.refresh_token)
+      // const profile = jwtDecode(response.data.data.access_token)
+      // setProfileLocalStorage(JSON.stringify({ ...profile, isLoggedIn: true }))
+      // setAuth({
+      //   state: STATE.HAS_VALUE,
+      //   data: {
+      //     isLoggedIn: true,
+      //     id: profile.id,
+      //     role: profile.role,
+      //     username: profile.username,
+      //     province: profile.province,
+      //     district: profile.district,
+      //     ward: profile.ward,
+      //   },
+      // })
+    } catch (error) {
+      console.error(error)
+      setAuthSignUpStatusFormSubmit({
+        status: STATUS_API_POST.HAS_ERROR,
+        message: error.data.message,
+      })
+    }
+  }
   return { handleSignUpSubmitAuthForm }
 }
 
