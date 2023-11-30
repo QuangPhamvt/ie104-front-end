@@ -11,31 +11,28 @@ export const AuthSignUpStepOneModalComponent = () => {
   return (
     <>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-500'>Email Address</p>
         <input
-          placeholder='email@example.com'
+          placeholder='Email Address'
           type='text'
           name='email'
           value={authSignUpModal.data.email || ''}
           onChange={handleChangeAuthSignUpForm}
-          className='w-full px-4 py-4 border-1 border-solid rounded-md'
+          className='w-full px-4 py-4 border-solid rounded-md border-1'
           style={{ borderColor: 'black' }}
         />
       </label>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-500'>Password</p>
         <input
           type='password'
-          placeholder='*********'
+          placeholder='Password'
           name='password'
           value={authSignUpModal.data.password || ''}
           onChange={handleChangeAuthSignUpForm}
-          className='w-full px-4 py-4 border-1 border-solid rounded-md'
+          className='w-full px-4 py-4 border-solid rounded-md border-1'
           style={{ borderColor: 'black' }}
         />
       </label>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-500'>Confirm Password</p>
         <input
           placeholder='Confirm password'
           type='password'
@@ -52,7 +49,7 @@ export const AuthSignUpStepOneModalComponent = () => {
               setIsComparePass('hasFalse')
             }
           }}
-          className='w-full px-4 py-4 border-1 border-solid rounded-md'
+          className='w-full px-4 py-4 border-solid rounded-md border-1'
           style={{ borderColor: 'black' }}
         />
         {isComparePass === 'hasTrue' && <p style={{ color: 'green' }}>Passwords match</p>}
@@ -60,7 +57,7 @@ export const AuthSignUpStepOneModalComponent = () => {
       </label>
       <button
         onClick={() => setAuthSignUpStepModal({ step: AUTH_SIGN_UP_STEP_MODEL.TWO })}
-        className='px-4 py-2 w-3/5 bg-orange-500 text-xl font-bold text-white rounded'
+        className='w-3/5 px-4 py-2 text-xl font-bold text-white bg-orange-500 rounded btn-sign'
       >
         NEXT
       </button>

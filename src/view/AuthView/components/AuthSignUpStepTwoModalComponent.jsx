@@ -4,13 +4,11 @@ import {
   AUTH_SIGN_UP_STEP_MODEL,
   Auth,
   authSignUpModalAtom,
-  authSignUpStatusFormSubmitAtom,
   getListProvinceSelector,
   districtAtom,
   wardAtom,
 } from '../store'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
-import { STATUS_API_POST } from '@/utilities'
 import React from 'react'
 
 export const AuthSignUpStepTwoModalComponent = () => {
@@ -18,7 +16,6 @@ export const AuthSignUpStepTwoModalComponent = () => {
   const getListDistrict = useRecoilValue(districtAtom)
   const getListWard = useRecoilValue(wardAtom)
   const authSignUpModal = useRecoilValue(authSignUpModalAtom)
-  const authSignUpStatusFormSubmit = useRecoilValue(authSignUpStatusFormSubmitAtom)
   const setAuthSignUpStepModal = useSetRecoilState(authSignUpStepModalAtom)
   const { handleSignUpSubmitAuthForm } = Auth.useSignUpSubmitAuthForm()
   const { handleChangeAuthSignUpForm } = Auth.useChangeAuthSignUpForm()
@@ -35,24 +32,22 @@ export const AuthSignUpStepTwoModalComponent = () => {
     <>
       {/* USERNAME */}
       <label className='w-3/5'>
-        <p className='text-xl text-gray-500'>Username</p>
         <input
           type='text'
-          placeholder='username'
+          placeholder='Username'
           name='username'
           value={authSignUpModal.data.username}
           onChange={handleChangeAuthSignUpForm}
-          className='w-full px-4 py-4 border-1 border-solid rounded-md'
+          className='w-full px-4 py-4 border-solid rounded-md border-1 '
           style={{ borderColor: 'black' }}
         />
       </label>
 
       {/* PROVINCE */}
       <label className='w-3/5'>
-        <p className='text-base text-gray-500'>Province</p>
-        <div className='flex flex-row space-x-4 items-center'>
+        <div className='flex flex-row items-center space-x-4 '>
           <select
-            className='p-2 rounded-md  border-1 border-gray-500 border-solid'
+            className='w-full p-2 border-gray-500 border-solid rounded-md border-1'
             name='province'
             onChange={handleChangeAuthSignUpForm}
           >
@@ -75,14 +70,13 @@ export const AuthSignUpStepTwoModalComponent = () => {
 
       {/* DISTRICT*/}
       <label className='w-3/5'>
-        <p className='text-base text-gray-500'>District</p>
-        <div className='flex flex-row space-x-4 items-center'>
+        <div className='flex flex-row items-center w-full space-x-4'>
           <select
-            className='p-2 rounded-md  border-1 border-gray-500 border-solid'
+            className='w-full p-2 border-gray-500 border-solid rounded-md border-1'
             name='district'
             onChange={handleChangeAuthSignUpForm}
           >
-            <option>Please choice Province </option>
+            <option>Please choice District</option>
             {getListDistrict.states === 'hasValue' &&
               getListDistrict.data.map((item) => {
                 return (
@@ -101,10 +95,9 @@ export const AuthSignUpStepTwoModalComponent = () => {
 
       {/* WARDs*/}
       <label className='w-3/5'>
-        <p className='text-base text-gray-500'>Wards</p>
-        <div className='flex flex-row space-x-4 items-center'>
+        <div className='flex flex-row items-center space-x-4'>
           <select
-            className='p-2 rounded-md  border-1 border-gray-500 border-solid'
+            className='w-full p-2 border-gray-500 border-solid rounded-md border-1'
             name='ward'
             onChange={handleChangeAuthSignUpForm}
           >
@@ -126,9 +119,9 @@ export const AuthSignUpStepTwoModalComponent = () => {
       </label>
 
       {/* ROLE */}
-      <section className='w-3/5 flex flex-row space-x-2'>
-        <p className='text-xl text-gray-500 mr-2'>Role</p>
-        <div className='flex flex-row justify-center items-center'>
+      <section className='flex flex-row w-3/5 space-x-2'>
+        <p className='mr-2 text-xl text-gray-500'>Role</p>
+        <div className='flex flex-row items-center justify-center'>
           <input
             onChange={handleChangeAuthSignUpForm}
             id='BuyerSignUp'
@@ -144,7 +137,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
             Buyer
           </label>
         </div>
-        <div className='flex flex-row justify-center items-center'>
+        <div className='flex flex-row items-center justify-center'>
           <input
             onChange={handleChangeAuthSignUpForm}
             id='SellerSignUp'
@@ -162,17 +155,13 @@ export const AuthSignUpStepTwoModalComponent = () => {
         </div>
       </section>
 
-      {authSignUpStatusFormSubmit.status === STATUS_API_POST.HAS_ERROR && (
-        <p style={{ color: 'red' }}>{authSignUpStatusFormSubmit.message}</p>
-      )}
-
-      <section className='w-3/5 flex flex-row justify-center space-x-2'>
+      <section className='flex flex-row justify-center w-3/5 space-x-2'>
         <button
           onClick={(e) => {
             e.preventDefault()
             setAuthSignUpStepModal({ step: AUTH_SIGN_UP_STEP_MODEL.ONE })
           }}
-          className='px-4 py-1 text-lg text-gray-500 font-bold w-full border-1 border-solid border-black rounded'
+          className='w-full px-4 py-1 text-lg font-bold text-gray-500 border-black border-solid rounded border-1 btn-sign'
         >
           PREVIOUS
         </button>
@@ -182,14 +171,14 @@ export const AuthSignUpStepTwoModalComponent = () => {
               e.preventDefault()
               setAuthSignUpStepModal({ step: AUTH_SIGN_UP_STEP_MODEL.THREE })
             }}
-            className='px-4 py-1 text-lg font-bold text-white w-full bg-orange-500 rounded'
+            className='w-full px-4 py-1 text-lg font-bold text-white bg-orange-500 rounded'
           >
             NEXT
           </button>
         ) : (
           <button
             onClick={handleSignUpSubmitAuthForm}
-            className='px-4 py-1 text-lg font-bold text-white w-full bg-orange-500 rounded'
+            className='w-full px-4 py-1 text-lg font-bold text-white bg-orange-500 rounded btn-sign'
           >
             OK
           </button>

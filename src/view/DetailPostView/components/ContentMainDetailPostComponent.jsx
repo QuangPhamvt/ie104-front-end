@@ -7,8 +7,8 @@ export const ItemContentMainDetailPostComponent = (props) => {
   const { product_id, title, picture, description, price } = props
   const { handleAddDetailProductToCart } = DetailProduct.useAddDetailProductToCart()
   return (
-    <article className='flex flex-row space-x-6 justify-between w-full h-full'>
-      <section className='flex flex-col space-y-6'>
+    <article className='flex flex-row space-x-6 justify-between items-center w-full h-full p-4 shadow border-1 border-solid border-gray-200 rounded-xl'>
+      <section className='flex flex-col space-y-2 h-full justify-center '>
         <h2 className='font-light'>{title}</h2>
         <p className='inline-flex'>
           <GiMoneyStack />
@@ -18,13 +18,13 @@ export const ItemContentMainDetailPostComponent = (props) => {
       </section>
       <section className=' relative w-40 '>
         <img
-          className='h-40 w-40 aspect-square rounded-2xl'
+          className='h-32 w-32 aspect-square rounded-2xl border-1 border-solid border-gray-100'
           src={picture || ''}
           alt=''
           loading='Loading...'
         />
         <button
-          style={{ top: '140px', left: 32 }}
+          style={{ top: '100px', left: 18 }}
           className='absolute px-6 py-3 shadow-md rounded-xl bg-white'
           onClick={(event) => {
             event.preventDefault()
@@ -49,7 +49,7 @@ export const ContentMainDetailPostComponent = () => {
   return (
     <article>
       {status === 'loading' ? (
-        <div className='w-full flex justify-center items-center py-4'>
+        <div className='w-full flex justify-center items-center py-4 '>
           <ThreeCircles
             color='#FFA33C'
             height={50}
@@ -57,7 +57,7 @@ export const ContentMainDetailPostComponent = () => {
           />
         </div>
       ) : (
-        <>
+        <div className='flex-col flex space-y-4'>
           {data.map((item) => (
             <ItemContentMainDetailPostComponent
               key={item.product_id}
@@ -68,7 +68,7 @@ export const ContentMainDetailPostComponent = () => {
               description={item.description}
             />
           ))}
-        </>
+        </div>
       )}
     </article>
   )

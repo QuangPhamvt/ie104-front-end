@@ -1,5 +1,10 @@
 export * from './acq_id'
 export * from './location_city'
+export const TYPE = {
+  SUCCESS: 'success',
+  ERROR: 'error',
+  WARNING: 'warning',
+}
 export const STATE = {
   IDLE: 'idle',
   HAS_VALUE: 'hasValue',

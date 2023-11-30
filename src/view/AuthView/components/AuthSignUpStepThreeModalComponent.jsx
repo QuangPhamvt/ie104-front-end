@@ -1,18 +1,11 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import {
-  AUTH_SIGN_UP_STEP_MODEL,
-  Auth,
-  authSignUpModalAtom,
-  authSignUpStatusFormSubmitAtom,
-  authSignUpStepModalAtom,
-} from '../store'
+import { AUTH_SIGN_UP_STEP_MODEL, Auth, authSignUpModalAtom, authSignUpStepModalAtom } from '../store'
 import { ModalCheckAccountSellerComponent } from './ModalCheckAccountSellerComponent'
-import { ACQ_ID, STATUS_API_POST } from '@/utilities'
+import { ACQ_ID } from '@/utilities'
 
 export const AuthSignUpStepThreeModalComponent = () => {
   const authSignUpModal = useRecoilValue(authSignUpModalAtom)
   const setAuthSignUpStepModal = useSetRecoilState(authSignUpStepModalAtom)
-  const { message, status } = useRecoilValue(authSignUpStatusFormSubmitAtom)
   const { handleSignUpSubmitAuthForm } = Auth.useSignUpSubmitAuthForm()
   const { handleChangeAuthSignUpForm } = Auth.useChangeAuthSignUpForm()
   const { handleOpenCheckAccountModal } = Auth.useCheckoutAccountBank()
@@ -58,7 +51,6 @@ export const AuthSignUpStepThreeModalComponent = () => {
           style={{ borderColor: 'black' }}
         />
       </label>
-      {status === STATUS_API_POST.HAS_ERROR && <p style={{ color: 'red' }}>{message}</p>}
       <section className='w-3/5 flex flex-row justify-center space-x-6'>
         <button
           onClick={(e) => {

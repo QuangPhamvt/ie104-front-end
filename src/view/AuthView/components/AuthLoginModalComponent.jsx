@@ -11,42 +11,37 @@ export const AuthLoginModalComponent = () => {
   const { handleSignInSubmitAuthForm } = Auth.useSignInSubmitAuthForm()
   const authSignInStatusFormSubmit = useRecoilValue(authSignInStatusFormSubmitAtom)
   return (
-    <form className='flex flex-col space-y-5 p-4 w-full items-center'>
+    <form className='flex flex-col items-center w-full p-4 space-y-5'>
       <LoadingView isLoading={authSignInStatusFormSubmit.state === STATUS_API_POST.LOADING} />
       <label className='w-3/5'>
-        <p className='text-xl text-gray-500'>Email Address</p>
         <input
           type='text'
           name='email'
-          placeholder='email@example.com'
+          placeholder='Email Address'
           value={authSignInModal.data.email}
           onChange={handleChangeAuthSignInForm}
-          className='w-full px-4 py-4 border-1 border-solid rounded-md'
+          className='w-full px-4 py-4 border-solid rounded-md border-1'
           style={{ borderColor: 'black' }}
         />
       </label>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-500'>Password</p>
         <input
           placeholder='Password'
           type='password'
           name='password'
           value={authSignInModal.data.password}
           onChange={handleChangeAuthSignInForm}
-          className='w-full px-4 py-4 border-1 border-solid rounded-md'
+          className='w-full px-4 py-4 border-solid rounded-md border-1'
           style={{ borderColor: 'black' }}
         />
       </label>
-      {authSignInStatusFormSubmit.status === STATUS_API_POST.HAS_ERROR && (
-        <p style={{ color: 'red' }}>{authSignInStatusFormSubmit.message}</p>
-      )}
       <button
         onClick={(event) => {
           event.preventDefault()
           handleSignInSubmitAuthForm()
           resetAuthSignInForm()
         }}
-        className='p-2 w-3/5 bg-orange-500 text-white font-bold text-xl'
+        className='w-3/5 p-2 text-xl font-bold text-white bg-orange-500 btn-sign'
       >
         Sign In
       </button>
