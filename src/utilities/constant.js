@@ -20,6 +20,7 @@ export const AUTH_SIGN_UP_MODAL_STATE = {
 export const AUTH_API = {
   SIGN_IN: 'auth/sign-in',
   SIGN_UP: 'auth/sign-up',
+  SIGN_UP_VERIFY: 'auth/sign-up/verify',
   REFRESH_TOKEN: 'auth/refresh_token',
   PROFILE: 'auth/profile',
   CHECK_ACCOUNT: 'auth/check-account',
