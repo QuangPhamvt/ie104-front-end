@@ -1,8 +1,10 @@
-# DEMO
+# FRONTEND for IE104 Project
 
 ## About The Project
 
-This is Project Web IE104.
+This is Project Web IE104. I hope it can help you sometime in the future. So when u clone my project, pleas gift me 1 star.
+
+**Yeah!! HAVE A GOOD DAY**
 
 ### Built With
 
@@ -44,6 +46,11 @@ $ yarn install
 ```
 VITE_API_URL="http://localhost:3000/api/v1" #connect to server
 ```
+4. Prepare
+- Config husky
+```
+yarn prepare
+```
 
 ### Usage
 
@@ -59,43 +66,52 @@ $ yarn run dev
 ### Client
 
 - Feature
-  - /home -> show post list
-  - /post/:id -> show blog to read
+  - /Dashboard -> show home page
+  - /search -> search product to order
+  - /history -> show history order
+  - /seller -> just use for seller, you can see all information product detail
+  - /signup/redirect -> use for redirect to email
+  - /signup/token -> get token to sign up
+  - /* -> not found page
   - Login | Logout | Register for user
-  - /post/new -> write blog for admin
 - Package using
 
 ```
-"dependencies": {
-  "@reduxjs/toolkit": "^1.9.6",
-  "axios": "^1.5.1",
-  "dayjs": "^1.11.10",
-  "react": "^18.2.0",
-  "react-dom": "^18.2.0",
-  "react-redux": "^8.1.2"
-},
-"devDependencies": {
-  "@commitlint/cli": "^17.7.2",
-  "@commitlint/config-conventional": "^17.7.0",
-  "@types/react": "^18.2.15",
-  "@types/react-dom": "^18.2.7",
-  "@vitejs/plugin-react-swc": "^3.3.2",
-  "eslint": "^8.45.0",
-  "eslint-plugin-react": "^7.32.2",
-  "eslint-plugin-react-hooks": "^4.6.0",
-  "eslint-plugin-react-refresh": "^0.4.3",
-  "husky": "^8.0.3",
-  "lint-staged": "^14.0.1",
-  "prettier": "^3.0.3",
-  "vite": "^4.4.5"
-},
+  "dependencies": {
+    "axios": "^1.5.1",
+    "dayjs": "^1.11.10",
+    "jwt-decode": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-loader-spinner": "^5.4.5",
+    "react-router-dom": "^6.18.0",
+    "recoil": "^0.7.7",
+    "vite-plugin-svgr": "^4.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.2",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "sass": "^1.69.5",
+    "vite": "^4.4.5"
+  },
 ```
 
 ### Technology
 
 ## Link Demo
 
-link: [https://ie104-front-end.vercel.app/](http://fe.ie104.customafk.com/)
+link: [https://fe.ie104.customafk.com](http://fe.ie104.customafk.com/)
 
 ## How to push
 
