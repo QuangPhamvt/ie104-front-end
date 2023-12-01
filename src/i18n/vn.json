@@ -1,0 +1,106 @@
+{
+  "hello_world": "Hello world",
+  "change_language": {
+    "EN": "Tiếng Anh",
+    "VN": "Tiếng Việt"
+  },
+  "HEADER_LAYOUT": {
+    "SEARCH_PLACEHOLDER": "Nhập sản phẩm hoặc cửa hàng cần tìm kiếm",
+    "PROFILE": "Hồ sơ",
+    "HISTORY": "Lịch sử",
+    "LOG_OUT": "Đăng xuất"
+  },
+  "AUTH_VIEW": {
+    "USERNAME": "Tên tài khoản",
+    "EMAIL_ADDRESS": "Địa chỉ email",
+    "PASSWORD": "Mật khẩu",
+    "CONFIRM_PASSWORD": "Xác nhận mật khẩu",
+    "SIGN_IN": "Đăng Nhập",
+    "SIGN_UP": "Đăng Ký",
+    "DON_HAVE_ACCOUNT": "Bạn không có tài khoản?",
+    "ALREADY_HAVE_ACCOUNT": "Bạn đã có tài khoản?",
+    "NEXT": "TIẾP THEO",
+    "PREVIOUS": "QUAY VỀ",
+    "OK": "Xác nhận",
+    "CHOICE_PROVINCE": "Hãy chọn tỉnh thành",
+    "CHOICE_DISTRICT": "Hãy chọn huyện, thành phố",
+    "CHOICE_WARD": "Hãy chọn phường, xã",
+    "BUYER": "Người mua",
+    "SELLER": "Người bán",
+    "CHOOSE_BANK": "Ngân Hàng",
+    "PLEASE_CHOICE_ONE": "Chọn ngân hàng của bạn",
+    "ID_BANK": "Số tài khoản",
+    "ENTER_YOUR_BANK": "Nhập số tài khoản của bạn"
+  },
+  "HOME_VIEW": {
+    "POPULAR_CITES_IN_VIETNAM": "Thành phố nổi tiếng ở Việt Nam",
+    "HCM": "Hồ Chí Minh",
+    "HN": "Hà Nội",
+    "DN": "Đà Nẵng",
+    "CT": "Cần Thơ",
+    "HUE": "Huế",
+
+    "RECOMMENDED_FOOD_ITEMS": "Danh sách thực phẩm khuyến nghị",
+    "SEARCH_SELLER": "Tìm người bán",
+    "ENTER_ITEM_OR_USERNAME_YOU_ARE_LOOKING_FOR": "Nhập sản phẩm hoặc người bán, bạn cần tìm",
+    "SEARCH_NOW": "Tìm Ngay",
+    "WHAT_ON_MIND": "Bạn đang nghĩ tới?",
+    "PIZZA": "Pizza",
+    "BUGGER": "Bánh mì kẹp thịt",
+    "NOODLES": "Mì ống",
+    "SANDWICH": "Sandwich",
+    "CHOWEIN": "Mì xào",
+    "STEAK": "Bít tết",
+    "PERSONALIZED_RECOMMENDATIONS": "Đề xuất được cá nhân hoá"
+  },
+
+  "HISTORY_VIEW": {
+    "HISTORY_VIEW": "Lịch sử cá nhân",
+    "MANAGE_CART_ORDER": "Quản lý giỏ hàng",
+    "CART_LIST": "Danh sách sản phẩm",
+    "HAVE_ORDERED": "Đã đặt hàng"
+  },
+
+  "SELLER_VIEW": {
+    "SIDEBAR": {
+      "MANAGE_MY_ACCOUNT": "Quản lý thông tin",
+      "MY_PROFILE": "Thông tin chung",
+      "CHANGE_PROFILE": "Sửa đổi thông tin",
+
+      "MANAGE_PRODUCT_LIST": "Quản lý danh sách sản phẩm",
+      "CREATE_PRODUCT": "Tạo sản phẩm",
+      "LIST_PRODUCT": "Danh sách sản phẩm",
+
+      "DETAIL_ORDER": "Chi tiết đơn hàng",
+      "DELIVERED": "Đã giao hàng",
+      "PROCESSING": "Trong quá trình",
+      "NOTIFICATION": "Thông báo"
+    },
+    "CREATE_PRODUCT": {
+      "CREATE_YOUR_PRODUCT": "Tạo sản phẩm của bạn",
+      "TITLE_PRODUCTION": "Tiêu đề cho sản phẩm",
+      "ENTER_TITLE_PRODUCTION": "Nhập tiêu đề cho sản phẩm",
+      "CATEGORIES": "Mục",
+
+      "DESCRIPTION": "Mô tả",
+      "ENTER_DESCRIPTION_PRODUCTION": "Nhập mô tả cho sản phẩm",
+
+      "UPLOAD_IMAGE": "Đăng tải ảnh",
+
+      "LOCATION_SHOP": "Địa phương",
+      "MONEY": "Giá tiền",
+      "SPEND": "Giá",
+
+      "CANCEL": "Huỷ",
+      "SAVE_PRODUCTION": "Lưu Sản Phẩm"
+    },
+
+    "LIST_PRODUCT": {
+      "LIST_PRODUCT": "List Sản Phẩm",
+      "ORDER_ID": "Mã Số Sản Phẩm",
+      "CREATE_AT": "Ngày Tạo",
+      "BUYER": "Người mua",
+      "STATUS": "Trạng thái"
+    }
+  }
+}

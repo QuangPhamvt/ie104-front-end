@@ -1,18 +1,19 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { AUTH_SIGN_UP_STEP_MODEL, Auth, authSignUpModalAtom, authSignUpStepModalAtom } from '../store'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 export const AuthSignUpStepOneModalComponent = () => {
+  const { t } = useTranslation()
   const authSignUpModal = useRecoilValue(authSignUpModalAtom)
   const setAuthSignUpStepModal = useSetRecoilState(authSignUpStepModalAtom)
   const { handleChangeAuthSignUpForm } = Auth.useChangeAuthSignUpForm()
   const [confirmPass, setConfirmPass] = React.useState('')
   const [isComparePass, setIsComparePass] = React.useState('idle')
-  console.log(authSignUpModal.data)
   return (
     <>
       <label className='w-3/5'>
         <input
-          placeholder='Email Address'
+          placeholder={t('AUTH_VIEW.EMAIL_ADDRESS')}
           type='text'
           name='email'
           value={authSignUpModal.data.email || ''}
@@ -24,7 +25,7 @@ export const AuthSignUpStepOneModalComponent = () => {
       <label className='w-3/5'>
         <input
           type='password'
-          placeholder='Password'
+          placeholder={t('AUTH_VIEW.PASSWORD')}
           name='password'
           value={authSignUpModal.data.password || ''}
           onChange={handleChangeAuthSignUpForm}
@@ -34,9 +35,9 @@ export const AuthSignUpStepOneModalComponent = () => {
       </label>
       <label className='w-3/5'>
         <input
-          placeholder='Confirm password'
+          placeholder={t('AUTH_VIEW.CONFIRM_PASSWORD')}
           type='password'
-          name='password'
+          name='confirm_password'
           value={confirmPass}
           onChange={(event) => {
             setConfirmPass(event.target.value)
@@ -59,7 +60,7 @@ export const AuthSignUpStepOneModalComponent = () => {
         onClick={() => setAuthSignUpStepModal({ step: AUTH_SIGN_UP_STEP_MODEL.TWO })}
         className='w-3/5 px-4 py-2 text-xl font-bold text-white bg-orange-500 rounded btn-sign'
       >
-        NEXT
+        {t('AUTH_VIEW.NEXT')}
       </button>
     </>
   )

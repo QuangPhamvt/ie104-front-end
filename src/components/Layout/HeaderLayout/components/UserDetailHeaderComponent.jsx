@@ -28,7 +28,8 @@ export const UserDetailHeaderComponent = () => {
     >
       <button
         onClick={handelOpenDropDown}
-        className='flex items-center px-3 py-2 rounded-lg bg-amber-500  border-1 border-solid border-gray-300'
+        className='flex items-center px-3 py-2 rounded-lg bg-amber-500  border-2 border-solid border-gray-50'
+        style={{ backgroundColor: 'rgb(247,107,28, 0.7)' }}
       >
         <FaUserAlt
           size={24}

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet'
 import React from 'react'
 import { IntroductionHomeComponent, RecommendHomeComponent, SearchSellerHomeComponent } from './components'
 import { RecommendedFoodHomeComponent } from './components/RecommendFoodHomeComponent'
@@ -21,9 +22,13 @@ const HomeView = () => {
   }, [])
   return (
     <main
-      className='flex flex-col mt-28 space-y-28 '
+      className='flex flex-col mt-28 space-y-28 w-screen h-fit'
       style={{ backgroundColor: '#F7FAFC' }}
     >
+      <Helmet>
+        <meta charSet='urf-8' />
+        <title>IE104 FRONT END | HOME</title>
+      </Helmet>
       <IntroductionHomeComponent />
       <RecommendedFoodHomeComponent />
       <SearchSellerHomeComponent />

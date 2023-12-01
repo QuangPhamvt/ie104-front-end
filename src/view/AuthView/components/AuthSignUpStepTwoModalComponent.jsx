@@ -10,8 +10,10 @@ import {
 } from '../store'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 export const AuthSignUpStepTwoModalComponent = () => {
+  const { t } = useTranslation()
   const listProvinceSelector = useRecoilValueLoadable(getListProvinceSelector)
   const getListDistrict = useRecoilValue(districtAtom)
   const getListWard = useRecoilValue(wardAtom)
@@ -34,7 +36,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
       <label className='w-3/5'>
         <input
           type='text'
-          placeholder='Username'
+          placeholder={t('AUTH_VIEW.USERNAME')}
           name='username'
           value={authSignUpModal.data.username}
           onChange={handleChangeAuthSignUpForm}
@@ -51,7 +53,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
             name='province'
             onChange={handleChangeAuthSignUpForm}
           >
-            <option>Please choice Province </option>
+            <option>{t('AUTH_VIEW.CHOICE_PROVINCE')}</option>
             {listProvinceSelector.state === 'hasValue' &&
               listProvinceSelector?.contents?.map((item) => {
                 return (
@@ -76,7 +78,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
             name='district'
             onChange={handleChangeAuthSignUpForm}
           >
-            <option>Please choice District</option>
+            <option>{t('AUTH_VIEW.CHOICE_DISTRICT')}</option>
             {getListDistrict.states === 'hasValue' &&
               getListDistrict.data.map((item) => {
                 return (
@@ -101,7 +103,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
             name='ward'
             onChange={handleChangeAuthSignUpForm}
           >
-            <option>Please choice wards</option>
+            <option>{t('AUTH_VIEW.CHOICE_WARD')}</option>
             {getListWard.state === 'hasValue' &&
               getListWard.data.map((item) => {
                 return (
@@ -134,7 +136,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
             htmlFor='BuyerSignUp'
             className='px-2'
           >
-            Buyer
+            {t('AUTH_VIEW.BUYER')}
           </label>
         </div>
         <div className='flex flex-row items-center justify-center'>
@@ -150,7 +152,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
             htmlFor='SellerSignUp'
             className='px-2'
           >
-            Seller
+            {t('AUTH_VIEW.SELLER')}
           </label>
         </div>
       </section>
@@ -163,7 +165,7 @@ export const AuthSignUpStepTwoModalComponent = () => {
           }}
           className='w-full px-4 py-1 text-lg font-bold text-gray-500 border-black border-solid rounded border-1 btn-sign'
         >
-          PREVIOUS
+          {t('AUTH_VIEW.PREVIOUS')}
         </button>
         {authSignUpModal.data.role === 'seller' ? (
           <button
@@ -173,14 +175,14 @@ export const AuthSignUpStepTwoModalComponent = () => {
             }}
             className='w-full px-4 py-1 text-lg font-bold text-white bg-orange-500 rounded'
           >
-            NEXT
+            {t('AUTH_VIEW.NEXT')}
           </button>
         ) : (
           <button
             onClick={handleSignUpSubmitAuthForm}
             className='w-full px-4 py-1 text-lg font-bold text-white bg-orange-500 rounded btn-sign'
           >
-            OK
+            {t('AUTH_VIEW.OK')}
           </button>
         )}
       </section>

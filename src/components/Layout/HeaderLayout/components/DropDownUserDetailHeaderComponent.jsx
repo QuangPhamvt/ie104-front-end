@@ -3,8 +3,10 @@ import { dropDownUserDetailHeaderAtom } from '../store'
 import { Auth, authAtom } from '@/view/AuthView/store'
 import { ROLE } from '@/utilities'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export const DropDownUserDetailHeaderComponent = () => {
+  const { t } = useTranslation()
   const auth = useRecoilValue(authAtom)
   const [openDropDown, setOpenDropDown] = useRecoilState(dropDownUserDetailHeaderAtom)
   const navigate = useNavigate()
@@ -29,7 +31,7 @@ export const DropDownUserDetailHeaderComponent = () => {
             }}
             className='menu--btn rounded py-2 px-4 font-semibold bg-white border-b-1 border-solid border-gray-400'
           >
-            Profile
+            {t('HEADER_LAYOUT.PROFILE')}
           </button>
         )}
         <button
@@ -40,7 +42,7 @@ export const DropDownUserDetailHeaderComponent = () => {
           }}
           className='menu--btn rounded py-2 px-4 font-semibold bg-white border-b-1 border-solid border-gray-400'
         >
-          History
+          {t('HEADER_LAYOUT.HISTORY')}
         </button>
         <button
           className='menu--btn rounded py-2 px-4 font-semibold bg-white border-b-1 border-solid border-gray-400'
@@ -51,7 +53,7 @@ export const DropDownUserDetailHeaderComponent = () => {
             logOut()
           }}
         >
-          Log Out
+          {t('HEADER_LAYOUT.LOG_OUT')}
         </button>
       </div>
     </section>

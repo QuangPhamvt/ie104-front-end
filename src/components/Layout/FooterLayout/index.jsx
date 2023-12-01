@@ -15,11 +15,8 @@ export const FooterLayout = () => {
   return (
     <>
       {auth.state === STATE.HAS_VALUE && (
-        <footer
-          style={{ bottom: 0 }}
-          className=' sticky grid w-screen grid-cols-4 bg-gray-800 h-76 mt-28 '
-        >
-          <article className='flex flex-col p-8'>
+        <footer className=' grid w-screen grid-cols-4 bg-gray-800 mt-28 '>
+          <article className='flex flex-col '>
             <div className='flex flex-row space-y-6 text-white'>
               <img
                 src={PUBLIC_IMAGE.BRAND}
