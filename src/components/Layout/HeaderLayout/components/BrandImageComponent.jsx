@@ -14,7 +14,7 @@ export const BrandImageComponent = () => {
         height={50}
         className='ml-4'
       />
-      <h1 className='text-2xl text-white'>BunShop</h1>
+      <h1 className='text-2xl text-orange'>BunShop</h1>
     </section>
   )
 }
