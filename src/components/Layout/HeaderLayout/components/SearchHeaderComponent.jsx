@@ -18,7 +18,7 @@ export const SearchHeaderComponent = () => {
     }))
   }
   return (
-    <article className='bg-white px-4 py-2 w-3/5 flex flex-row justify-between items-center rounded-lg border-1 border-solid border-gray-400'>
+    <article className='bg-white px-4 py-2 w-2/5 flex flex-row justify-between items-center rounded-lg border-1 border-solid border-gray-300'>
       <input
         value={slug || ''}
         onChange={handleChangeInput}
@@ -28,7 +28,7 @@ export const SearchHeaderComponent = () => {
       <IoIosSearch
         size={24}
         onClick={handleSearchProduct}
-        className='hover-cursor'
+        className='hover-cursor text-orange-500'
       />
     </article>
   )

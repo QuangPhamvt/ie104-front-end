@@ -28,13 +28,13 @@ const HeaderLayout = () => {
       {auth.state === STATE.HAS_VALUE && (
         <header
           style={{ top: 0, left: 0, zIndex: 9999 }}
-          className='animate-fadeIn fixed z-50 flex flex-col items-center justify-center w-screen bg-white border-b-1 border-gray-200 border-solid h-28 flex-wrap'
+          className='animate-fadeIn fixed z-50 flex flex-col items-center justify-center w-screen bg-amber-500 border-b-1 border-gray-200 border-solid h-24 flex-wrap'
         >
           <section className='container flex flex-row justify-between mx-auto w-screen'>
             <BrandImageComponent />
             <ContentHeaderComponent />
           </section>
-          <section className='h-2 w-full top-28 absolute '>
+          <section className='h-2 w-full top-24 absolute '>
             <div
               className='h-1 rounded'
               style={{
