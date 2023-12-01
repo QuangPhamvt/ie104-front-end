@@ -1,5 +1,6 @@
 import { RecoilRoot } from 'recoil'
 import { Router } from './router'
+import './i18n'
 
 function App() {
   return (

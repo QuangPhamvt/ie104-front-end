@@ -1,0 +1,107 @@
+{
+  "hello_world": "Hello world",
+  "change_language": {
+    "EN": "English",
+    "VN": "Vietnamese"
+  },
+  "HEADER_LAYOUT": {
+    "SEARCH_PLACEHOLDER": "Enter item or restaurant you are looking for",
+    "PROFILE": "Profile",
+    "HISTORY": "History",
+    "LOG_OUT": "Log Out"
+  },
+  "AUTH_VIEW": {
+    "USERNAME": "Username",
+    "EMAIL_ADDRESS": "Email Address",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "SIGN_IN": "Sign In",
+    "SIGN_UP": "Sign Up",
+    "DON_HAVE_ACCOUNT": "Don’t have An Account?",
+    "ALREADY_HAVE_ACCOUNT": "Already Have An Account?",
+    "NEXT": "NEXT",
+    "PREVIOUS": "PREVIOUS",
+    "OK": "OK",
+    "CHOICE_PROVINCE": "Please choice Province",
+    "CHOICE_DISTRICT": "Please choice District",
+    "CHOICE_WARD": "Please choice Ward",
+    "BUYER": "Buyer",
+    "SELLER": "Seller",
+    "CHOOSE_BANK": "Choice Bank",
+    "PLEASE_CHOICE_ONE": "Please choose one option",
+    "ID_BANK": "ID Bank",
+    "ENTER_YOUR_BANK": "Enter your id bank"
+  },
+  "HOME_VIEW": {
+    "POPULAR_CITES_IN_VIETNAM": "Popular cities in VietNam",
+    "HCM": "Ho Chi Minh",
+    "HN": "Ha Noi",
+    "DN": "Da Nang",
+    "CT": "Can Tho",
+    "HUE": "Hue",
+
+    "RECOMMENDED_FOOD_ITEMS": "Recommended Food Items",
+    "SEARCH_SELLER": "Search Seller",
+    "ENTER_ITEM_OR_USERNAME_YOU_ARE_LOOKING_FOR": "Enter item or username you are looking for",
+    "SEARCH_NOW": "Search Now",
+    "WHAT_ON_MIND": "What' on your mind",
+    "PIZZA": "Pizza",
+    "BUGGER": "Burger",
+    "NOODLES": "Noodles",
+    "SANDWICH": "Sandwich",
+    "CHOWEIN": "Chowein",
+    "STEAK": "Steak",
+    "PERSONALIZED_RECOMMENDATIONS": "Personalized Recommendations"
+  },
+
+  "HISTORY_VIEW": {
+    "HISTORY_VIEW": "History View",
+    "MANAGE_CART_ORDER": "Manage Cart Order",
+    "CART_LIST": "Cart List",
+    "HAVE_ORDERED": "Have Ordered"
+  },
+
+  "SELLER_VIEW": {
+    "SIDEBAR": {
+      "MANAGE_MY_ACCOUNT": "Manage My Account",
+      "MY_PROFILE": "My Profile",
+      "CHANGE_PROFILE": "Change Profile",
+
+      "MANAGE_PRODUCT_LIST": "Manage Product List",
+      "CREATE_PRODUCT": "Create Product",
+      "LIST_PRODUCT": "List Product",
+
+      "DETAIL_ORDER": "Detail Order",
+      "DELIVERED": "Delivered",
+      "PROCESSING": "Processing",
+      "NOTIFICATION": "Notification"
+    },
+
+    "CREATE_PRODUCT": {
+      "CREATE_YOUR_PRODUCT": "Create Your Product",
+      "TITLE_PRODUCTION": "Title of Production",
+      "ENTER_TITLE_PRODUCTION": "Enter to title of production",
+      "CATEGORIES": "Categories",
+
+      "DESCRIPTION": "Description",
+      "ENTER_DESCRIPTION_PRODUCTION": "Enter to description of production",
+
+      "UPLOAD_IMAGE": "Upload Image",
+
+      "LOCATION_SHOP": "Location Shop",
+      "MONEY": "Money",
+      "SPEND": "Spend",
+
+      "CANCEL": "Cancel",
+      "SAVE_PRODUCTION": "Save Production"
+    },
+
+    "LIST_PRODUCT": {
+      "LIST_PRODUCT": "List Product",
+      "ORDER_ID": "Order Id",
+      "CREATE_AT": "Create At",
+      "BUYER": "Buyer",
+      "STATUS": "Status"
+    }
+  }
+}

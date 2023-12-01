@@ -2,8 +2,10 @@ import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { createProductFormSelectorFamily } from '../store/selector'
 import { createProductFormAtom } from '..'
 import { FaUpload } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
 export const UploadImageFieldCreateProductionFormComponent = () => {
+  const { t } = useTranslation()
   const setPictureFieldForm = useSetRecoilState(createProductFormSelectorFamily('picture'))
   const {
     data: { picture },
@@ -17,7 +19,7 @@ export const UploadImageFieldCreateProductionFormComponent = () => {
   }
   return (
     <section className='flex flex-wrap flex-row items-center space-x-4'>
-      <h4 className='text-lg font-light ml-2'>Upload Image</h4>
+      <h4 className='text-lg font-light ml-2'>{t('SELLER_VIEW.CREATE_PRODUCT.UPLOAD_IMAGE')}</h4>
       <label htmlFor='upLoadImageProduction'>
         <FaUpload />
       </label>

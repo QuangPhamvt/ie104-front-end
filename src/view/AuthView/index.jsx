@@ -4,6 +4,7 @@ import { AUTH_MODAL_STATE, STATUS_API_POST } from '@/utilities'
 import { AuthLoginModalComponent, AuthSignUpModalComponent } from './components'
 import { LoadingView } from '../LoadingView'
 import './style/index.scss'
+import { Helmet } from 'react-helmet'
 
 const AuthView = () => {
   const authModalState = useRecoilValue(authModalStateAtom)
@@ -11,6 +12,10 @@ const AuthView = () => {
   const authSignInStatusFormSubmit = useRecoilValue(authSignInStatusFormSubmitAtom)
   return (
     <main className='w-screen h-screen flex flex-row'>
+      <Helmet>
+        <meta charSet='urf-8' />
+        <title>IE104 FRONT END | LOGIN</title>
+      </Helmet>
       <article
         className='layout--left'
         style={{ backgroundColor: '#F5F5F5' }}

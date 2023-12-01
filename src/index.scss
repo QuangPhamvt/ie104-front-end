@@ -21,12 +21,12 @@ html {
 // reset body line-height
 body {
   position: relative;
+  height: 100vh;
   min-height: 100%;
   max-width: 100%;
   line-height: 1;
   text-rendering: optimizeSpeed;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   font-family:
     system-ui,
     -apple-system,

@@ -6,25 +6,28 @@ import { useRecoilValue, useRecoilValueLoadable, useResetRecoilState, useSetReco
 import { ManageProductList, openModalStatusOrderAtom } from '..'
 import { getOrderListSelector } from '../store/selector'
 import '../styles.scss'
+import { useTranslation } from 'react-i18next'
 
 const HeaderListProductListComponent = () => {
+  const { t } = useTranslation()
   return (
     <section className='flex flex-row pb-2 border-b-1 border-solid border-gray-500'>
-      <div className='text-2xl font-bold'>List Product</div>
+      <div className='text-2xl font-bold'>{t('SELLER_VIEW.LIST_PRODUCT.LIST_PRODUCT')}</div>
     </section>
   )
 }
 const ContentListProductListComponent = () => {
+  const { t } = useTranslation()
   const { state, contents } = useRecoilValueLoadable(getOrderListSelector)
   console.log(state)
   console.log(contents)
   return (
     <section>
       <div className='flex flex-row w-full font-bold'>
-        <div className='w-2/5 flex justify-center items-center'>Order Id</div>
-        <div className='w-2/5 flex justify-center items-center'>Create At</div>
-        <div className='w-1/6 flex justify-center items-center'>Buyer</div>
-        <div className='w-1/6 flex justify-center items-center'>Status</div>
+        <div className='w-2/5 flex justify-center items-center'>{t('SELLER_VIEW.LIST_PRODUCT.ORDER_ID')}</div>
+        <div className='w-2/5 flex justify-center items-center'>{t('SELLER_VIEW.LIST_PRODUCT.CREATE_AT')}</div>
+        <div className='w-1/6 flex justify-center items-center'>{t('SELLER_VIEW.LIST_PRODUCT.BUYER')}</div>
+        <div className='w-1/6 flex justify-center items-center'>{t('SELLER_VIEW.LIST_PRODUCT.STATUS')}</div>
       </div>
       {state === 'loading' && <p>Loading...</p>}
       {state === 'hasValue' && (

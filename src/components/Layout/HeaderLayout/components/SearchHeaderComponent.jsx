@@ -3,7 +3,9 @@ import HeaderLayout from '../store/hook'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { searchProductFormAtom } from '../store'
 import { STATE } from '@/utilities'
+import { useTranslation } from 'react-i18next'
 export const SearchHeaderComponent = () => {
+  const { t } = useTranslation()
   const { handleSearchProduct } = HeaderLayout.useSearchProduct()
   const {
     data: { slug },
@@ -22,7 +24,7 @@ export const SearchHeaderComponent = () => {
       <input
         value={slug || ''}
         onChange={handleChangeInput}
-        placeholder='Enter item or restaurant you are looking for'
+        placeholder={t('HEADER_LAYOUT.SEARCH_PLACEHOLDER')}
         className='w-full'
       />
       <IoIosSearch

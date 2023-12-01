@@ -2,8 +2,10 @@ import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { AUTH_SIGN_UP_STEP_MODEL, Auth, authSignUpModalAtom, authSignUpStepModalAtom } from '../store'
 import { ModalCheckAccountSellerComponent } from './ModalCheckAccountSellerComponent'
 import { ACQ_ID } from '@/utilities'
+import { useTranslation } from 'react-i18next'
 
 export const AuthSignUpStepThreeModalComponent = () => {
+  const { t } = useTranslation()
   const authSignUpModal = useRecoilValue(authSignUpModalAtom)
   const setAuthSignUpStepModal = useSetRecoilState(authSignUpStepModalAtom)
   const { handleSignUpSubmitAuthForm } = Auth.useSignUpSubmitAuthForm()
@@ -17,13 +19,13 @@ export const AuthSignUpStepThreeModalComponent = () => {
         accountNo={authSignUpModal.data.accountNo}
       />
       <section className='flex flex-col w-3/5 space-y-2 '>
-        <label className=' text-xl text-gray-500'>Choose Bank:</label>
+        <label className=' text-xl text-gray-500'>{t('AUTH_VIEW.CHOOSE_BANK')}</label>
         <select
           className='p-2 rounded-md'
           name='acqId'
           onChange={handleChangeAuthSignUpForm}
         >
-          <option>Please choose one option</option>
+          <option>{t('AUTH_VIEW.PLEASE_CHOICE_ONE')}</option>
           {ACQ_ID.map((item, code) => {
             return (
               <option
@@ -39,7 +41,7 @@ export const AuthSignUpStepThreeModalComponent = () => {
         </select>
       </section>
       <label className='w-3/5'>
-        <p className='text-xl text-gray-500'>ID banks</p>
+        <p className='text-xl text-gray-500'>{t('AUTH_VIEW.ID_BANK')}</p>
         <input
           type='text'
           name='accountNo'
@@ -47,7 +49,7 @@ export const AuthSignUpStepThreeModalComponent = () => {
           value={authSignUpModal.data.accountNo || ''}
           onChange={handleChangeAuthSignUpForm}
           className='w-full px-4 py-2 border-1 border-solid rounded-md'
-          placeholder='enter your id banks'
+          placeholder={t('AUTH_VIEW.ENTER_YOUR_BANK')}
           style={{ borderColor: 'black' }}
         />
       </label>
@@ -59,13 +61,13 @@ export const AuthSignUpStepThreeModalComponent = () => {
           }}
           className='px-4 py-1 text-lg text-gray-500 font-bold w-full border-1 border-solid border-black rounded'
         >
-          PREVIOUS
+          {t('AUTH_VIEW.PREVIOUS')}
         </button>
         <button
           onClick={handleSignUpSubmitAuthForm}
           className='px-4 py-1 text-lg font-bold text-white w-full bg-orange-500 rounded'
         >
-          OK
+          {t('AUTH_VIEW.OK')}
         </button>
       </section>
     </>
