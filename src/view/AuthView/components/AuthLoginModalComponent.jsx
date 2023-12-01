@@ -46,7 +46,10 @@ export const AuthLoginModalComponent = () => {
         Sign In
       </button>
       <p className='font-sans'>
-        Don&rsquo;t have An Account? <b onClick={handleChangeFlowAuthForm}>SignUp</b>
+        Don&rsquo;t have An Account?{' '}
+        <b onClick={handleChangeFlowAuthForm}>
+          <a href='#'>Sign Up</a>
+        </b>
       </p>
     </form>
   )
