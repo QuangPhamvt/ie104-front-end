@@ -26,6 +26,7 @@
     "react-loader-spinner": "^5.4.5",
     "react-router-dom": "^6.18.0",
     "recoil": "^0.7.7",
+    "simplebar-react": "^3.2.4",
     "vite-plugin-svgr": "^4.1.0"
   },
   "devDependencies": {

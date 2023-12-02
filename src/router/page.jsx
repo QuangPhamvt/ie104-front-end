@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil'
 import { STATE } from '@/utilities'
-import { AuthView, HomeView } from '@/view'
+import { HomeView } from '@/view'
 import { authAtom, useGetProfile } from '@/view/AuthView/store'
 
 export const HomePage = () => {
@@ -8,7 +8,6 @@ export const HomePage = () => {
   const auth = useRecoilValue(authAtom)
   return (
     <>
-      <>{auth.state === STATE.IDLE && <AuthView />}</>
       <>{auth.state === STATE.HAS_VALUE && <HomeView />}</>
     </>
   )

@@ -16,12 +16,17 @@ const DetailPostView = withSuspense(React.lazy(() => import('@/view/DetailPostVi
 const SecureCheckoutView = withSuspense(React.lazy(() => import('@/view/SecureCheckoutView')))
 const CheckEmailView = withSuspense(React.lazy(() => import('@/view/CheckEmailView')))
 const VerifyTokenView = withSuspense(React.lazy(() => import('@/view/VerifyTokenView')))
+const AuthView = withSuspense(React.lazy(() => import('@/view/AuthView')))
 
 export const PrivateRoute = []
 export const routes = [
   {
     path: '/loading',
     element: <LoadingPage />,
+  },
+  {
+    path: PATH.AUTH,
+    element: <AuthView />,
   },
   {
     path: PATH.HOME,

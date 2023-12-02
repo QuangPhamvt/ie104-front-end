@@ -1,5 +1,6 @@
 export const PATH = {
   HOME: '/',
+  AUTH: '/login',
   DASHBOARD: '/dashboard',
   SEARCH: '/search',
   DETAIL_POST: '/post/:id',

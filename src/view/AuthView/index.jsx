@@ -1,17 +1,33 @@
 import { useRecoilValue } from 'recoil'
-import { authModalStateAtom, authSignInStatusFormSubmitAtom, authSignUpStatusFormSubmitAtom } from './store'
-import { AUTH_MODAL_STATE, STATUS_API_POST } from '@/utilities'
+import {
+  authAtom,
+  authModalStateAtom,
+  authSignInStatusFormSubmitAtom,
+  authSignUpStatusFormSubmitAtom,
+  useGetProfile,
+} from './store'
+import { AUTH_MODAL_STATE, STATE, STATUS_API_POST } from '@/utilities'
 import { AuthLoginModalComponent, AuthSignUpModalComponent } from './components'
 import { LoadingView } from '../LoadingView'
 import './style/index.scss'
 import { Helmet } from 'react-helmet'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { NotificationComponent } from '@/components'
 
 const AuthView = () => {
+  useGetProfile()
   const authModalState = useRecoilValue(authModalStateAtom)
   const authSignUpStatusFormSubmit = useRecoilValue(authSignUpStatusFormSubmitAtom)
   const authSignInStatusFormSubmit = useRecoilValue(authSignInStatusFormSubmitAtom)
+  const auth = useRecoilValue(authAtom)
+  const navigate = useNavigate()
+  React.useEffect(() => {
+    if (auth.state === STATE.HAS_VALUE) navigate('/')
+  }, [auth.state])
   return (
     <main className='w-screen h-screen flex flex-row'>
+      <NotificationComponent />
       <Helmet>
         <meta charSet='urf-8' />
         <title>IE104 FRONT END | LOGIN</title>

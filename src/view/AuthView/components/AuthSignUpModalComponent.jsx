@@ -17,8 +17,14 @@ export const AuthSignUpModalComponent = () => {
   return (
     <form className='flex flex-col space-y-5 p-4 w-full items-center'>
       {AuthSignUpStepModalComponent[authSignUpStepModal.step]()}
-      <p className='modal--auth__changeFlow font-sans'>
-        {t('AUTH_VIEW.ALREADY_HAVE_ACCOUNT')} <b onClick={handleChangeFlowAuthForm}>{t('AUTH_VIEW.SIGN_IN')}</b>
+      <p className='font-sans cursor-default'>
+        {t('AUTH_VIEW.ALREADY_HAVE_ACCOUNT')}{' '}
+        <b
+          className='cursor-pointer'
+          onClick={handleChangeFlowAuthForm}
+        >
+          {t('AUTH_VIEW.SIGN_IN')}
+        </b>
       </p>
     </form>
   )
