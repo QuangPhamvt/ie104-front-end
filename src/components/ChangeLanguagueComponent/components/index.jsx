@@ -12,7 +12,7 @@ export const DropDownChangeLanguageComponent = () => {
   return (
     <>
       {isOpen && (
-        <div className='flex flex-col border-1 bg-white border-gray-400 w-32 space-y-2 rounded  px-2 py-2 items-center justify-center'>
+        <div className='select-none flex flex-col border-1 bg-white border-gray-400 w-32 space-y-2 rounded  px-2 py-2 items-center justify-center'>
           <button
             onClick={(event) => {
               event.preventDefault()

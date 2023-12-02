@@ -47,7 +47,7 @@ export const AuthLoginModalComponent = () => {
       >
         {t('AUTH_VIEW.SIGN_IN')}
       </button>
-      <p className='font-sans'>
+      <p className='font-sans cursor-default'>
         {t('AUTH_VIEW.DON_HAVE_ACCOUNT')}{' '}
         <b
           className='cursor-pointer'

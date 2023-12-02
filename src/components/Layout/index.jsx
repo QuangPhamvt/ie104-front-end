@@ -4,7 +4,13 @@ import { FooterLayout } from './FooterLayout'
 import React from 'react'
 import { updateLastMousePosition, handleOnMove, originPosition } from '@/config/mouseAnimation'
 export { default as HeaderLayout } from './HeaderLayout'
+import SimpleBar from 'simplebar-react'
 import '../../config/mouseAnimation/styles.scss'
+import 'simplebar-react/dist/simplebar.min.css'
+import { authAtom, useGetProfile } from '@/view/AuthView/store'
+import { useRecoilValue } from 'recoil'
+import { STATE } from '@/utilities'
+import { Navigate } from 'react-router-dom'
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Layout = () => {
@@ -22,18 +28,29 @@ const Layout = () => {
     window.addEventListener('touchmove', handleTouchMove)
     document.body.addEventListener('mouseleave', handleBodyMouseLeave)
   }, [])
+  useGetProfile()
+  const auth = useRecoilValue(authAtom)
+  console.log(auth)
   return (
-    <div className='flex flex-col w-screen h-fit'>
-      <NotificationComponent />
-      <HeaderLayout />
-      <main
-        id='body'
-        className='h-screen overflow-y-auto'
-      >
-        <Outlet />
-        <FooterLayout />
-      </main>
-    </div>
+    <>
+      <>{auth.state === STATE.IDLE && <Navigate to='/login' />}</>
+      <div className='flex flex-col w-screen h-fit '>
+        <NotificationComponent />
+        <HeaderLayout />
+        <main
+          id='body'
+          className='h-screen '
+        >
+          <SimpleBar
+            style={{ height: '100vh', marginTop: '112px' }}
+            color=''
+          >
+            <Outlet />
+            <FooterLayout />
+          </SimpleBar>
+        </main>
+      </div>
+    </>
   )
 }
 export default Layout

@@ -129,3 +129,8 @@ table thead th {
   position: sticky;
   top: 0;
 }
+
+.simplebar-scrollbar:before {
+  background-color: #ff2525 !important;
+  // background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%) !important;
+}
