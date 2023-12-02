@@ -8,8 +8,10 @@ import { UploadImageFieldCreateProductionFormComponent } from './UploadImageFiel
 import { LocationFieldCreateProductionFormComponent } from './LocationFieldCreateProductionComponent'
 import { PriceFieldCreateProductionFormComponent } from './PriceFieldCreateProductionComponent'
 import { DialogCreateProductComponent } from './DialogCreateProductComponent'
+import { useTranslation } from 'react-i18next'
 
 const CreateProductManageProductionListComponent = () => {
+  const { t } = useTranslation()
   const { handleSetCategories } = ManageProductList.useGetCategories()
   const { handleSubmitCreateProductForm } = ManageProductList.useCreateProduct()
   const { data } = useRecoilValue(createProductFormAtom)
@@ -25,7 +27,7 @@ const CreateProductManageProductionListComponent = () => {
       <article className='w-full p-8 flex flex-col space-y-6 shadow-lg mt-8'>
         <section className=''>
           <h3 className='font-base text-orange-400 border-b-1 py-2 border-solid border-gray-300 mb-4'>
-            Create Your Product
+            {t('SELLER_VIEW.CREATE_PRODUCT.CREATE_YOUR_PRODUCT')}
           </h3>
         </section>
 
@@ -47,7 +49,9 @@ const CreateProductManageProductionListComponent = () => {
         </section>
 
         <section className='flex flex-row space-x-8 pt-4'>
-          <button className='grow py-2 text-lg font-bold bg-white border-1 border-solid border-gray-300'>Cancel</button>
+          <button className='grow py-2 text-lg font-bold bg-white border-1 border-solid border-gray-300'>
+            {t('SELLER_VIEW.CREATE_PRODUCT.CANCEL')}
+          </button>
           <button
             onClick={(event) => {
               event.preventDefault()
@@ -56,7 +60,7 @@ const CreateProductManageProductionListComponent = () => {
             }}
             className='grow py-2 text-lg text-white bg-orange-400 font-bold'
           >
-            Save Production
+            {t('SELLER_VIEW.CREATE_PRODUCT.SAVE_PRODUCTION')}
           </button>
         </section>
       </article>

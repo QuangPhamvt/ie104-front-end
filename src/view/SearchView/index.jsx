@@ -11,7 +11,7 @@ const SearchView = () => {
   } = useRecoilValue(searchProductFormAtom)
   const { status } = useRecoilValue(searchProductionAtom)
   return (
-    <article className='mt-28 container mx-auto space-y-12 pt-12'>
+    <article className='mt-28 container mx-auto space-y-12 pt-12 '>
       {status === STATUS_API_POST.HAS_VALUE ? (
         <>
           <h2 className='search--value'>Search result for &quot; {slug} &quot;</h2>

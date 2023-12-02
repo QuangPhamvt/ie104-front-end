@@ -5,6 +5,7 @@ import { STATE } from '@/utilities'
 import { useGetProfile } from '@/view/AuthView/store'
 import './styles/index.scss'
 import React from 'react'
+import { ChangeLanguageComponent } from '@/components/ChangeLanguagueComponent'
 
 const HeaderLayout = () => {
   useGetProfile()
@@ -28,15 +29,15 @@ const HeaderLayout = () => {
       {auth.state === STATE.HAS_VALUE && (
         <header
           style={{ top: 0, left: 0, zIndex: 9999 }}
-          className='animate-fadeIn fixed z-50 flex flex-col items-center justify-center w-screen bg-amber-500 border-b-1 border-gray-200 border-solid h-24 flex-wrap'
+          className='animate-fadeIn fixed z-50 flex flex-col items-center justify-center w-screen menu--bg border-b-1 border-gray-500 border-solid h-28 flex-wrap'
         >
           <section className='container flex flex-row justify-between mx-auto w-screen'>
             <BrandImageComponent />
             <ContentHeaderComponent />
           </section>
-          <section className='h-2 w-full top-24 absolute '>
+          <section className='h-2 w-screen top-36 absolute '>
             <div
-              className='h-1 rounded'
+              className='h-24 rounded'
               style={{
                 width: `${width}%`,
                 backgroundColor: '#4158D0',
@@ -46,6 +47,7 @@ const HeaderLayout = () => {
           </section>
         </header>
       )}
+      <ChangeLanguageComponent />
     </>
   )
 }
