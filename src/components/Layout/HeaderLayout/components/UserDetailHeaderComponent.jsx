@@ -28,11 +28,11 @@ export const UserDetailHeaderComponent = () => {
     >
       <button
         onClick={handelOpenDropDown}
-        className='flex items-center px-3 py-2 rounded-lg bg-amber-500  border-2 border-solid border-gray-50 px-4'
+        className='flex items-center px-3 py-2 rounded-lg border-1 border-solid border-gray-50 px-4'
         style={{ backgroundColor: 'rgb(247,107,28, 0.7)' }}
       >
         <FaUserAlt
-          size={24}
+          size={20}
           color='white'
           className='mr-1'
         />

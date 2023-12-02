@@ -19,16 +19,27 @@ export const SearchHeaderComponent = () => {
       data: { ...preState.data, slug: value },
     }))
   }
+  const handleSearchButtonClick = () => {
+    handleSearchProduct()
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearchProduct()
+    }
+  }
+
   return (
-    <article className='bg-white px-4 py-2 w-2/5 flex flex-row justify-between items-center rounded-lg border-1 border-solid border-gray-300'>
+    <article className='bg-white px-4 py-1 w-2/5 flex flex-row justify-between items-center rounded-lg border-1 border-solid border-gray-300'>
       <input
         value={slug || ''}
         onChange={handleChangeInput}
+        onKeyDown={handleKeyDown}
         placeholder={t('HEADER_LAYOUT.SEARCH_PLACEHOLDER')}
         className='w-full'
       />
       <IoIosSearch
-        size={24}
+        size={30}
         onClick={handleSearchProduct}
         className='hover-cursor text-orange-500'
       />
