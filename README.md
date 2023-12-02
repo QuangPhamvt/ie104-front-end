@@ -63,9 +63,37 @@ $ yarn run dev
 
 ## Information
 
-### Client
+### Source tree
+```
+📦src
+ ┣── 📂HOC                      # Higher Order Components 
+ ┣── 📂api                      # Use to call API from Back End
+ ┣── 📂assets                   # Asset like image
+ ┣── 📂components               # Shared components between page
+ ┣── 📂config                   # Setup some javascript (ex: mouse move animation,...)
+ ┣── 📂i18n                     # Config internationalization for website
+ ┣── 📂router                   # Routing related file and routing config
+ ┣── 📂store                    # Storage a state, we frequent use (ex: auth, profile,...)
+ ┣── 📂styles                   # setup utilities class to reusable (ex: p, m, ...)
+ ┣── 📂utilities                # some fnc, constant frequent use
+ ┣── 📂view                     # view in website like login, home, cart, ...
+ ┃── ┣──  📂AuthView
+ ┃── ┣──  📂CheckEmailView
+ ┃── ┣──  📂DetailPostView
+ ┃── ┣──  📂HistoryView
+ ┃── ┣──  📂HomeView
+ ┃── ┣──  📂NotFound
+ ┃── ┣──  📂SearchView
+ ┃── ┣──  📂SecureCheckoutView
+ ┃── ┣──  📂SellerView
+ ┃── ┣──  📂VerifyTokenView
+ ┃── ┗── 📜index.jsx
+ ┣ 📜App.jsx                   
+ ┣ 📜index.scss
+ ┗ 📜main.jsx
+```
 
-- Feature
+### Feature
   - /Dashboard -> show home page
   - /search -> search product to order
   - /history -> show history order
@@ -74,8 +102,8 @@ $ yarn run dev
   - /signup/token -> get token to sign up
   - /* -> not found page
   - Login | Logout | Register for user
-- Package using
 
+### Package using
 ```
   "dependencies": {
     "axios": "^1.5.1",
@@ -107,7 +135,6 @@ $ yarn run dev
   },
 ```
 
-### Technology
 
 ## Link Demo
 
