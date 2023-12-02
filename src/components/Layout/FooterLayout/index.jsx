@@ -15,8 +15,8 @@ export const FooterLayout = () => {
   return (
     <>
       {auth.state === STATE.HAS_VALUE && (
-        <footer className=' grid w-screen grid-cols-4 bg-gray-800 mt-28 '>
-          <article className='flex flex-col '>
+        <footer className=' grid w-screen grid-cols-4 bg-gray-800 h-100 mt-28 '>
+          <article className='flex flex-col p-10 '>
             <div className='flex flex-row space-y-6 text-white'>
               <img
                 src={PUBLIC_IMAGE.BRAND}
@@ -28,7 +28,7 @@ export const FooterLayout = () => {
             </div>
             <p className='text-xl mt-5 text-white'>BunShop - Thưởng thức ẩm thực nhanh chóng - tận nhà!</p>
           </article>
-          <article className='flex flex-col  px-10 py-20 space-y-2'>
+          <article className='flex flex-col  px-10 p-20 space-y-2'>
             <p className='text-xl text-white'>Bạn cần hỗ trợ</p>
             <p className='text-2xl text-white'>086051898</p>
             <ul className='flex flex-col items-start justify-center space-y-2 text-white'>
