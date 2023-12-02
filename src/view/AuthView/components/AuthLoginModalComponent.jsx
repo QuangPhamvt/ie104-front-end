@@ -48,7 +48,13 @@ export const AuthLoginModalComponent = () => {
         {t('AUTH_VIEW.SIGN_IN')}
       </button>
       <p className='font-sans'>
-        {t('AUTH_VIEW.DON_HAVE_ACCOUNT')} <b onClick={handleChangeFlowAuthForm}>{t('AUTH_VIEW.SIGN_UP')}</b>
+        {t('AUTH_VIEW.DON_HAVE_ACCOUNT')}{' '}
+        <b
+          className='cursor-pointer'
+          onClick={handleChangeFlowAuthForm}
+        >
+          {t('AUTH_VIEW.SIGN_UP')}
+        </b>
       </p>
     </form>
   )
