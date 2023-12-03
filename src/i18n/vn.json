@@ -149,14 +149,24 @@
     "FROM": "từ",
     "CART": "Giỏ hàng",
     "TOTAL": "Tổng",
-    "PREPARE": "ĐANG CHUẨN BỊ",
     "ITEM": "món",
-    "PROCESSING": "ĐANG XỬ LÝLÝ",
+    "PREPARE": "ĐANG CHUẨN BỊ",
+    "PROCESSING": "ĐANG XỬ LÝ",
     "DENY": "TỪ CHỐI",
     "ORDERED": "ĐÃ XÁC NHẬN",
     "BILL_DETAIL": "Chi tiết hóa đơn",
     "ITEM_TOTAL": "Tổng sản phẩm",
     "DELIVERY_FEE": "Phí giao hàng",
     "TAX": "Thuế"
+  },
+
+  "HISTORY_LABEL": {
+    "DAYS": "Ngày",
+    "PRICE": "Giá",
+    "STATUS":"Trạng thái",
+    "PREPARE": "ĐANG CHUẨN BỊ",
+    "PROCESSING": "ĐANG XỬ LÝ",
+    "DENY": "TỪ CHỐI",
+    "ORDERED": "ĐÃ XÁC NHẬN"
   }
 }

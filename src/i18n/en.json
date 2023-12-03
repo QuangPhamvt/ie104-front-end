@@ -155,5 +155,15 @@
     "ITEM_TOTAL": "Item total",
     "DELIVERY_FEE": "Delivery fee",
     "TAX": "Tax"
+  },
+
+  "HISTORY_LABEL": {
+    "DAYS": "DAYS",
+    "PRICE": "PRICE",
+    "STATUS":"STATUS",
+    "PREPARE": "PREPARE",
+    "PROCESSING": "PROCESSING",
+    "DENY": "DENY",
+    "ORDERED": "ORDERED"
   }
 }
