@@ -147,6 +147,7 @@
     "FROM": "from",
     "CART": "Cart",
     "TOTAL": "Total",
+    "ITEM": "items",
     "PREPARE": "PREPARE",
     "PROCESSING": "PROCESSING",
     "DENY": "DENY",
