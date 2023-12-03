@@ -10,8 +10,10 @@ import { useRecoilValue } from 'recoil'
 import { authAtom } from '@/view/AuthView/store'
 import { STATE } from '@/utilities'
 import { PUBLIC_IMAGE } from '@/utilities'
+import { useTranslation } from 'react-i18next'
 export const FooterLayout = () => {
   const auth = useRecoilValue(authAtom)
+  const { t } = useTranslation()
   return (
     <>
       {auth.state === STATE.HAS_VALUE && (
@@ -26,14 +28,15 @@ export const FooterLayout = () => {
               />
               <h1 className='text-3xl'>BunShop</h1>
             </div>
-            <p className='text-xl mt-5 text-white'>BunShop - Thưởng thức ẩm thực nhanh chóng - tận nhà!</p>
+            <p className='text-xl mt-5 text-white'>{t('FOOTER_LAYOUT.SLOGAN_BRAND')}</p>
           </article>
           <article className='flex flex-col  px-10 p-20 space-y-2'>
-            <p className='text-xl text-white'>Bạn cần hỗ trợ</p>
+            <p className='text-xl text-white'>{t('FOOTER_LAYOUT.YOU_NEED_SUPPORT')}</p>
             <p className='text-2xl text-white'>086051898</p>
             <ul className='flex flex-col items-start justify-center space-y-2 text-white'>
               <li>
-                <strong>Địa chỉ: </strong>138 Topaz Home, Ward Tan Phu, District 9, Ho Chi Minh City.
+                <strong>{t('FOOTER_LAYOUT.ADDRESS_CONTACT')}</strong>138 Topaz Home, Ward Tan Phu, District 9, Ho Chi
+                Minh City.
               </li>
               <li>
                 <strong>Email: </strong>BunShopFood@gmail.com
@@ -77,23 +80,23 @@ export const FooterLayout = () => {
             </section>
           </article>
           <article className='flex flex-col space-y-4  pl-py-20'>
-            <p className='text-xl  text-white'>Về chúng tôi</p>
+            <p className='text-xl  text-white'>{t('FOOTER_LAYOUT.ABOUT_US')}</p>
             <ul className='flex flex-col items-start justify-center w-4/5 space-y-2  text-white'>
-              <li>Trang chủ</li>
-              <li>Giới thiệu</li>
-              <li>Danh mục</li>
-              <li>Thành viên</li>
-              <li>Blog</li>
+              <li>{t('FOOTER_LAYOUT.HOME_PAGE')}</li>
+              <li>{t('FOOTER_LAYOUT.INTRODUCE')}</li>
+              <li>{t('FOOTER_LAYOUT.CATEGORIES')}</li>
+              <li>{t('FOOTER_LAYOUT.MEMBERS')}</li>
+              <li>{t('FOOTER_LAYOUT.CAREERS')}</li>
             </ul>
           </article>
           <article className='flex flex-col space-y-4 py-20'>
-            <p className='text-xl text-white'>Chính sách</p>
+            <p className='text-xl text-white'>{t('FOOTER_LAYOUT.POLICY_BRAND')}</p>
             <ul className='flex flex-col items-start justify-center space-y-2 text-white '>
-              <li>Chính sách giao hàng</li>
-              <li>Chính sách thanh toán</li>
-              <li>Chính sách đổi trả</li>
-              <li>Chính sách kiểm hàng</li>
-              <li>Chính sách bảo mật thông tin</li>
+              <li>{t('FOOTER_LAYOUT.DELIVERY_POLICY')}</li>
+              <li>{t('FOOTER_LAYOUT.PAYMENT_POLICY')}</li>
+              <li>{t('FOOTER_LAYOUT.RETURN_POLICY')}</li>
+              <li>{t('FOOTER_LAYOUT.QUALITY_CHECK_POLICY')}</li>
+              <li>{t('FOOTER_LAYOUT.PRIVACY_POLICY')}</li>
             </ul>
           </article>
         </footer>

@@ -67,7 +67,10 @@ export const ChangeLanguageComponent = () => {
           ref={divRef}
           className='rounded-full overflow-hidden h-8 w-8'
         >
-          <FaEarthAmericas size={32} />
+          <FaEarthAmericas
+            size={32}
+            color='#279EFF'
+          />
         </div>
         <DropDownChangeLanguageComponent />
       </div>

@@ -10,6 +10,23 @@
     "HISTORY": "History",
     "LOG_OUT": "Log Out"
   },
+  "FOOTER_LAYOUT":{
+    "YOU_NEED_SUPPORT":"You need support ?",
+    "SLOGAN_BRAND":"BunShop - Enjoy fast food - right at home!",
+    "ADDRESS_CONTACT":"Address:",
+    "ABOUT_US":"About Us",
+    "HOME_PAGE":"Home",
+    "INTRODUCE":"Introduce",
+    "CATEGORIES":"Categories",
+    "MEMBERS":"Members",
+    "CAREERS":"Careers",
+    "POLICY_BRAND":"Policy",
+    "DELIVERY_POLICY":"Delivery Policy",
+    "PAYMENT_POLICY":"Payment Policy",
+    "RETURN_POLICY":"Return Policy",
+    "QUALITY_CHECK_POLICY":"Quality Check Policy",
+    "PRIVACY_POLICY":"Privacy Policy"
+  },
   "AUTH_VIEW": {
     "USERNAME": "Username",
     "EMAIL_ADDRESS": "Email Address",
@@ -31,6 +48,19 @@
     "PLEASE_CHOICE_ONE": "Please choose one option",
     "ID_BANK": "ID Bank",
     "ENTER_YOUR_BANK": "Enter your id bank"
+  },
+  "CONTENT_INTRODUCTION":{
+    "PREMIUM":"Premium",
+    "QUALITY":"quality",
+    "FOOD_FOR_YOUR":"Food for your",
+    "HEALTHY":"healthy",
+    "DAILY_LIFE":"& Daily Life",
+    "CAPTION":"Within a few clicks, find meals thatare accessible near you"
+    
+  },
+  "SEARCH_LOCATION":{
+    "DELIVERY_LOCATION":"Enter your delivery location",
+    "GET_STARTED":"Get started"
   },
   "HOME_VIEW": {
     "POPULAR_CITES_IN_VIETNAM": "Popular cities in VietNam",
