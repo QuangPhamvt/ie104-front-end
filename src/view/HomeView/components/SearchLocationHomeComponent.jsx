@@ -21,19 +21,19 @@ export const SearchLocationHomeComponent = () => {
         <h3 className='font-normal'>{t('HOME_VIEW.POPULAR_CITES_IN_VIETNAM')}</h3>
         <ul className='flex flex-row space-x-12'>
           <li>
-            <p className=' text-gray-300'>{t('HOME_VIEW.HCM')}</p>
+            <p className=' city-item text-gray-300'>{t('HOME_VIEW.HCM')}</p>
           </li>
           <li>
-            <p className='text-orange-300'>{t('HOME_VIEW.HN')}</p>
+            <p className=' city-item text-gray-300'>{t('HOME_VIEW.HN')}</p>
           </li>
           <li>
-            <p className=' text-gray-300'>{t('HOME_VIEW.DN')}</p>
+            <p className=' city-item text-gray-300'>{t('HOME_VIEW.DN')}</p>
           </li>
           <li>
-            <p className='text-orange-300'>{t('HOME_VIEW.CT')}</p>
+            <p className='city-item text-gray-300'>{t('HOME_VIEW.CT')}</p>
           </li>
           <li>
-            <p className=' text-gray-300'>{t('HOME_VIEW.HUE')}</p>
+            <p className=' city-item text-gray-300'>{t('HOME_VIEW.HUE')}</p>
           </li>
         </ul>
       </section>

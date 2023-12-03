@@ -132,3 +132,10 @@
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
+.city-item {
+  transition: color 0.3s; 
+}
+
+.city-item:hover {
+  color: #ff9900; 
+}

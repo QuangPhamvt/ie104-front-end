@@ -105,6 +105,20 @@
       "PROCESSING": "Trong quá trình",
       "NOTIFICATION": "Thông báo"
     },
+    "SELLER_PAGE":{
+      "SELLER_PROFILE":"Hồ sơ người bán",
+      "ROLE":"Vai trò:",
+      "PROVINCE_SELLER":"Tỉnh Bình Định",
+
+      "ADDRESS":"Địa chỉ",
+      "PROVINCE":"Tỉnh/Thành phố:",
+      "DISTRICT":"Quận/Huyện:",
+      "WARD":"Phường:",
+      "BANKING":"Tài khoản ngân hàng",
+      "NUMBER_ACCOUNT":"Số tài khoản:",
+      "BANK_NAME":"Tên ngân hàng:",
+      "HAVING":"Sở hữu:"
+    },
     "CREATE_PRODUCT": {
       "CREATE_YOUR_PRODUCT": "Tạo sản phẩm của bạn",
       "TITLE_PRODUCTION": "Tiêu đề cho sản phẩm",
