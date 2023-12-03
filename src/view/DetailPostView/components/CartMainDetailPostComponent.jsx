@@ -3,15 +3,17 @@ import { GiMoneyStack } from 'react-icons/gi'
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 import { DetailProduct, createCartDetailProductAtom, openDialogCreateCartDetailProductAtom } from '../store'
 import { DialogCreateCartComponent } from './DialogCreateCartComponent'
+import { useTranslation } from 'react-i18next'
 
 export const TotalCartMainDetailPostComponent = () => {
+  const { t } = useTranslation()
   const {
     data: { price },
   } = useRecoilValue(createCartDetailProductAtom)
   return (
     <section>
       <div className='flex flex-row justify-between '>
-        <h4 className='text-2xl font-medium'>Subtotal</h4>
+        <h4 className='text-2xl font-medium'>{t('CART_POST_VIEW.SUB_TOTAL')}</h4>
         <h4 className='inline-flex text-2xl items-center font-medium'>
           <GiMoneyStack />
           {price}
@@ -81,6 +83,7 @@ export const ListCartMainDetailPostComponent = () => {
   )
 }
 export const CartMainDetailPostComponent = () => {
+  const { t } = useTranslation()
   const [open, setOpen] = useRecoilState(openDialogCreateCartDetailProductAtom)
   const { handleCreateCartProduct } = DetailProduct.useCreateCartProduct()
   const resetCreateCartProduct = useResetRecoilState(createCartDetailProductAtom)
@@ -89,8 +92,8 @@ export const CartMainDetailPostComponent = () => {
       <DialogCreateCartComponent open={open} />
       <article className='flex flex-col space-y-10 '>
         <div className='w-full flex flex-row justify-between items-center'>
-          <h2 className='text-2xl'>Cart</h2>
-          <p>2 items</p>
+          <h2 className='text-2xl'>{t('CART_POST_VIEW.CART')}</h2>
+          <p>2 {t('CART_POST_VIEW.ITEM')}</p>
         </div>
         <ListCartMainDetailPostComponent />
         <TotalCartMainDetailPostComponent />
@@ -103,7 +106,7 @@ export const CartMainDetailPostComponent = () => {
             resetCreateCartProduct()
           }}
         >
-          Checkout
+          {t('CART_POST_VIEW.CHECKOUT')}
         </button>
       </article>
     </>

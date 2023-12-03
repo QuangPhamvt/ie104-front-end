@@ -60,7 +60,11 @@
     "CART_LIST": "Cart List",
     "HAVE_ORDERED": "Have Ordered"
   },
-
+  "SEARCH_VIEW": {
+    "SEARCH_RESULT": "Search result for",
+    "DISHES": "Dishes",
+    "RESTAURANT": "Restaurant"
+  },
   "SELLER_VIEW": {
     "SIDEBAR": {
       "MANAGE_MY_ACCOUNT": "Manage My Account",
@@ -103,5 +107,53 @@
       "BUYER": "Buyer",
       "STATUS": "Status"
     }
+  },
+
+  "DETAIL_POST_VIEW": {
+    "OFFERS": "Offers",
+    "COST_FOR_TWO": "Cost for two",
+    "DELIVERY_TIME": "Delivery time",
+    "50_OFF": "50% Off",
+    "USE_CODE_TRYNEW": "USE CODE TRY NEW",
+    "USE_CODE_PARTY": "USE CODE PARTY",
+    "RATING": "Rating",
+    "MIN": "Mins"
+  },
+
+  "CONTENT_POST_VIEW": {
+    "ADD": "Add +"
+  },
+
+  "CART_POST_VIEW": {
+    "CART": "Cart",
+    "ITEM": "items",
+    "CHECKOUT": "CHECKOUT",
+    "SUB_TOTAL": "Subtotal"
+  },
+
+  "HEADER_SECURE_CHECKOUT": {
+    "TITLE": "SECURE CHECKOUT"
+  },
+
+  "DETAIL_SECURE_CHECKOUT": {
+    "QR_CODE": "QR PAYMENT"
+  },
+
+  "DELIVERY_SECURE_CHECKOUT": {
+    "ADDRESS": "Delivery address"
+  },
+
+  "PAYMENT_SECURE_CHECKOUT": {
+    "FROM": "from",
+    "CART": "Cart",
+    "TOTAL": "Total",
+    "PREPARE": "PREPARE",
+    "PROCESSING": "PROCESSING",
+    "DENY": "DENY",
+    "ORDERED": "ORDERED",
+    "BILL_DETAIL": "Bill detail",
+    "ITEM_TOTAL": "Item total",
+    "DELIVERY_FEE": "Delivery fee",
+    "TAX": "Tax"
   }
 }
