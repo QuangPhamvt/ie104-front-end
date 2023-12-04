@@ -1,19 +1,25 @@
+// const DeliveredDetailOrderComponent = () => {
+//   return <div>Delivered Detail Order Component</div>
+// }
+
+// export default DeliveredDetailOrderComponent
+
 /* eslint-disable no-extra-boolean-cast */
 /* eslint-disable react/prop-types */
 import dayjs from 'dayjs'
 import React from 'react'
 import { useRecoilValue, useRecoilValueLoadable, useResetRecoilState, useSetRecoilState } from 'recoil'
-import { ManageProductList, openModalStatusOrderAtom } from '..'
-import { getOrderListSelector } from '../store/selector'
-import '../styles.scss'
+import { ManageProductList, openModalStatusOrderAtom } from '../../ManageProductListComponent'
+// import { getOrderListSelector } from '../store/selector'
+import { getOrderListSelector } from '../../ManageProductListComponent/store/selector'
+import '../../ManageProductListComponent/styles.scss'
 import { useTranslation } from 'react-i18next'
-import SimpleBar from 'simplebar-react'
 
 const HeaderListProductListComponent = () => {
   const { t } = useTranslation()
   return (
     <section className='flex flex-row pb-2 border-b-1 border-solid border-gray-500'>
-      <div className='text-2xl font-bold'>{t('SELLER_VIEW.LIST_PRODUCT.LIST_PRODUCT')}</div>
+      <div className='text-2xl font-bold'>{t('SELLER_VIEW.DETAIL_ORDER.DELIVERED')}</div>
     </section>
   )
 }
@@ -24,7 +30,7 @@ const ContentListProductListComponent = () => {
   console.log(contents)
   return (
     <section>
-      <div className='flex flex-row w-full font-bold border-b-1 pb-4 border-solid border-gray-300'>
+      <div className='flex flex-row w-full font-bold'>
         <div className='w-2/5 flex justify-center items-center'>{t('SELLER_VIEW.LIST_PRODUCT.ORDER_ID')}</div>
         <div className='w-2/5 flex justify-center items-center'>{t('SELLER_VIEW.LIST_PRODUCT.CREATE_AT')}</div>
         <div className='w-1/6 flex justify-center items-center'>{t('SELLER_VIEW.LIST_PRODUCT.BUYER')}</div>
@@ -32,20 +38,22 @@ const ContentListProductListComponent = () => {
       </div>
       {state === 'loading' && <p>Loading...</p>}
       {state === 'hasValue' && (
-        <SimpleBar style={{ maxHeight: 480 }}>
+        <>
           {contents.data.map((item) => {
-            return (
-              <ItemListProductListComponent
-                key={item.order_id}
-                order_id={item.order_id}
-                order_items={item.order_items}
-                price={item.price}
-                status={item.status}
-                buyer={item.buyer}
-              />
-            )
+            if (item.status === 'deny')
+              return (
+                <ItemListProductListComponent
+                  key={item.order_id}
+                  order_id={item.order_id}
+                  order_items={item.order_items}
+                  price={item.price}
+                  status={item.status}
+                  buyer={item.buyer}
+                />
+              )
+            return null
           })}
-        </SimpleBar>
+        </>
       )}
     </section>
   )
@@ -211,7 +219,7 @@ const ModalStatusOrderComponent = () => {
     </dialog>
   )
 }
-const ListProductManageProductListComponent = () => {
+const DenyDetailOrderComponent = () => {
   return (
     <>
       <ModalStatusOrderComponent />
@@ -222,4 +230,4 @@ const ListProductManageProductListComponent = () => {
     </>
   )
 }
-export default ListProductManageProductListComponent
+export default DenyDetailOrderComponent

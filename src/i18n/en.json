@@ -61,6 +61,14 @@
     "HAVE_ORDERED": "Have Ordered"
   },
 
+  "BUYER_VIEW": {
+    "SIDEBAR": {
+      "MANAGE_MY_ACCOUNT": "Manage My Account",
+      "MY_PROFILE": "My Profile",
+      "CHANGE_PROFILE": "Change Profile"
+    }
+  },
+
   "SELLER_VIEW": {
     "SIDEBAR": {
       "MANAGE_MY_ACCOUNT": "Manage My Account",
@@ -74,7 +82,7 @@
       "DETAIL_ORDER": "Detail Order",
       "DELIVERED": "Delivered",
       "PROCESSING": "Processing",
-      "NOTIFICATION": "Notification"
+      "DENY": "Deny"
     },
 
     "CREATE_PRODUCT": {
@@ -102,6 +110,9 @@
       "CREATE_AT": "Create At",
       "BUYER": "Buyer",
       "STATUS": "Status"
+    },
+    "DETAIL_ORDER": {
+      "DELIVERED": "List Delivered"
     }
   }
 }

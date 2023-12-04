@@ -22,18 +22,17 @@ export const DropDownUserDetailHeaderComponent = () => {
       className='animate-fadeIn absolute z-50 w-40 p-2 rounded border-1 border-solid border-gray-400 bg-white'
     >
       <div className='flex flex-col space-y-4'>
-        {auth.data.role === ROLE.SELLER && (
-          <button
-            onClick={(event) => {
-              event.preventDefault()
-              setOpenDropDown({ open: false })
-              navigate('/seller')
-            }}
-            className='menu--btn rounded py-2 px-4 font-semibold bg-white border-b-1 border-solid border-gray-400'
-          >
-            {t('HEADER_LAYOUT.PROFILE')}
-          </button>
-        )}
+        <button
+          onClick={(event) => {
+            event.preventDefault()
+            setOpenDropDown({ open: false })
+            if (auth.data.role === ROLE.SELLER) navigate('/seller')
+            if (auth.data.role === ROLE.BUYER) navigate('/buyer')
+          }}
+          className='menu--btn rounded py-2 px-4 font-semibold bg-white border-b-1 border-solid border-gray-400'
+        >
+          {t('HEADER_LAYOUT.PROFILE')}
+        </button>
         <button
           onClick={(event) => {
             event.preventDefault()

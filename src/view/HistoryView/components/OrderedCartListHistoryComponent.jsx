@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { ThreeCircles } from 'react-loader-spinner'
 import { cartListSelector } from '../store'
 import SimpleBar from 'simplebar-react'
-export const ItemCartListHistoryComponent = (props) => {
+const ItemCartListHistoryComponent = (props) => {
   const { id, status, price, create_at } = props
   const navigate = useNavigate()
   const handleNavigateToSecureCheck = (event) => {
@@ -39,7 +39,7 @@ export const ItemCartListHistoryComponent = (props) => {
     </>
   )
 }
-export const CartListHistoryComponent = () => {
+export const OrderedCartListHistoryComponent = () => {
   const { state, contents } = useRecoilValueLoadable(cartListSelector)
   return (
     <>
@@ -70,15 +70,17 @@ export const CartListHistoryComponent = () => {
             </thead>
             <tbody className=' hover-cursor w-full'>
               {contents.data.map((item) => {
-                return (
-                  <ItemCartListHistoryComponent
-                    key={item.id}
-                    id={item.id}
-                    status={item.status}
-                    price={item.price}
-                    create_at={item.create_at}
-                  />
-                )
+                if (item.status === 'ordered')
+                  return (
+                    <ItemCartListHistoryComponent
+                      key={item.id}
+                      id={item.id}
+                      status={item.status}
+                      price={item.price}
+                      create_at={item.create_at}
+                    />
+                  )
+                return null
               })}
             </tbody>
           </table>

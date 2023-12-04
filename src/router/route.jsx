@@ -10,6 +10,7 @@ const Layout = withSuspense(
 )
 const SearchView = withSuspense(React.lazy(() => import('@/view/SearchView')))
 const SellerView = withSuspense(React.lazy(() => import('@/view/SellerView')))
+const BuyerView = withSuspense(React.lazy(() => import('@/view/BuyerView')))
 const NotFoundView = withSuspense(React.lazy(() => import('@/view/NotFound')))
 const HistoryView = withSuspense(React.lazy(() => import('@/view/HistoryView')))
 const DetailPostView = withSuspense(React.lazy(() => import('@/view/DetailPostView')))
@@ -59,6 +60,10 @@ export const routes = [
       {
         path: PATH.SELLER,
         element: <SellerView />,
+      },
+      {
+        path: PATH.BUYER,
+        element: <BuyerView />,
       },
     ],
   },

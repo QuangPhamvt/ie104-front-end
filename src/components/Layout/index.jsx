@@ -30,7 +30,6 @@ const Layout = () => {
   }, [])
   useGetProfile()
   const auth = useRecoilValue(authAtom)
-  console.log(auth)
   return (
     <>
       <>{auth.state === STATE.IDLE && <Navigate to='/login' />}</>

@@ -61,6 +61,14 @@
     "HAVE_ORDERED": "Đã đặt hàng"
   },
 
+  "BUYER_VIEW": {
+    "SIDEBAR": {
+      "MANAGE_MY_ACCOUNT": "Quản lý thông tin",
+      "MY_PROFILE": "Thông tin chung",
+      "CHANGE_PROFILE": "Sửa đổi thông tin"
+    }
+  },
+
   "SELLER_VIEW": {
     "SIDEBAR": {
       "MANAGE_MY_ACCOUNT": "Quản lý thông tin",
@@ -74,7 +82,7 @@
       "DETAIL_ORDER": "Chi tiết đơn hàng",
       "DELIVERED": "Đã giao hàng",
       "PROCESSING": "Trong quá trình",
-      "NOTIFICATION": "Thông báo"
+      "DENY": "Từ chối"
     },
     "CREATE_PRODUCT": {
       "CREATE_YOUR_PRODUCT": "Tạo sản phẩm của bạn",
@@ -101,6 +109,9 @@
       "CREATE_AT": "Ngày Tạo",
       "BUYER": "Người mua",
       "STATUS": "Trạng thái"
+    },
+    "DETAIL_ORDER": {
+      "DELIVERED": "Danh sách đã vận chuyển"
     }
   }
 }
