@@ -7,7 +7,9 @@ import { searchDetailProductByIdSelectorFamily } from '../store/selectors'
 import { STATUS_API_POST } from '@/utilities'
 import { searchDetailProductionAtom } from '../store'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 export const ContentHeaderDetailPostComponent = () => {
+  const { t } = useTranslation()
   const { id } = useParams()
   const { state, contents } = useRecoilValueLoadable(searchDetailProductByIdSelectorFamily(id))
   const setSearchDetailProduction = useSetRecoilState(searchDetailProductionAtom)
@@ -37,19 +39,19 @@ export const ContentHeaderDetailPostComponent = () => {
         <div className='grid grid-cols-3'>
           <div className='flex flex-col justify-between justify-center'>
             <p className='text-sm'>
-              <FaStar /> 4.5 rating
+              <FaStar /> 4.5 {t('DETAIL_POST_VIEW.RATING')}
             </p>
-            <p className='text-sm'>100+ rating</p>
+            <p className='text-sm'>100+ {t('DETAIL_POST_VIEW.RATING')}</p>
           </div>
           <div className='flex flex-col border-x-2 border-solid border-white text-center px-6'>
-            <p className='text-sm'>30 Mins</p>
-            <p className='text-sm'>Delivery Time</p>
+            <p className='text-sm'>30 {t('DETAIL_POST_VIEW.MIN')}</p>
+            <p className='text-sm'>{t('DETAIL_POST_VIEW.DELIVERY_TIME')}</p>
           </div>
           <div className='flex flex-col items-end'>
             <p className='text-sm'>
               <GiMoneyStack /> {contents.data?.price || ''}
             </p>
-            <p className='text-sm'>Cost for two</p>
+            <p className='text-sm'>{t('DETAIL_POST_VIEW.COST_FOR_TWO')}</p>
           </div>
         </div>
       </section>
@@ -57,26 +59,29 @@ export const ContentHeaderDetailPostComponent = () => {
   )
 }
 export const DiscountHeaderDetailComponent = () => {
+  const { t } = useTranslation()
   return (
     <section className='text-white w-2/5 pt-12 pl-12'>
       <div className='border-dashed border-2 border-orange-400 h-full rounded-2xl px-8 flex flex-col justify-center space-y-4'>
-        <h2>Offers</h2>
+        <h2>{t('DETAIL_POST_VIEW.OFFERS')}</h2>
         <ul className='flex flex-col space-y-4'>
           <li className='inline-flex items-center space-x-2'>
             <CiDiscount1
               size={24}
               color='orange'
             />
-            <p>50% off up to</p>
+            <p>{t('DETAIL_POST_VIEW.50_OFF')}</p>
             <GiMoneyStack />
-            100 | Use code TRYNEW
+            100 | {t('DETAIL_POST_VIEW.USE_CODE_TRYNEW')}
           </li>
           <li className='inline-flex items-center space-x-2'>
             <CiDiscount1
               size={24}
               color='orange'
             />
-            <p>20% off| Use code PARTY</p>
+            <p>
+              {t('DETAIL_POST_VIEW.20_OFF')} | {t('DETAIL_POST_VIEW.USE_CODE_PARTY')}
+            </p>
           </li>
         </ul>
       </div>

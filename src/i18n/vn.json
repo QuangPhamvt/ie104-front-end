@@ -61,6 +61,12 @@
     "HAVE_ORDERED": "Đã đặt hàng"
   },
 
+  "SEARCH_VIEW": {
+    "SEARCH_RESULT": "Kết quả cho ",
+    "DISHES": "Món ăn",
+    "RESTAURANT": "Nhà hàng"
+  },
+
   "SELLER_VIEW": {
     "SIDEBAR": {
       "MANAGE_MY_ACCOUNT": "Quản lý thông tin",
@@ -102,5 +108,65 @@
       "BUYER": "Người mua",
       "STATUS": "Trạng thái"
     }
+  },
+
+  "DETAIL_POST_VIEW": {
+    "OFFERS": "Khuyến mãi",
+    "COST_FOR_TWO": "Mua 2 món",
+    "DELIVERY_TIME": "Thời gian giao hàng",
+    "50_OFF": "Giảm giá 50%",
+    "20_OFF": "Giảm giá 20%",
+    "USE_CODE_TRYNEW": "Dùng mã giảm giá cho sản phẩm mới", 
+    "USE_CODE_PARTY": "Dùng mã giảm giá theo nhóm",
+    "RATING": "Đánh giá",
+    "MIN": "Phút"
+  },
+
+  "CONTENT_POST_VIEW": {
+    "ADD": "Thêm +"
+  },
+
+  "CART_POST_VIEW": {
+    "CART": "Giỏ hàng",
+    "ITEM": "món",
+    "CHECKOUT": "XÁC NHẬN",
+    "SUB_TOTAL": "Tổng"
+  },
+
+  "HEADER_SECURE_CHECKOUT": {
+    "TITLE": "KIỂM TRA ĐƠN HÀNG"
+  },
+
+  "DETAIL_SECURE_CHECKOUT": {
+    "QR_CODE": "QR Thanh Toán"
+  },
+
+  "DELIVERY_SECURE_CHECKOUT": {
+    "ADDRESS": "Địa chỉ giao hàng"
+  },
+
+  "PAYMENT_SECURE_CHECKOUT": {
+    "FROM": "từ",
+    "CART": "Giỏ hàng",
+    "TOTAL": "Tổng",
+    "ITEM": "món",
+    "PREPARE": "ĐANG CHUẨN BỊ",
+    "PROCESSING": "ĐANG XỬ LÝ",
+    "DENY": "TỪ CHỐI",
+    "ORDERED": "ĐÃ XÁC NHẬN",
+    "BILL_DETAIL": "Chi tiết hóa đơn",
+    "ITEM_TOTAL": "Tổng sản phẩm",
+    "DELIVERY_FEE": "Phí giao hàng",
+    "TAX": "Thuế"
+  },
+
+  "HISTORY_LABEL": {
+    "DAYS": "Ngày",
+    "PRICE": "Giá",
+    "STATUS":"Trạng thái",
+    "PREPARE": "ĐANG CHUẨN BỊ",
+    "PROCESSING": "ĐANG XỬ LÝ",
+    "DENY": "TỪ CHỐI",
+    "ORDERED": "ĐÃ XÁC NHẬN"
   }
 }
