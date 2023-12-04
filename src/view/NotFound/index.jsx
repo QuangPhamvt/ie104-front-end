@@ -1,37 +1,15 @@
-import NotificationAction from '@/components/Notification/store/hook'
-import { TYPE } from '@/utilities'
+import { NotFoundTitle } from './components/NotFoundTitle'
+import { BackToDashBoardButton } from './components/BackToDashBoardButton'
+import './styles.scss'
 
 const NotFoundView = () => {
-  const { handlePushNotificationItem } = NotificationAction.usePushNotificationItem()
   return (
-    <>
-      <div className='flex flex-row space-x-4'>
-        <button
-          onClick={(event) => {
-            event.preventDefault()
-            handlePushNotificationItem(TYPE.SUCCESS, 'nice')
-          }}
-        >
-          Success
-        </button>
-        <button
-          onClick={(event) => {
-            event.preventDefault()
-            handlePushNotificationItem(TYPE.ERROR, 'error')
-          }}
-        >
-          Error
-        </button>
-        <button
-          onClick={(event) => {
-            event.preventDefault()
-            handlePushNotificationItem(TYPE.WARNING, 'warn')
-          }}
-        >
-          Warning
-        </button>
-      </div>
-    </>
+    <section className='not-found h-screen'>
+      <article className='absolute right-32'>
+        <NotFoundTitle />
+        <BackToDashBoardButton />
+      </article>
+    </section>
   )
 }
 export default NotFoundView
