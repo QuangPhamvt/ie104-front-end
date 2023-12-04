@@ -1,0 +1,1 @@
+import{X as r,ac as a}from"./index-95793c1e.js";const n={getCart:()=>{const t=a.GET_CART;return r.get(t)},createCart:t=>{const{price:c,cart_items:e}=t,s=a.CREATE_CART;return r.post(s,{price:c,cart_items:e})}};export{n as c};
