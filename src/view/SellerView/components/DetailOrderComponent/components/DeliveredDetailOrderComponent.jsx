@@ -128,6 +128,7 @@ const ItemListProductListComponent = (props) => {
   )
 }
 const ModalStatusOrderComponent = () => {
+  const { t } = useTranslation()
   const dialogRef = React.useRef(null)
   const openModalStatusOrder = useRecoilValue(openModalStatusOrderAtom)
   const resetOpenModal = useResetRecoilState(openModalStatusOrderAtom)
@@ -143,7 +144,6 @@ const ModalStatusOrderComponent = () => {
   const handleCloseOpen = () => {
     resetOpenModal()
   }
-  const { t } = useTranslation()
   const { data } = openModalStatusOrder
   return (
     <dialog
@@ -170,12 +170,22 @@ const ModalStatusOrderComponent = () => {
     >
       {!!data ? (
         <section className='w-116 h-72  p-4 flex flex-col justify-between'>
-          <div className='text-2xl flex justify-center items-center border-b-1 border-gray-200 pb-2'>DETAIL</div>
+          <div className='text-2xl flex justify-center items-center border-b-1 border-gray-200 pb-2'>
+            {t('SELLER_VIEW.LIST_PRODUCT.DETAIL')}
+          </div>
           <section className='h-full flex flex-col space-y-2 pt-4 border-b-1 border-solid border-gray-300 px-4'>
-            <div>Buyer: {data.buyer}</div>
-            <div>Address: {data.address}</div>
-            <div>Product: {data.products}</div>
-            <div>Price: {data.price || ''}</div>
+            <div>
+              {t('SELLER_VIEW.LIST_PRODUCT.BUYER')}: {data.buyer}
+            </div>
+            <div>
+              {t('SELLER_VIEW.LIST_PRODUCT.ADDRESS')}: {data.address}
+            </div>
+            <div>
+              {t('SELLER_VIEW.LIST_PRODUCT.PRODUCT')}: {data.products}
+            </div>
+            <div>
+              {t('SELLER_VIEW.LIST_PRODUCT.PRICE')}: {data.price || ''}
+            </div>
           </section>
           <div className='flex flex-row justify-around space-x-2 mt-4'>
             <button
@@ -185,7 +195,7 @@ const ModalStatusOrderComponent = () => {
               }}
               className='grow p-2 border-1 border-solid rounded border-gray-400 font-bold text-base bg-white'
             >
-              Close
+              {t('SELLER_VIEW.LIST_PRODUCT.CLOSE')}
             </button>
             <button
               onClick={(event) => {
@@ -198,7 +208,7 @@ const ModalStatusOrderComponent = () => {
                 backgroundColor: `${data.status === 'deny' ? '#DF2E38' : 'white'}`,
               }}
             >
-              Deny
+              {t('SELLER_VIEW.LIST_PRODUCT.DENY')}
             </button>
             <button
               onClick={(event) => {
@@ -211,7 +221,7 @@ const ModalStatusOrderComponent = () => {
                 backgroundColor: `${data.status === 'ordered' ? '#54B435' : 'white'}`,
               }}
             >
-              {data.status === 'ordered' ? 'Ordered' : 'Accept'}
+              {data.status === 'ordered' ? 'Ordered' : t('SELLER_VIEW.LIST_PRODUCT.ACCEPT')}
             </button>
           </div>
         </section>
@@ -221,7 +231,7 @@ const ModalStatusOrderComponent = () => {
     </dialog>
   )
 }
-const DeliveredDetailOrderComponent = () => {
+const ListProductManageProductListComponent = () => {
   return (
     <>
       <ModalStatusOrderComponent />
@@ -232,4 +242,4 @@ const DeliveredDetailOrderComponent = () => {
     </>
   )
 }
-export default DeliveredDetailOrderComponent
+export default ListProductManageProductListComponent
