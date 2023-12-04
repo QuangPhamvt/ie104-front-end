@@ -22,7 +22,7 @@ const HomeView = () => {
   }, [])
   return (
     <main
-      className='flex flex-col pt-28 space-y-28 w-screen h-fit'
+      className='flex flex-col pt-28 space-y-28 w-screen h-fit overflow-hidden'
       style={{ backgroundColor: '#F7FAFC' }}
     >
       <Helmet>

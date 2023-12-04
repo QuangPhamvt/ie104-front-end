@@ -32,16 +32,15 @@ const AuthView = () => {
         <meta charSet='urf-8' />
         <title>IE104 FRONT END | LOGIN</title>
       </Helmet>
-      <article
-        className='layout--left'
-        style={{ backgroundColor: '#F5F5F5' }}
-      >
-        <section className='w-full h-full bg-gray-300 background--layout-left'></section>
+      <article className='layout--left'>
+        {/* <section className='w-full h-full bg-gray-300 background--layout-left'></section> */}
+        <img
+          src='https://customafk.s3.ap-southeast-1.amazonaws.com/IE104/frontend/bg-auth.png'
+          alt=''
+          className='w-full h-full background--layout-left'
+        />
       </article>
-      <article
-        className='layout--right h-full flex justify-center items-center'
-        style={{ backgroundColor: '#F5F5F5' }}
-      >
+      <article className='layout--right h-full flex justify-center items-center background--layout-right'>
         <section
           className='p-2 layout--right--content space-y-6 flex flex-col items-center justify-center rounded-2xl modal--auth-layout shadow-xl'
           style={{ height: '540px', backgroundColor: '#EBE4D1' }}
