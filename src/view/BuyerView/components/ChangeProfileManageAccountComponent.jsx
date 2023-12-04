@@ -2,7 +2,10 @@ import { authAtom } from '@/view/AuthView/store'
 import { MdModeEdit } from 'react-icons/md'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { BuyerViewHook, uploadBuyerFormState } from '../store'
+import { useTranslation } from 'react-i18next'
+import { FaUser } from 'react-icons/fa'
 const HeaderChangeProfileManageAccountComponent = () => {
+  const { t } = useTranslation()
   const auth = useRecoilValue(authAtom)
   const [uploadBuyerForm, setUploadBuyerForm] = useRecoilState(uploadBuyerFormState)
   const { handlePostUpdateBuyer } = BuyerViewHook.usePostUpdateBuyer()
@@ -14,7 +17,7 @@ const HeaderChangeProfileManageAccountComponent = () => {
           style={{ fontFamily: 'monospace' }}
           className='font-bold text-xl pl-2 pb-2 pr-4 border-b-1 border-solid border-gray-400 w-fit'
         >
-          Setting Profile
+          {t('SELLER_VIEW.EDIT_INFO.SETTING_PROFILE')}
         </p>
         <div
           className='p-1 flex justify-center items-center'
@@ -28,7 +31,12 @@ const HeaderChangeProfileManageAccountComponent = () => {
         </div>
       </div>
       <div className='flex flex-row space-x-4 px-2 pb-4 border-b-1 border-solid border-gray-200'>
-        <div className='h-24 w-24 rounded-full bg-gray-50 border-4 border-solid border-gray-400' />
+        <div className='h-24 w-24 flex items-center justify-center rounded-full bg-gray-50 border-2 border-solid border-gray-400'>
+          <FaUser
+            size={50}
+            color='#A9A9A9'
+          />
+        </div>
         <div className='flex flex-col h-24 justify-end pb-4'>
           <input
             className='text-xl font-bold text-black p-1 pl-4 border-1 border-solid border-gray-300 rounded'
@@ -49,6 +57,7 @@ const HeaderChangeProfileManageAccountComponent = () => {
   )
 }
 const ContentChangeProfileManageAccountComponent = () => {
+  const { t } = useTranslation()
   const auth = useRecoilValue(authAtom)
   const [uploadBuyerForm, setUploadBuyerForm] = useRecoilState(uploadBuyerFormState)
   return (
@@ -58,13 +67,13 @@ const ContentChangeProfileManageAccountComponent = () => {
           className='font-bold text-xl pr-4 w-fit mb-4'
           style={{ fontFamily: 'monospace' }}
         >
-          Address
+          {t('SELLER_VIEW.EDIT_INFO.ADDRESS')}
         </p>
         <div className='flex flex-col pl-4 space-y-2'>
           <div className='flex space-x-2 items-center mr-8 border-b-1 profile--banking-item'>
             <input
               type='text'
-              placeholder={`Province: ${auth.data.province}`}
+              placeholder={`${t('SELLER_VIEW.EDIT_INFO.PROVINCE')} ${auth.data.province}`}
               className='text-base p-1 w-full border-1 border-solid border-gray-300 italic'
               value={uploadBuyerForm.address.province || ''}
               onChange={(event) => {
@@ -79,7 +88,7 @@ const ContentChangeProfileManageAccountComponent = () => {
           <div className='flex space-x-2 items-center mr-8 border-b-1 profile--banking-item'>
             <input
               type='text'
-              placeholder={`District: ${auth.data.district}`}
+              placeholder={`${t('SELLER_VIEW.EDIT_INFO.DISTRICT')} ${auth.data.district}`}
               className='text-base p-1 w-full border-1 border-solid border-gray-300 italic'
               value={uploadBuyerForm.address.district || ''}
               onChange={(event) => {
@@ -94,7 +103,7 @@ const ContentChangeProfileManageAccountComponent = () => {
           <div className='flex space-x-2 items-center mr-8 border-b-1 profile--banking-item'>
             <input
               type='text'
-              placeholder={`Ward: ${auth.data.ward}`}
+              placeholder={`${t('SELLER_VIEW.EDIT_INFO.WARD')} ${auth.data.ward}`}
               className='text-base p-1 w-full border-1 border-solid border-gray-300 italic'
               value={uploadBuyerForm.address.ward || ''}
               onChange={(event) => {

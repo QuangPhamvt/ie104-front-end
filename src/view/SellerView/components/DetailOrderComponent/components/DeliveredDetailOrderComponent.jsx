@@ -143,6 +143,7 @@ const ModalStatusOrderComponent = () => {
   const handleCloseOpen = () => {
     resetOpenModal()
   }
+  const { t } = useTranslation()
   const { data } = openModalStatusOrder
   return (
     <dialog
