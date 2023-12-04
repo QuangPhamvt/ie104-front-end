@@ -36,7 +36,7 @@ export const UploadImageFieldCreateProductionFormComponent = () => {
         <img
           className='w-full h-100 object-cover'
           src={picture}
-          alt='Not have file'
+          alt={t('SELLER_VIEW.CREATE_PRODUCT.NOT_FOUND')}
         />
       </div>
     </section>

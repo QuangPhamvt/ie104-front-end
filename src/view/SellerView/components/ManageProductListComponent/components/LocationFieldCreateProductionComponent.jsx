@@ -13,7 +13,7 @@ export const LocationFieldCreateProductionFormComponent = () => {
         className='w-1/5 p-2 border-2 border-solid border-gray-300 rounded-xl grow'
         onChange={(event) => setLocationFieldForm(event.target.value)}
       >
-        <option value=''>choose city</option>
+        <option value=''>{t('SELLER_VIEW.CREATE_PRODUCT.CHOOSE_CITY')}</option>
         {LOCATION_CITY_ARRAY.map((item) => {
           return (
             <option

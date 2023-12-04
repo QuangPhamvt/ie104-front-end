@@ -14,7 +14,7 @@ export const CategoriesFieldCreateProductFormComponent = () => {
         onChange={(event) => setCategoriesFieldForm(event.target.value)}
         className=' p-2 border-1 w-3/5 border-solid border-gray-300 rounded-xl '
       >
-        <option value=''>choose categories</option>
+        <option value=''>{t('SELLER_VIEW.CREATE_PRODUCT.SELECT_CATEGORY')}</option>
         {data.map((item) => {
           return (
             <option

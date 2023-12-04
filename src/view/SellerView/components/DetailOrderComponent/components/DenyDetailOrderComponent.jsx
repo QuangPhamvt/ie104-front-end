@@ -19,7 +19,7 @@ const HeaderListProductListComponent = () => {
   const { t } = useTranslation()
   return (
     <section className='flex flex-row pb-2 border-b-1 border-solid border-gray-500'>
-      <div className='text-2xl font-bold'>{t('SELLER_VIEW.DETAIL_ORDER.DELIVERED')}</div>
+      <div className='text-2xl font-bold'>{t('DETAIL_ORDERED.DENY_DETAIL')}</div>
     </section>
   )
 }
@@ -59,6 +59,7 @@ const ContentListProductListComponent = () => {
   )
 }
 const ItemListProductListComponent = (props) => {
+  const { t } = useTranslation()
   const { order_id, price, status, buyer = '', order_items } = props
   const setOpenModal = useSetRecoilState(openModalStatusOrderAtom)
   const handleOpen = () => {
@@ -103,7 +104,7 @@ const ItemListProductListComponent = (props) => {
             style={{ color: '#9ADE7B' }}
             className='text-base font-bold'
           >
-            ORDERED
+            {t('DETAIL_ORDERED.ORDERED')}
           </p>
         )}
         {status === 'deny' && (
@@ -111,7 +112,7 @@ const ItemListProductListComponent = (props) => {
             style={{ color: '#DF2E38' }}
             className='text-base font-bold'
           >
-            DENY
+            {t('DETAIL_ORDERED.DENY')}
           </p>
         )}
         {status === 'processing' && (
@@ -119,7 +120,7 @@ const ItemListProductListComponent = (props) => {
             style={{ color: '#A9A9A9' }}
             className='text-base font-bold'
           >
-            Processing
+            {t('DETAIL_ORDERED.PROCESSING')}
           </p>
         )}
       </div>

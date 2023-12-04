@@ -131,11 +131,25 @@
       "BANK_NAME": "Bank Name",
       "HAVING": "Having"
     },
+    "EDIT_INFO":{
+      "SETTING_PROFILE":"Setting Profile",
+      "ADDRESS":"Address",
+      "BANKING":"Banking Account",
+
+      "PROVINCE":"Province:",
+      "DISTRICT":"District:",
+      "WARD":"Ward",
+      "NUMBER_ACCOUNT":"Number Account: 1000xxxx",
+      "BANK_NAME":"Bank Name: Vietcombank",
+      "HAVING":"Having: 1000000"
+    },
     "CREATE_PRODUCT": {
       "CREATE_YOUR_PRODUCT": "Create Your Product",
       "TITLE_PRODUCTION": "Title of Production",
       "ENTER_TITLE_PRODUCTION": "Enter to title of production",
       "CATEGORIES": "Categories",
+      "SELECT_CATEGORY": "Select Category",
+      
 
       "DESCRIPTION": "Description",
       "ENTER_DESCRIPTION_PRODUCTION": "Enter to description of production",
@@ -143,6 +157,7 @@
       "UPLOAD_IMAGE": "Upload Image",
 
       "LOCATION_SHOP": "Location Shop",
+      "CHOOSE_CITY":"choose city",
       "MONEY": "Money",
       "SPEND": "Spend",
 
@@ -155,7 +170,16 @@
       "ORDER_ID": "Order Id",
       "CREATE_AT": "Create At",
       "BUYER": "Buyer",
-      "STATUS": "Status"
+      "STATUS": "Status",
+      "ORDERED":"Ordered",
+      "PROCESSING": "Processing",
+      "DENY": "Deny",
+      "CLOSE":"Close",
+      "DETAIL":"Detail",
+      "ACCEPT":"Accept",
+      "PRODUCT":"Product",
+      "ADDRESS":"Address",
+      "PRICE":"Price"
     },
     "DETAIL_ORDER": {
       "DELIVERED": "List Delivered"
@@ -219,5 +243,14 @@
     "PROCESSING": "PROCESSING",
     "DENY": "DENY",
     "ORDERED": "ORDERED"
+  },
+  "DETAIL_ORDERED":{
+    "DELIVERED_DETAIL":"Delivered order details",
+    "DENY_DETAIL":"Rejected orde",
+    "PROCESSING_DETAIL":"Processing Detail Order",
+    "PROCESSING": "PROCESSING",
+    "DENY": "DENY",
+    "ORDERED": "ORDERED"
   }
 }
+
