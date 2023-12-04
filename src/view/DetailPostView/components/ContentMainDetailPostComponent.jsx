@@ -2,10 +2,12 @@ import { GiMoneyStack } from 'react-icons/gi'
 import { useRecoilValue } from 'recoil'
 import { DetailProduct, findProductByCategoryAtom } from '../store'
 import { ThreeCircles } from 'react-loader-spinner'
+import { useTranslation } from 'react-i18next'
 export const ItemContentMainDetailPostComponent = (props) => {
   // eslint-disable-next-line react/prop-types
   const { product_id, title, picture, description, price } = props
   const { handleAddDetailProductToCart } = DetailProduct.useAddDetailProductToCart()
+  const { t } = useTranslation()
   return (
     <article className='flex flex-row space-x-6 justify-between items-center w-full h-full p-4 shadow border-1 border-solid border-gray-200 rounded-xl'>
       <section className='flex flex-col space-y-2 h-full justify-center '>
@@ -35,7 +37,7 @@ export const ItemContentMainDetailPostComponent = (props) => {
             className='text-lg '
             style={{ color: 'green' }}
           >
-            Add +
+            {t('CONTENT_POST_VIEW.ADD')}
           </p>
         </button>
       </section>

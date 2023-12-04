@@ -65,6 +65,8 @@
   animation: fadeInCart 300ms linear;
 }
 .cart--recommend-default {
+  color: #333;
+  font-size: 16px;
 }
 .cart--recommend-default:nth-child(2) {
   transition-delay: 200ms;
@@ -129,4 +131,11 @@
   .recommended--food {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+}
+.city-item {
+  transition: color 0.3s; 
+}
+
+.city-item:hover {
+  color: #ff9900; 
 }

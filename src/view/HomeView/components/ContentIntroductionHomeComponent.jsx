@@ -1,4 +1,5 @@
 import { SearchLocationHomeComponent } from './SearchLocationHomeComponent'
+import { useTranslation } from 'react-i18next'
 const BananaIcon = () => (
   <svg
     width='125'
@@ -101,33 +102,32 @@ const AppleIcon = () => (
 )
 
 export const ContentIntroductionHomeComponent = () => {
+  const { t } = useTranslation()
   return (
     <article className='intro--content flex flex-col space-y-8'>
       <section className='flex flex-col space-y-6'>
-        <h2 className='text-6xl font-light inline mt-6'>
-          Premium <p className='text-orange-400 inline'>quality</p>
+        <h2 className='text-6xl font-light inline mt-8'>
+          {t('CONTENT_INTRODUCTION.PREMIUM')}{' '}
+          <p className='text-orange-400 inline'>{t('CONTENT_INTRODUCTION.QUALITY')}</p>
         </h2>
         <h2
           className='text-6xl font-light inline-flex'
           style={{ height: 75 }}
         >
-          Food for your
+          {t('CONTENT_INTRODUCTION.FOOD_FOR_YOUR')}
           <p className='mx-1'>
             <BananaIcon />
           </p>
-          <p className='text-orange-400 inline'>healthy</p>
+          <p className='text-orange-400 inline'>{t('CONTENT_INTRODUCTION.HEALTHY')}</p>
         </h2>
         <h2 className='text-6xl font-light inline-flex'>
           <p className='mx-2 flex justify-center'>
             <AppleIcon />
           </p>
-          <p className='text-orange-400 inline'>& Daily Life</p>
+          <p className='text-orange-400 inline'>{t('CONTENT_INTRODUCTION.DAILY_LIFE')}</p>
         </h2>
       </section>
-      <p className='font-thin text-gray-500 text-xl'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, quo cupiditate. Dolores alias, aut deleniti eaque
-        distinctio sit dicta quaerat minus. Ut consequatur autem quos! Alias dolor repudiandae incidunt possimus?
-      </p>
+      <p className='font-thin text-gray-500 text-4xl'>{t('CONTENT_INTRODUCTION.CAPTION')}</p>
       <SearchLocationHomeComponent />
     </article>
   )

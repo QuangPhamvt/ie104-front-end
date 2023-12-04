@@ -9,6 +9,8 @@ import { statusPostCreateOrderAtom } from '../store'
 import { STATUS_API_POST } from '@/utilities'
 import SecureCheckout from '../store/hook'
 
+import { useTranslation } from 'react-i18next'
+
 export const ItemListPaymentContentSecureCheckoutComponent = (props) => {
   const { price, title, quantity } = props
   return (
@@ -50,20 +52,21 @@ export const ListPaymentContentSecureCheckoutComponent = (props) => {
   )
 }
 export const BillDetailPaymentContentSecureCheckoutComponent = (props) => {
+  const { t } = useTranslation()
   const { price } = props
   return (
     <section className='flex flex-col space-y-4 font-thin'>
-      <h4 className='font-light text-gray-400'>Bill details</h4>
+      <h4 className='font-light text-gray-400'>{t('PAYMENT_SECURE_CHECKOUT.BILL_DETAIL')}</h4>
       <div className='inline-flex flex-row  w-full justify-between text-gray-400'>
-        <p>Items Total</p>
+        <p>{t('PAYMENT_SECURE_CHECKOUT.ITEM_TOTAL')}</p>
         <p>${price}</p>
       </div>
       <div className='inline-flex flex-row  w-full justify-between text-gray-400'>
-        <p>Delivery Fee</p>
+        <p>{t('PAYMENT_SECURE_CHECKOUT.DELIVERY_FEE')}</p>
         <p>0</p>
       </div>
       <div className='inline-flex w-full flex-row justify-between text-gray-400'>
-        <p>Tax</p>
+        <p>{t('PAYMENT_SECURE_CHECKOUT.TAX')}</p>
         <p>0</p>
       </div>
     </section>
@@ -73,17 +76,18 @@ export const PaymentContentSecureCheckoutComponent = (props) => {
   const { seller_id = '', cart_id = '', status = '', price = 0, cart_items = [] } = props
   const statusPostCreateOrder = useRecoilValue(statusPostCreateOrderAtom)
   const { handlePostCreateOrder } = SecureCheckout.usePostCreateOrder()
+  const { t } = useTranslation()
   return (
     <section className='px-8'>
       <section className='bg-gray-50 col-span-1 p-4 rounded-xl space-y-10'>
         <section className='mt-4 inline-flex w-full flex-row justify-between items-center'>
-          <h2 style={{ fontWeight: 400 }}>Cart</h2>
-          <p>item</p>
+          <h2 style={{ fontWeight: 400 }}>{t('PAYMENT_SECURE_CHECKOUT.CART')}</h2>
+          <p>{t('PAYMENT_SECURE_CHECKOUT.ITEM')}</p>
         </section>
         <ListPaymentContentSecureCheckoutComponent cart_items={cart_items} />
         <BillDetailPaymentContentSecureCheckoutComponent price={price} />
         <section className='inline-flex w-full flex-row justify-between items-center'>
-          <h2 className='font-normal'>Total</h2>
+          <h2 className='font-normal'>{t('PAYMENT_SECURE_CHECKOUT.TOTAL')}</h2>
           <p className='text-2xl'>${price}</p>
         </section>
         {status === 'prepare' && (
@@ -103,23 +107,23 @@ export const PaymentContentSecureCheckoutComponent = (props) => {
             )}
             {statusPostCreateOrder.status === STATUS_API_POST.HAS_VALUE && <MdOutlineFileDownloadDone size={24} />}
             {statusPostCreateOrder.status === STATUS_API_POST.IDLE && (
-              <p className='text-xl font-bold text-black'>PREPARE</p>
+              <p className='text-xl font-bold text-black'>{t('PAYMENT_SECURE_CHECKOUT.PREPARE')}</p>
             )}
           </button>
         )}
         {status === 'processing' && (
           <div className='w-full py-4 bg-orange-400 rounded-2xl flex justify-center items-center'>
-            <p className='text-xl font-bold text-white'>PROCESSING</p>
+            <p className='text-xl font-bold text-white'>{t('PAYMENT_SECURE_CHECKOUT.PROCESSING')}</p>
           </div>
         )}
         {status === 'deny' && (
           <div className='w-full py-4 bg-red-700 rounded-2xl flex justify-center items-center'>
-            <p className='text-xl font-bold text-white'>DENY</p>
+            <p className='text-xl font-bold text-white'>{t('PAYMENT_SECURE_CHECKOUT.DENY')}</p>
           </div>
         )}
         {status === 'ordered' && (
           <div className='w-full py-4 bg-green-400 rounded-2xl flex justify-center items-center'>
-            <p className='text-xl font-bold text-white'>ORDERED</p>
+            <p className='text-xl font-bold text-white'>{t('PAYMENT_SECURE_CHECKOUT.ORDERED')}</p>
           </div>
         )}
       </section>

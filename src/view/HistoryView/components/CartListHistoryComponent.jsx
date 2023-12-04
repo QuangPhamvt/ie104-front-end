@@ -5,9 +5,11 @@ import { useNavigate } from 'react-router-dom'
 import { ThreeCircles } from 'react-loader-spinner'
 import { cartListSelector } from '../store'
 import SimpleBar from 'simplebar-react'
+import { useTranslation } from 'react-i18next'
 export const ItemCartListHistoryComponent = (props) => {
   const { id, status, price, create_at } = props
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const handleNavigateToSecureCheck = (event) => {
     event.preventDefault()
     return navigate(`/secure/${id}`)
@@ -29,10 +31,10 @@ export const ItemCartListHistoryComponent = (props) => {
         </td>
         <td>
           <p className='w-full flex justify-center items-center'>
-            {status === 'prepare' && <p style={{ color: '#A9A9A9' }}>Prepare</p>}
-            {status === 'processing' && <p style={{ color: '#FFA33C' }}>Processing</p>}
-            {status === 'deny' && <p style={{ color: '#DF2E38' }}>Deny</p>}
-            {status === 'ordered' && <p style={{ color: '#54B435' }}>Ordered</p>}
+            {status === 'prepare' && <p style={{ color: '#A9A9A9' }}>{t('HISTORY_LABEL.PREPARE')}</p>}
+            {status === 'processing' && <p style={{ color: '#FFA33C' }}>{t('HISTORY_LABEL.PROCESSING')}</p>}
+            {status === 'deny' && <p style={{ color: '#DF2E38' }}>{t('HISTORY_LABEL.DENY')}</p>}
+            {status === 'ordered' && <p style={{ color: '#54B435' }}>{t('HISTORY_LABEL.ORDERED')}</p>}
           </p>
         </td>
       </tr>
@@ -40,6 +42,7 @@ export const ItemCartListHistoryComponent = (props) => {
   )
 }
 export const CartListHistoryComponent = () => {
+  const { t } = useTranslation()
   const { state, contents } = useRecoilValueLoadable(cartListSelector)
   return (
     <>
@@ -58,13 +61,13 @@ export const CartListHistoryComponent = () => {
                   <p className='w-full border-x-1 border-solid border-gray-300 py-2'>ID</p>
                 </th>
                 <th className=' bg-gray-200 w-1/5'>
-                  <p className='w-full border-x-1 border-solid border-gray-300 py-2'>DAYS</p>
+                  <p className='w-full border-x-1 border-solid border-gray-300 py-2'>{t('HISTORY_LABEL.DAYS')}</p>
                 </th>
                 <th className=' bg-gray-200 w-1/6'>
-                  <p className='w-full border-x-1 border-solid border-gray-300 py-2'>PRICE</p>
+                  <p className='w-full border-x-1 border-solid border-gray-300 py-2'>{t('HISTORY_LABEL.PRICE')}</p>
                 </th>
                 <th className=' bg-gray-200 w-1/6'>
-                  <p className='w-full border-x-1 border-solid border-gray-300 py-2'>STATUS</p>
+                  <p className='w-full border-x-1 border-solid border-gray-300 py-2'>{t('HISTORY_LABEL.STATUS')}</p>
                 </th>
               </tr>
             </thead>
