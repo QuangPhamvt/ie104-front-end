@@ -4,6 +4,22 @@
 .background--layout-left {
   animation: animationBackground 1500ms ease-in-out;
 }
+.background--layout-right {
+  background-color: '#F5F5F5';
+  @media screen and (max-width: 1280px) {
+    background-color: #fbab7e;
+    background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+    animation: animationBackgroundRight 1s;
+  }
+  @keyframes animationBackgroundRight {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
 .btn-sign {
   &:hover {
     background-color: rgb(251, 146, 60);
@@ -14,10 +30,10 @@
 }
 @keyframes animationBackground {
   0% {
-    width: 0;
+    transform: translateX(-100%);
   }
   100% {
-    width: full;
+    transform: translateX(0%);
   }
 }
 @keyframes animationModalAuth {

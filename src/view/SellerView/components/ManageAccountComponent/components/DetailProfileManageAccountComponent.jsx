@@ -2,6 +2,9 @@ import { useRecoilValue } from 'recoil'
 import '../styles.scss'
 import { useTranslation } from 'react-i18next'
 import { authAtom } from '@/view/AuthView/store'
+import SellerViewHook from '@/view/SellerView/store/hook'
+import { profileSellerState } from '@/view/SellerView/store'
+import { ACQ_ID, STATE } from '@/utilities'
 const HeaderDetailProfileManageAccountComponent = () => {
   const auth = useRecoilValue(authAtom)
   const { t } = useTranslation()
@@ -27,8 +30,11 @@ const HeaderDetailProfileManageAccountComponent = () => {
   )
 }
 const ContentDetailProfileManageAccountComponent = () => {
-  const auth = useRecoilValue(authAtom)
   const { t } = useTranslation()
+  SellerViewHook.useGetSellerProfile()
+  const getProfileUser = useRecoilValue(profileSellerState)
+  console.log(getProfileUser)
+  if (getProfileUser.state === STATE.IDLE || getProfileUser.state === STATE.LOADING) return null
   return (
     <section className='w-full p-6 flex flex-row space-x-4 '>
       <div className='grow bg-white rounded-xl p-4'>
@@ -41,15 +47,15 @@ const ContentDetailProfileManageAccountComponent = () => {
         <div className='flex flex-col pl-4'>
           <div className='flex space-x-2 items-center mr-8 border-b-1 profile--banking-item'>
             <p className='font-semibold text-base '> {t('SELLER_VIEW.SELLER_PAGE.PROVINCE')} </p>
-            <p>{auth.data.province}</p>
+            <p>{getProfileUser.data.address.province}</p>
           </div>
           <div className='flex space-x-2 items-center border-b-1 profile--banking-item'>
             <p className='font-semibold text-base'> {t('SELLER_VIEW.SELLER_PAGE.DISTRICT')} </p>
-            <p>{auth.data.district}</p>
+            <p>{getProfileUser.data.address.district}</p>
           </div>
           <div className='flex space-x-2 items-center border-b-1 profile--banking-item'>
             <p className='font-semibold text-base'>{t('SELLER_VIEW.SELLER_PAGE.WARD')} </p>
-            <p>{auth.data.ward}</p>
+            <p>{getProfileUser.data.address.ward}</p>
           </div>
         </div>
       </div>
@@ -64,11 +70,15 @@ const ContentDetailProfileManageAccountComponent = () => {
         <div className='flex flex-col pl-4'>
           <div className='flex space-x-2 items-center mr-8 border-b-1 profile--banking-item'>
             <p className='font-semibold text-base '> {t('SELLER_VIEW.SELLER_PAGE.NUMBER_ACCOUNT')} </p>
-            <p>1025871607</p>
+            <p>{getProfileUser.data.bank.account_no}</p>
           </div>
           <div className='flex space-x-2 items-center border-b-1 profile--banking-item'>
             <p className='font-semibold text-base'> {t('SELLER_VIEW.SELLER_PAGE.BANK_NAME')} </p>
-            <p>Vietcombank</p>
+            <p>
+              {ACQ_ID.map((item) => {
+                if (item.bin === getProfileUser.data.bank.arqId) return item.shortName
+              })}
+            </p>
           </div>
           <div className='flex space-x-2 items-center border-b-1 profile--banking-item'>
             <p className='font-semibold text-base'> {t('SELLER_VIEW.SELLER_PAGE.HAVING')} </p>

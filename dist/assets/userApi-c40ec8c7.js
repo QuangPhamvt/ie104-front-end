@@ -1,0 +1,1 @@
+import{a7 as r,aA as e}from"./index-d69f0e7c.js";const u={postUpdateUser:s=>{const{username:t="",address:o={}}=s,a=e.POST_UPDATE_USER;return r.post(a,{username:t,address:o})},getProfileUser:()=>{const s=e.GET_PROFILE_USER;return r.get(s)}};export{u};

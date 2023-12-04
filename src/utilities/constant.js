@@ -24,6 +24,7 @@ export const AUTH_SIGN_UP_MODAL_STATE = {
 
 export const USER_API = {
   POST_UPDATE_USER: 'user/',
+  GET_PROFILE_USER: 'user/',
 }
 export const AUTH_API = {
   SIGN_IN: 'auth/sign-in',
