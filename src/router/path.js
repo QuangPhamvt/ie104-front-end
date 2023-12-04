@@ -7,6 +7,7 @@ export const PATH = {
   HISTORY: '/history',
   SECURE_CHECKOUT: '/secure/:cartId',
   SELLER: '/seller',
+  BUYER: '/buyer',
   CHECK_EMAIL_REDIRECT: '/signup/redirect',
   CHECK_SIGNUP_VERIFY: '/signup/token',
 }

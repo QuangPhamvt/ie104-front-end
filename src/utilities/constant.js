@@ -22,6 +22,9 @@ export const AUTH_SIGN_UP_MODAL_STATE = {
   LOADING: 'loading',
 }
 
+export const USER_API = {
+  POST_UPDATE_USER: 'user/',
+}
 export const AUTH_API = {
   SIGN_IN: 'auth/sign-in',
   SIGN_UP: 'auth/sign-up',

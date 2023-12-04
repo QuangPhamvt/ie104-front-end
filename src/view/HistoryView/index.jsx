@@ -2,8 +2,12 @@ import { useTranslation } from 'react-i18next'
 import { CartListHistoryComponent, SidebarHistoryComponent } from './components'
 import './styles.scss'
 import { Helmet } from 'react-helmet'
+import { useRecoilValue } from 'recoil'
+import { sidebarHistoryState } from './store/atom'
+import { OrderedCartListHistoryComponent } from './components/OrderedCartListHistoryComponent'
 const HistoryView = () => {
   const { t } = useTranslation()
+  const { status } = useRecoilValue(sidebarHistoryState)
   return (
     <article
       style={{ height: '480px' }}
@@ -21,7 +25,8 @@ const HistoryView = () => {
           <SidebarHistoryComponent />
         </section>
         <section className='col-span-3 flex flex-col justify-center items-center'>
-          <CartListHistoryComponent />
+          {status === 'CART_LIST' && <CartListHistoryComponent />}
+          {status === 'HAVE_ORDERED' && <OrderedCartListHistoryComponent />}
         </section>
       </article>
     </article>

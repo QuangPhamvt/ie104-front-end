@@ -10,22 +10,22 @@
     "HISTORY": "History",
     "LOG_OUT": "Log Out"
   },
-  "FOOTER_LAYOUT":{
-    "YOU_NEED_SUPPORT":"You need support ?",
-    "SLOGAN_BRAND":"BunShop - Enjoy fast food - right at home!",
-    "ADDRESS_CONTACT":"Address:",
-    "ABOUT_US":"About Us",
-    "HOME_PAGE":"Home",
-    "INTRODUCE":"Introduce",
-    "CATEGORIES":"Categories",
-    "MEMBERS":"Members",
-    "CAREERS":"Careers",
-    "POLICY_BRAND":"Policy",
-    "DELIVERY_POLICY":"Delivery Policy",
-    "PAYMENT_POLICY":"Payment Policy",
-    "RETURN_POLICY":"Return Policy",
-    "QUALITY_CHECK_POLICY":"Quality Check Policy",
-    "PRIVACY_POLICY":"Privacy Policy"
+  "FOOTER_LAYOUT": {
+    "YOU_NEED_SUPPORT": "You need support ?",
+    "SLOGAN_BRAND": "BunShop - Enjoy fast food - right at home!",
+    "ADDRESS_CONTACT": "Address:",
+    "ABOUT_US": "About Us",
+    "HOME_PAGE": "Home",
+    "INTRODUCE": "Introduce",
+    "CATEGORIES": "Categories",
+    "MEMBERS": "Members",
+    "CAREERS": "Careers",
+    "POLICY_BRAND": "Policy",
+    "DELIVERY_POLICY": "Delivery Policy",
+    "PAYMENT_POLICY": "Payment Policy",
+    "RETURN_POLICY": "Return Policy",
+    "QUALITY_CHECK_POLICY": "Quality Check Policy",
+    "PRIVACY_POLICY": "Privacy Policy"
   },
   "AUTH_VIEW": {
     "USERNAME": "Username",
@@ -49,18 +49,17 @@
     "ID_BANK": "ID Bank",
     "ENTER_YOUR_BANK": "Enter your id bank"
   },
-  "CONTENT_INTRODUCTION":{
-    "PREMIUM":"Premium",
-    "QUALITY":"quality",
-    "FOOD_FOR_YOUR":"Food for your",
-    "HEALTHY":"healthy",
-    "DAILY_LIFE":"& Daily Life",
-    "CAPTION":"Within a few clicks, find meals thatare accessible near you"
-    
+  "CONTENT_INTRODUCTION": {
+    "PREMIUM": "Premium",
+    "QUALITY": "quality",
+    "FOOD_FOR_YOUR": "Food for your",
+    "HEALTHY": "healthy",
+    "DAILY_LIFE": "& Daily Life",
+    "CAPTION": "Within a few clicks, find meals thatare accessible near you"
   },
-  "SEARCH_LOCATION":{
-    "DELIVERY_LOCATION":"Enter your delivery location",
-    "GET_STARTED":"Get started"
+  "SEARCH_LOCATION": {
+    "DELIVERY_LOCATION": "Enter your delivery location",
+    "GET_STARTED": "Get started"
   },
   "HOME_VIEW": {
     "POPULAR_CITES_IN_VIETNAM": "Popular cities in VietNam",
@@ -90,6 +89,15 @@
     "CART_LIST": "Cart List",
     "HAVE_ORDERED": "Have Ordered"
   },
+
+  "BUYER_VIEW": {
+    "SIDEBAR": {
+      "MANAGE_MY_ACCOUNT": "Manage My Account",
+      "MY_PROFILE": "My Profile",
+      "CHANGE_PROFILE": "Change Profile"
+    }
+  },
+
   "SEARCH_VIEW": {
     "SEARCH_RESULT": "Search result for",
     "DISHES": "Dishes",
@@ -108,21 +116,20 @@
       "DETAIL_ORDER": "Detail Order",
       "DELIVERED": "Delivered",
       "PROCESSING": "Processing",
-      "NOTIFICATION": "Notification"
+      "DENY": "Deny"
     },
-    "SELLER_PAGE":{
-      "SELLER_PROFILE":"Seller Profile",
-      "ROLE":"Role",
-      "PROVINCE_SELLER":"BINH DINH PROVINCE",
-
-      "ADDRESS":"Address",
-      "PROVINCE":"Province:",
-      "DISTRICT":"District:",
-      "WARD":"Ward",
-      "BANKING":"Banking Account",
-      "NUMBER_ACCOUNT":"Number Account:",
-      "BANK_NAME":"Bank Name",
-      "HAVING":"Having"
+    "SELLER_PAGE": {
+      "SELLER_PROFILE": "Seller Profile",
+      "ROLE": "Role",
+      "PROVINCE_SELLER": "BINH DINH PROVINCE",
+      "ADDRESS": "Address",
+      "PROVINCE": "Province:",
+      "DISTRICT": "District:",
+      "WARD": "Ward",
+      "BANKING": "Banking Account",
+      "NUMBER_ACCOUNT": "Number Account:",
+      "BANK_NAME": "Bank Name",
+      "HAVING": "Having"
     },
     "CREATE_PRODUCT": {
       "CREATE_YOUR_PRODUCT": "Create Your Product",
@@ -149,6 +156,9 @@
       "CREATE_AT": "Create At",
       "BUYER": "Buyer",
       "STATUS": "Status"
+    },
+    "DETAIL_ORDER": {
+      "DELIVERED": "List Delivered"
     }
   },
 
@@ -204,7 +214,7 @@
   "HISTORY_LABEL": {
     "DAYS": "DAYS",
     "PRICE": "PRICE",
-    "STATUS":"STATUS",
+    "STATUS": "STATUS",
     "PREPARE": "PREPARE",
     "PROCESSING": "PROCESSING",
     "DENY": "DENY",

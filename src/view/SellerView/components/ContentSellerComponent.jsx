@@ -28,8 +28,8 @@ const ProcessingDetailOrderComponent = withSuspense(
   React.lazy(() => import('./DetailOrderComponent/components/ProcessingDetailOrderComponent')),
   <LoadingSellerViewComponent />,
 )
-const NotificationDetailOrderComponent = withSuspense(
-  React.lazy(() => import('./DetailOrderComponent/components/NotificationDetailOrderComponent')),
+const DenyDetailOrderComponent = withSuspense(
+  React.lazy(() => import('./DetailOrderComponent/components/DenyDetailOrderComponent')),
   <LoadingSellerViewComponent />,
 )
 const ContentSellerComponentFactories = {
@@ -39,7 +39,7 @@ const ContentSellerComponentFactories = {
   [STATUS_CONTENT_SELLER_VIEW.LIST_PRODUCT]: () => <ListProductManageProductListComponent />,
   [STATUS_CONTENT_SELLER_VIEW.DELIVERED_DETAIL]: () => <DeliveredDetailOrderComponent />,
   [STATUS_CONTENT_SELLER_VIEW.PROCESSING_DETAIL]: () => <ProcessingDetailOrderComponent />,
-  [STATUS_CONTENT_SELLER_VIEW.NOTIFICATION_DETAIL]: () => <NotificationDetailOrderComponent />,
+  [STATUS_CONTENT_SELLER_VIEW.DENY]: () => <DenyDetailOrderComponent />,
 }
 export const ContentSellerComponent = () => {
   const statusSellerView = useRecoilValue(statusSellerViewAtom)
