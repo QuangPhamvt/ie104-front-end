@@ -132,18 +132,34 @@
       "BANK_NAME": "Tên ngân hàng:",
       "HAVING": "Sở hữu:"
     },
+    "EDIT_INFO":{
+      "SETTING_PROFILE":"Cài đặt hồ sơ",
+      "ADDRESS":"Địa chỉ",
+      "BANKING":"Tài khoản ngân hàng",
+
+      "PROVINCE":"Tỉnh/Thành phố:",
+      "DISTRICT":"Quận/Huyện:",
+      "WARD":"Phường:",
+      "NUMBER_ACCOUNT":"Số tài khoản: 1000xxxx",
+      "BANK_NAME":"Tên ngân hàng: Vietcombank",
+      "HAVING":"Sở hữu: 1000000"
+    },
     "CREATE_PRODUCT": {
       "CREATE_YOUR_PRODUCT": "Tạo sản phẩm của bạn",
       "TITLE_PRODUCTION": "Tiêu đề cho sản phẩm",
       "ENTER_TITLE_PRODUCTION": "Nhập tiêu đề cho sản phẩm",
       "CATEGORIES": "Mục",
+      "SELECT_CATEGORY": "Chọn danh mục",
 
       "DESCRIPTION": "Mô tả",
       "ENTER_DESCRIPTION_PRODUCTION": "Nhập mô tả cho sản phẩm",
 
       "UPLOAD_IMAGE": "Đăng tải ảnh",
+      "NOT_FOUND":"Không có ảnh",
+
 
       "LOCATION_SHOP": "Địa phương",
+      "CHOOSE_CITY":"chọn thành phố",
       "MONEY": "Giá tiền",
       "SPEND": "Giá",
 
@@ -152,11 +168,20 @@
     },
 
     "LIST_PRODUCT": {
-      "LIST_PRODUCT": "List Sản Phẩm",
+      "LIST_PRODUCT": "Danh sách Sản Phẩm",
       "ORDER_ID": "Mã Số Sản Phẩm",
       "CREATE_AT": "Ngày Tạo",
       "BUYER": "Người mua",
-      "STATUS": "Trạng thái"
+      "STATUS": "Trạng thái",
+      "PROCESSING": "Đang xử lý",
+      "DENY": "Từ chối",
+      "ORDERED": "Đã đặt hàng",
+      "CLOSE":"Đóng",
+      "DETAIL":"Chi Tiết",
+      "ACCEPT":"Chấp nhận",
+      "PRODUCT":"Sản phẩm",
+      "ADDRESS":"Địa chỉ",
+      "PRICE":"Giá"
     },
     "DETAIL_ORDER": {
       "DELIVERED": "Danh sách đã vận chuyển"
@@ -216,6 +241,14 @@
     "PRICE": "Giá",
     "STATUS": "Trạng thái",
     "PREPARE": "ĐANG CHUẨN BỊ",
+    "PROCESSING": "ĐANG XỬ LÝ",
+    "DENY": "TỪ CHỐI",
+    "ORDERED": "ĐÃ XÁC NHẬN"
+  },
+  "DETAIL_ORDERED":{
+    "DELIVERED_DETAIL":"Chi tiết đơn hàng đã giao",
+    "DENY_DETAIL":"Đơn hàng từ chối",
+    "PROCESSING_DETAIL":"Đơn hàng đang xử lý",
     "PROCESSING": "ĐANG XỬ LÝ",
     "DENY": "TỪ CHỐI",
     "ORDERED": "ĐÃ XÁC NHẬN"
