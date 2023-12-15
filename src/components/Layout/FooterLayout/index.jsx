@@ -48,7 +48,7 @@ export const FooterLayout = () => {
                 color='white'
               />
               <FaInstagram
-                size={30}
+                size={25}
                 color='white'
               />
               <CiTwitter
